@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en" th:replace="~{layout/layout-learn :: main-fragment(~{:: title}, ~{:: #css}, ~{:: .app}, ~{:: #js})}"
+      xmlns:th="https://www.thymeleaf.org">
+<head>
+
+  <title th:text="|TESTING - ${topicCourse.title}|">Trang chủ</title>
+  <th:block id="css">
+    <link rel="stylesheet" th:href="@{/asset/css/sen_test.css}"/>
+
+  </th:block>
+
+</head>
+<body>
+
+<div class="app">
+  <div class="header">
+    <div class="header-menu">
+      <div class="header-menu-item menu-item-back">
+        <a href="">
+          <i class="fa-solid fa-xmark"></i>
+          <span>PLACE AROUND TOWN</span>
+        </a>
+      </div>
+      <div class="header-menu-item menu-item-type">
+        <a href="">Sàng lọc</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="test-intro">
+      <div class="test-intro-content">
+        <div class="test-intro-left">
+          <div class="intro-left-content">
+            <img th:src="@{/asset/img/common/testing-rule.png}" alt="" />
+          </div>
+        </div>
+
+        <div class="test-intro-right">
+          <div class="intro-right-content">
+            <h1>Nội quy phòng thi</h1>
+            <h6>Dưới đây là một số điểm cần lưu ý</h6>
+            <div class="intro-content">
+              <div class="intro-item item-filter">
+                <div class="item-left">
+                  <span></span>
+                </div>
+                <div class="item-right">
+                  <p>
+                    Bạn cần đạt kết quả kiểm tra đúng 100% để có thể qua bài
+                    học mới.
+                  </p>
+                </div>
+              </div>
+
+              <div class="intro-item item-learning">
+                <div class="item-left">
+                  <span></span>
+                </div>
+                <div class="item-right">
+                  <p>
+                    Trong lúc làm bài kiểm tra, nếu bạn thoát ra khỏi phòng
+                    thi khi chưa hoàn thành những câu còn lại sẽ được tính
+                    là SAI.
+                  </p>
+                </div>
+              </div>
+
+              <div class="intro-item item-testing">
+                <div class="item-left">
+                  <span></span>
+                </div>
+                <div class="item-right">
+                  <p>
+                    Bài mới sẽ được mở ngay sau khi bạn đạt kết quả kiểm tra
+                    100%
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="button-ready-group">
+        <div class="button-ready-content">
+          <a href="javascript:void(0)" class="ui-button-long button-start"
+          >Bắt đầu ngay</a
+          >
+        </div>
+      </div>
+    </div>
+
+    <div class="test-container hidden">
+      <div class="test-container-wrapper">
+        <div class="test-progress">
+          <div class="progress-title">
+            <strong>01</strong>/<span>18</span>
+          </div>
+          <div class="progress-cover">
+            <span class="test-progress-bar"></span>
+          </div>
+          <div class="test-countdown" id="test-countdown">
+            <span>00:</span><span class="test-countdown-number">20</span>
+          </div>
+        </div>
+
+        <div class="test-body">
+          <div class="test-body-wrapper">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="loadMe" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content"  style="box-shadow: 0 0 20px 8px rgba(0, 0, 0, 0.7); ">
+
+        <div class="modal-body text-center">
+          <div class="spinner-border" style="width: 4rem; height: 4rem;" role="status">
+            <span class="visually-hidden">Loading...</span>
+          </div>
+          <div clas="loader-txt" style="height: 60px">
+            <p style="font-size: 16px;color: #666">Vui lòng chờ trong giây lát.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <audio
+          th:src="@{/asset/mp3/common/answer_right.mp3}"
+          class="answer-right-sound"
+  ></audio>
+  <audio
+          th:src="@{/asset/mp3/common/test_wrong_answer.mp3}"
+          class="answer-wrong-sound"
+  ></audio>
+  <audio th:src="@{/asset/mp3/common/second_tick.mp3}" class="clock-sound"></audio>
+  <audio
+          th:src="@{/asset/mp3/common/clock_tick.mp3}"
+          class="urgent-clock-sound"
+  ></audio>
+</div>
+
+
+<th:block id="js">
+
+  <script th:inline="javascript">
+    let topicCourse=[[${topicCourse}]];
+    // console.log(topicCourse);
+
+    let topicId = topicCourse.id;
+
+    let sens=[[${sentences}]];
+    // console.log(sens);
+
+
+
+  </script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+  <script th:src="@{/asset/js/sen_test.js}"></script>
+
+</th:block>
+</body>
+</html>

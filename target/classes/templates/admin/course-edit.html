@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en"
+      th:replace="~{layout/layout-admin :: main-fragment(~{:: title}, ~{:: #css}, ~{:: .content-wrapper}, ~{:: #js})}"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security" xmlns:th="https://www.thymeleaf.org">
+<head>
+
+    <title th:text="|COURSE EDIT - ${course.title}|">Trang chủ</title>
+    <th:block id="css">
+        <link
+                href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css"
+                rel="stylesheet"
+        />
+        <link rel="stylesheet" th:href="@{/asset/css/admin-course-add.css}"/>
+
+    </th:block>
+
+</head>
+<body>
+
+<div class="content-wrapper">
+    <!-- Content header -->
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-12">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item">
+                            <a href="/admin/courses">Danh sách khóa học</a>
+                        </li>
+                        <li class="breadcrumb-item">
+                            <a th:href="@{/admin/course-detail(id=${course.id})}" th:text="${course.title}">Danh sách
+                                khóa học</a>
+                        </li>
+                        <li class="breadcrumb-item active">Chỉnh sửa</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row py-2">
+                <div class="col-12">
+                    <button class="btn btn-primary save-course" type="button">Lưu</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="course-photo group-item">
+                                <div class="row">
+                                    <div class="col-lg-2 col-sm-12">
+                                        <div
+                                                class="d-flex align-items-center"
+                                                style="height: 100%"
+                                        >
+                                            Ảnh
+                                        </div>
+                                    </div>
+                                    <div class="col-10 d-flex">
+                                        <div class="photo" style="border: 1px solid black">
+                                            <img
+                                                    alt="Quân"
+                                                    th:src="${course.thumbnail}"
+                                            />
+                                        </div>
+
+                                        <!--                    <div class="update-photo">-->
+                                        <!--                      <label>-->
+                                        <!--                        <span>CẬP NHẬT</span>-->
+                                        <!--                        <input-->
+                                        <!--                                type="file"-->
+                                        <!--                                accept="image/png, image/jpg"-->
+                                        <!--                        />-->
+                                        <!--                      </label>-->
+                                        <!--                    </div>-->
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="status group-item">
+                                <div class="row">
+                                    <div class="col-lg-2 col-sm-12">Trạng thái:</div>
+                                    <div class="col-lg-8">
+                                        <select
+                                                aria-label="Default select example"
+                                                class="form-select"
+                                        >
+                                            <option value="PRIVATE">Ẩn</option>
+                                            <option value="PUBLIC">Công khai</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="title group-item">
+                                <div class="row">
+                                    <div class="col-lg-2 col-sm-12">Tên khóa học</div>
+                                    <div class="col-lg-8">
+                                         <textarea
+                                                 aria-label="With textarea"
+                                                 class="form-control"
+                                                 placeholder="Tên khóa học"
+                                         ></textarea>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!--              <div class="category group-item">-->
+                            <!--                <div class="row">-->
+                            <!--                  <div class="col-lg-2 col-sm-12">Thể loại:</div>-->
+                            <!--                  <div class="col-lg-8">-->
+                            <!--                    <select-->
+                            <!--                            class="form-select"-->
+                            <!--                            aria-label="Default select example"-->
+                            <!--                    >-->
+                            <!--                      <option value="Từ vựng">Từ vựng</option>-->
+                            <!--                      <option value="Mẫu câu">Mẫu câu</option>-->
+                            <!--                    </select>-->
+                            <!--                  </div>-->
+                            <!--                </div>-->
+                            <!--              </div>-->
+
+                            <div class="category group-item">
+                                <div class="row">
+                                    <div class="col-lg-2 col-sm-12">Thể loại:</div>
+                                    <div class="col-lg-8">
+                                        <input
+                                                class="form-control"
+                                                placeholder="Category"
+                                                readonly
+                                                th:value="${course.category.title}"
+                                                type="text"
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="group group-item">
+                                <div class="row">
+                                    <div class="col-lg-2 col-sm-12">Nhóm:</div>
+                                    <div class="col-lg-8">
+                                        <select
+                                                aria-label="Default select example"
+                                                class="form-select"
+                                        >
+
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="level group-item">
+                                <div class="row">
+                                    <div class="col-lg-2 col-sm-12">Trình độ:</div>
+                                    <div class="col-lg-8">
+                                        <div class="select2-purple">
+                                            <select
+                                                    class="select-level form-control"
+                                                    id="level"
+                                                    multiple="multiple"
+                                            >
+
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="description group-item">
+                                <div class="row">
+                                    <div class="col-lg-2 col-sm-12">Diễn giải:</div>
+                                    <div class="col-lg-8">
+                                        <textarea
+                                                aria-label="With textarea"
+                                                class="form-control"
+                                                placeholder="Diễn giải"
+                                        ></textarea>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="target group-item">
+                                <div class="row">
+                                    <div class="col-lg-2 col-sm-12"><p>Mục tiêu đầu ra:</p>
+                                        <p style="font-style: italic;color: grey">(Xuống dòng để phân câu)</p></div>
+                                    <div class="col-lg-8">
+                                        <div class="input-group">
+                            <textarea
+                                    aria-label="With textarea"
+                                    class="form-control course-target"
+                                    rows="4"
+                            ></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="content-course group-item">
+                                <div class="row">
+                                    <div class="col-lg-2 col-sm-12"><p>Nội dung khóa học:</p>
+                                        <p style="font-style: italic;color: grey">(Xuống dòng để phân câu)</p></div>
+                                    <div class="col-lg-8">
+                                        <div class="input-group">
+                            <textarea
+                                    aria-label="With textarea"
+                                    class="form-control course-content"
+                                    rows="4"
+                            ></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="student group-item">
+                                <div class="row">
+                                    <div class="col-lg-2 col-sm-12"><p>Đối tượng phù hợp:</p>
+                                        <p style="font-style: italic;color: grey">(Xuống dòng để phân câu)</p></div>
+                                    <div class="col-lg-8">
+                                        <div class="input-group">
+                            <textarea
+                                    aria-label="With textarea"
+                                    class="form-control course-student"
+                                    rows="4"
+                            ></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!--              <div class="topic group-item">-->
+                            <!--                <div class="row">-->
+                            <!--                  <div class="col-lg-2 col-sm-12">Chủ đề:</div>-->
+                            <!--                  <div class="col-lg-8">-->
+                            <!--                    <div class="select2-purple">-->
+                            <!--                      <select-->
+                            <!--                              class="select-topics form-control"-->
+                            <!--                              multiple="multiple"-->
+                            <!--                              id="topics"-->
+                            <!--                              data-allow-clear="false"-->
+                            <!--                      >-->
+
+                            <!--                      </select>-->
+                            <!--                    </div>-->
+                            <!--                  </div>-->
+                            <!--                </div>-->
+                            <!--              </div>-->
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+
+<th:block id="js">
+
+    <script th:inline="javascript">
+
+        let course = [[${course}]];
+        console.log(course);
+
+        let groups = [[${groups}]];
+        console.log(groups);
+
+
+        function addActiveToNavLink(innerText) {
+            const $navLinkEl = $(".nav-link");
+            $navLinkEl.each((index, el) => {
+                const $title = $(el).find("p");
+                if ($title.text().trim().toLowerCase() === innerText.toLowerCase()) {
+                    $(el).addClass("active");
+                }
+            })
+        }
+
+        addActiveToNavLink("Quản lý nội dung");
+        addActiveToNavLink("Khóa học");
+
+    </script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <script th:src="@{/asset/js/admin-course-edit.js}"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+    <script th:inline="javascript">
+        // //Initialize Select2 Elements
+        $(".select-level").select2();
+
+    </script>
+
+
+</th:block>
+</body>
+</html>

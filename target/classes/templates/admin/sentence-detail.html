@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en" th:replace="~{layout/layout-admin :: main-fragment(~{:: title}, ~{:: #css}, ~{:: .content-wrapper}, ~{:: #js})}"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security" xmlns:th="https://www.thymeleaf.org">
+<head>
+
+  <title th:text="|SENTENCE DETAIL - ${sentence.content}|">Trang chủ</title>
+  <th:block id="css">
+        <link rel="stylesheet" th:href="@{/asset/css/admin-sen-detail.css}"/>
+
+  </th:block>
+
+</head>
+<body>
+
+<div class="content-wrapper">
+  <!-- Content header -->
+  <div class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-12">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+              <a href="/admin/sentences">Danh sách mẫu câu</a>
+            </li>
+            <li class="breadcrumb-item active" th:text="${sentence.content.replaceAll('_',' ')}"></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main content -->
+  <section class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-body">
+              <div class="learning-sen-content mb-5">
+                <div
+                        class="learning-sen-layer layer show layer-current"
+                >
+                  <div class="learning-sen-viewport">
+                    <div
+                            class="learning-sen-viewport-container"
+                            rotate-data="0"
+                    >
+                      <div class="learning-sen-viewport-slide slide1 on">
+                        <div class="card-img">
+                          <img
+                                  src=""
+                                  alt=""
+                          />
+                        </div>
+                        <div class="card-content">
+                          <div class="word">
+                            <div class="content">
+
+                            </div>
+                            <div class="pronounce">
+
+                            </div>
+                          </div>
+
+                          <div class="sound">
+                            <div class="choose-sound">
+                              Chọn âm thanh theo cách đọc bạn muốn nghe:
+                            </div>
+                            <div class="sound-group">
+                              <div class="sound-sentence play-sound">
+                                <i class="fa-solid fa-volume-high"></i>
+                                <audio
+                                        src=""
+                                ></audio>
+
+                                <span>Câu</span>
+                              </div>
+
+                              <div class="sound-word play-sound">
+                                <i class="fa-solid fa-volume-high"></i>
+                                <audio
+                                        src=""
+                                ></audio>
+
+                                <span>Từ</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="card-turn">
+                                <span class="turn-icon">
+                                  <span>1</span>
+                                  <i class="fa-solid fa-rotate"></i>
+                                </span>
+                        </div>
+                      </div>
+
+                      <div class="learning-sen-viewport-slide slide2">
+                        <div class="card-img">
+                          <img
+                                  src=""
+                                  alt=""
+                          />
+                        </div>
+
+                        <div class="card-content">
+                          <div class="sentence-vi">
+                            <div class="content">
+                              Tên tôi là Sarah Carter.
+                            </div>
+                          </div>
+
+                          <div class="usage">
+                            <div class="text">Cách dùng:</div>
+                            <div class="content">
+                              <p>
+                                Dùng để giới thiệu tên của bản thân, cách
+                                nói này trang trọng hơn I am.
+                              </p>
+                            </div>
+
+                            <div
+                                    class="btn-context"
+                                    id-sentence="1"
+                                    data-bs-target="#context-modal"
+                                    data-bs-toggle="modal"
+                            >
+                              Ngữ cảnh
+                            </div>
+                          </div>
+                        </div>
+
+                        <div class="card-turn">
+                                <span class="turn-icon">
+                                  <span>2</span>
+                                  <i class="fa-solid fa-rotate"></i>
+                                </span>
+                        </div>
+                      </div>
+
+                      <div class="learning-sen-viewport-slide slide3">
+                        <div class="card-img">
+                          <img
+                                  src=""
+                                  alt=""
+                          />
+                        </div>
+
+                        <div class="card-content">
+                          <div class="example-group">
+                            <p class="card-content-example">
+                                    <span class="play-sound">
+                                      <i class="fa-solid fa-volume-high"></i>
+                                      <audio
+                                              src=""
+                                      ></audio>
+                                    </span>
+                              <span class="example-en"
+                              >My name is Sarah Carter.</span
+                              >
+                            </p>
+                            <p class="example-vi">
+                              Tên tôi là Sarah Carter.
+                            </p>
+                          </div>
+                        </div>
+
+                        <div class="card-turn">
+                                <span class="turn-icon">
+                                  <span>3</span>
+                                  <i class="fa-solid fa-rotate"></i>
+                                </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="dimmer"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Modal -->
+  <div
+          class="modal fade"
+          id="context-modal"
+          aria-modal="true"
+          role="dialog"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 class="modal-title">Ngữ cảnh</h3>
+          <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+          ></button>
+        </div>
+
+        <div class="modal-body">
+          <div class="context-content">
+            <div class="context-group-content">
+              <div class="context-title">
+                      <span class="play-sound">
+                        <i class="fa-solid fa-volume-high"></i>
+                        <audio
+                                src=""
+                        ></audio>
+                      </span>
+                <div>
+                  <h5>Ed is introduced to Sara for the first time.</h5>
+                  <h6>(Ed lần đầu tiên gặp mặt Sara.)</h6>
+                </div>
+              </div>
+
+              <div class="context-content-item">
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<th:block id="js">
+
+  <script th:inline="javascript">
+    let sentence = [[${sentence}]];
+    console.log(sentence);
+
+    let contexts = [[${contexts}]];
+    console.log(contexts);
+
+
+
+
+
+    function addActiveToNavLink(innerText){
+      const $navLinkEl=$(".nav-link");
+      $navLinkEl.each((index,el)=>{
+        const $title=$(el).find("p");
+        if ($title.text().trim().toLowerCase()===innerText.toLowerCase()){
+          $(el).addClass("active");
+        }
+      })
+    }
+    addActiveToNavLink("Quản lý nội dung");
+    addActiveToNavLink("Mẫu câu");
+
+  </script>
+  <script th:src="@{/asset/js/admin-sen-detail.js}"></script>
+
+</th:block>
+</body>
+</html>

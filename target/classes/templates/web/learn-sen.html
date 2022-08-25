@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en" th:replace="~{layout/layout-learn :: main-fragment(~{:: title}, ~{:: #css}, ~{:: .app}, ~{:: #js})}"
+      xmlns:th="https://www.thymeleaf.org">
+<head>
+
+  <title th:text="|LEARN - ${topicCourse.title}|">Trang chủ</title>
+  <th:block id="css">
+    <link rel="stylesheet" th:href="@{/asset/css/sen_learn.css}"/>
+
+  </th:block>
+
+</head>
+<body>
+
+<div class="app">
+  <div class="header">
+    <div class="header-menu">
+      <div class="header-menu-item menu-item-back">
+        <a href="">
+          <i class="fa-solid fa-xmark"></i>
+          <span>PLACE AROUND TOWN</span>
+        </a>
+      </div>
+      <div class="header-menu-item menu-item-type">
+        <a href="">HỌC</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="learning-content">
+      <div class="learning-sen-body">
+        <div class="learning-sen-progress">
+          <div class="learning-sen-progress-title">
+            <strong>01</strong>/<span>10</span>
+          </div>
+          <div class="learning-sen-progress-range">
+            <span></span>
+          </div>
+        </div>
+
+        <div class="learning-sen-content"></div>
+
+        <template class="sen-template">
+          <div class="learning-sen-layer layer" words="establish">
+            <div class="learning-sen-viewport">
+              <div class="learning-sen-viewport-container" rotate-data="0">
+                <div class="learning-sen-viewport-slide slide1 on">
+                  <div class="card-img">
+                    <img src="asset/img/word_thumb/establish.jpg" alt="" />
+                  </div>
+                  <div class="card-content">
+                    <div class="sentence hidden">
+                      <div class="content">
+                        I'd like you to meet my friend.
+                      </div>
+                      <div class="pronounce">
+                        aɪd laɪk juː tuː miːt maɪ frend
+                      </div>
+                    </div>
+
+                    <div class="word">
+                      <div class="content">
+                        <!-- <span
+                          data-start="0"
+                          data-end="762"
+                          class=""
+                          >I'd</span
+                        >
+                        <span data-start="762" data-end="1581" class=""
+                          >like</span
+                        >
+                        <span data-start="1581" data-end="2276" class=""
+                          >you</span
+                        >
+                        <span data-start="2276" data-end="3115" class=""
+                          >to meet</span
+                        >
+                        <span data-start="3115" data-end="4200" class=""
+                          >my</span
+                        >
+                        <span data-start="4200" data-end="5335" class=""
+                          >friend.</span
+                        > -->
+                      </div>
+                      <div class="pronounce">
+                        <!-- <span
+                          data-start="0"
+                          data-end="762"
+                          class=""
+                          >aɪd</span
+                        >
+                        <span data-start="762" data-end="1581" class=""
+                          >laɪk</span
+                        >
+                        <span data-start="1581" data-end="2276" class=""
+                          >juː</span
+                        >
+                        <span data-start="2276" data-end="3115" class=""
+                          >tuː miːt</span
+                        >
+                        <span data-start="3115" data-end="4200" class=""
+                          >maɪ</span
+                        >
+                        <span data-start="4200" data-end="5335" class=""
+                          >frend</span
+                        > -->
+                      </div>
+                    </div>
+
+                    <div class="sound">
+                      <div class="choose-sound">
+                        Chọn âm thanh theo cách đọc bạn muốn nghe:
+                      </div>
+                      <div class="sound-group">
+                        <div class="sound-sentence play-sound">
+                          <i class="fa-solid fa-volume-high"></i>
+                          <audio
+                                  src="https://home.voca.vn/assets/sound/sentence/sentence/9f1f7d6e985079c057cee2645c441fff.mp3"
+                          ></audio>
+
+                          <span>Câu</span>
+                        </div>
+
+                        <div class="sound-word play-sound">
+                          <i class="fa-solid fa-volume-high"></i>
+                          <audio
+                                  src="https://home.voca.vn/assets/sound/sentence/word/f71b3de05a78feec6fab94aab1ec6fd6.mp3"
+                          ></audio>
+
+                          <span>Từ</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card-turn">
+                        <span class="turn-icon">
+                          <span>1</span>
+                          <i class="fa-solid fa-rotate"></i>
+                        </span>
+                  </div>
+                </div>
+
+                <div class="learning-sen-viewport-slide slide2">
+                  <div class="card-img">
+                    <img src="asset/img/word_thumb/establish.jpg" alt="" />
+                  </div>
+
+                  <div class="card-content">
+                    <div class="sentence-vi">
+                      <div class="content">
+                        Tôi muốn bạn gặp bạn của tôi.
+                      </div>
+                    </div>
+
+                    <div class="usage">
+                      <div class="text">Cách dùng:</div>
+                      <div class="content">
+                        <p>
+                          Ta dùng
+                          <strong>I'd like you to meet + [N]</strong> để
+                          giới thiệu ai đó với người nghe nhằm giúp hai
+                          người kết thân.
+                        </p>
+                      </div>
+
+                      <div
+                              class="btn-context"
+                              id-sentence=""
+                              data-bs-target="#context-modal"
+                              data-bs-toggle="modal"
+                      >
+                        Ngữ cảnh
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="card-turn">
+                        <span class="turn-icon">
+                          <span>2</span>
+                          <i class="fa-solid fa-rotate"></i>
+                        </span>
+                  </div>
+                </div>
+
+                <div class="learning-sen-viewport-slide slide3">
+                  <div class="card-img">
+                    <img src="asset/img/word_thumb/establish.jpg" alt="" />
+                  </div>
+
+                  <div class="card-content">
+                    <div class="example-group">
+                      <p class="card-content-example">
+                            <span class="play-sound">
+                              <i class="fa-solid fa-volume-high"></i>
+                              <audio
+                                      src="https://home.voca.vn/assets/sound/sentence/sentence/9f1f7d6e985079c057cee2645c441fff.mp3"
+                              ></audio>
+                            </span>
+                        <span class="example-en">
+                              I'd like you to meet my friend.
+                            </span>
+                      </p>
+                      <p class="example-vi">
+                        Tôi muốn bạn gặp bạn của tôi.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="card-turn">
+                        <span class="turn-icon">
+                          <span>3</span>
+                          <i class="fa-solid fa-rotate"></i>
+                        </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="dimmer"></div>
+          </div>
+        </template>
+
+        <div class="learning-sen-bottom">
+          <div class="learning-sen-bottom-cover">
+            <div class="learning-sen-bottom-btn btn-back">QUAY LẠI</div>
+            <div class="learning-sen-bottom-btn btn-next">TIẾP TỤC</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <audio
+          th:src="@{/asset/mp3/common/answer_right.mp3}"
+          class="sound-answer-right"
+  ></audio>
+  <audio
+          th:src="@{/asset/mp3/common/answer_wrong.mp3}"
+          class="sound-answer-wrong"
+  ></audio>
+
+  <div class="modal" id="context-modal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 class="modal-title">Ngữ cảnh</h3>
+          <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+          ></button>
+        </div>
+
+        <div class="modal-body">
+          <div class="context-content">
+            <div class="context-group-content">
+              <div class="context-title">
+                    <span class="play-sound">
+                      <i class="fa-solid fa-volume-high"></i>
+                      <audio
+                              src="https://home.voca.vn/assets/sound/sentence/context/e0a6dd83193856f45f344b17b3552057.mp3"
+                      ></audio>
+                    </span>
+                <div>
+                  <h5>
+                    Sarah is introducing Mary to Ed for the first time.
+                  </h5>
+                  <h6>(Sarah lần đầu giới thiệu Mary cho Ed.)</h6>
+                </div>
+              </div>
+
+              <div class="context-content-item">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<th:block id="js">
+
+  <script th:inline="javascript">
+    let topicCourse=[[${topicCourse}]];
+    // console.log(topicCourse);
+
+    let topicId = topicCourse.id;
+
+    let studiedSen=[[${sentences}]];
+    // console.log(studiedSen);
+
+
+
+
+
+  </script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script th:src="@{/asset/js/sen_learn.js}"></script>
+
+</th:block>
+</body>
+</html>

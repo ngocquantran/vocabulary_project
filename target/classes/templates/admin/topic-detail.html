@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en"
+      th:replace="~{layout/layout-admin :: main-fragment(~{:: title}, ~{:: #css}, ~{:: .content-wrapper}, ~{:: #js})}"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security" xmlns:th="https://www.thymeleaf.org">
+<head>
+
+  <title th:text="|TOPIC DETAIL - ${topic.title}|">Trang chủ</title>
+  <th:block id="css">
+    <!--    <link rel="stylesheet" th:href="@{/asset/css/home.css}"/>-->
+
+
+  </th:block>
+
+</head>
+<body>
+
+<div class="content-wrapper">
+  <!-- Content header -->
+  <div class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-12">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item"><a href="/admin/topics">Danh sách chủ đề</a> </li>
+            <li class="breadcrumb-item active" th:text="${topic.title}"></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main content -->
+  <section class="content">
+    <div class="container-fluid">
+
+      <div class="row">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-body">
+              <table class="table table-bordered table-hover table-topic-detail">
+                <thead class="text-center">
+                <tr>
+
+                </tr>
+                </thead>
+                <tbody>
+
+                </tbody>
+              </table>
+
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+</div>
+
+
+<th:block id="js">
+
+  <script th:inline="javascript">
+
+    let topic = [[${topic}]];
+    console.log(topic);
+
+    let vocabs = [[${vocabs}]];
+    console.log(vocabs);
+
+    let sentences = [[${sentences}]];
+    console.log(sentences);
+
+
+
+    function addActiveToNavLink(innerText) {
+      const $navLinkEl = $(".nav-link");
+      $navLinkEl.each((index, el) => {
+        const $title = $(el).find("p");
+        if ($title.text().trim().toLowerCase() === innerText.toLowerCase()) {
+          $(el).addClass("active");
+        }
+      })
+    }
+
+    addActiveToNavLink("Quản lý nội dung");
+    addActiveToNavLink("Chủ đề");
+
+  </script>
+
+  <script th:src="@{/asset/js/topic-detail.js}"></script>
+
+</th:block>
+</body>
+</html>

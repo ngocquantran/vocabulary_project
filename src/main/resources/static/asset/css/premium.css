@@ -1,0 +1,248 @@
+.group-header {
+  font-size: 3rem;
+  text-align: center;
+  font-weight: 700;
+  margin: 40px auto;
+  max-width: 840px;
+}
+
+.package-list {
+  /*display: flex;*/
+  width: 90%;
+  max-width: 900px;
+  margin: 0 auto;
+  /*align-items: center;*/
+  /*justify-content: space-evenly;*/
+}
+
+.package-item {
+  border-radius: 23px;
+  border: 2px solid;
+  overflow: hidden;
+  margin: 10px 5px;
+}
+
+.package-item.item-short {
+  border-color: #58cc02;
+  background-color: #58cc02;
+}
+
+.package-item.item-medium {
+  border-color: #ce82ff;
+  background-color: #ce82ff;
+}
+
+.package-item.item-long {
+  border-color: #ff9600;
+  background-color: #ff9600;
+}
+
+.item-header > h3 {
+  font-size: 40px;
+  margin-top: 20px;
+  font-weight: 500;
+  text-align: center;
+  color: #ffffff;
+}
+
+.item-header > h6 {
+  margin-top: 15px;
+  margin: 15px auto;
+  text-align: center;
+  color: #fff;
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 500;
+  padding: 0 10px;
+}
+
+.item-body {
+  background-color: #fff;
+  padding: 25px 22px;
+}
+
+.item-body .fee {
+  font-size: 1.6rem;
+  font-weight: 500;
+}
+
+.item-body .fee-content {
+  font-size: 1.8rem;
+}
+
+.item-body .fee-content strong {
+  font-size: 2.8rem;
+  font-weight: 500;
+}
+
+.item-body .detail {
+  list-style-type: none;
+  padding: 0px;
+}
+
+.item-body .detail li {
+  font-size: 1.5rem;
+  color: #201f1f;
+  margin-top: 0px;
+  position: relative;
+  padding-left: 25px;
+  margin: 14px 0;
+}
+
+.item-body .detail li::before {
+  content: "";
+  width: 19px;
+  height: 19px;
+  background: url(https://raw.githubusercontent.com/ngocquantran/image/main/voca-bg.svg);
+  position: absolute;
+  left: 0px;
+  top: 2px;
+}
+
+.item-short .item-body .detail li::before {
+  background-position: 0 -10300px;
+}
+.item-medium .item-body .detail li::before {
+  background-position: 0 -10330px;
+}
+.item-long .item-body .detail li::before {
+  background-position: 0 -10390px;
+}
+
+.item-choose {
+  width: 100%;
+}
+
+.item-choose a {
+  width: 183px;
+  display: block;
+  margin: 15px auto 0px;
+  height: 45px;
+  text-align: center;
+  line-height: 44px;
+  font-weight: 500;
+  text-transform: uppercase;
+  border-radius: 10px;
+  font-size: 15px;
+  position: relative;
+  text-decoration: none;
+}
+
+.item-short .item-choose a {
+  color: #58cc02;
+  border: 1px solid #58a700;
+  border-bottom: 3px solid #58a700;
+}
+
+.item-short .item-choose a:hover,
+.item-short .item-choose a.active {
+  color: var(--color-white);
+  background-color: #58cc02;
+  border: 1px solid #58a700;
+  border-bottom: 3px solid #58a700;
+}
+
+.item-medium .item-choose a {
+  color: #ce82ff;
+  border: 1px solid #9d44d5;
+  border-bottom: 3px solid #9d44d5;
+}
+
+.item-medium .item-choose a:hover,
+.item-medium .item-choose a.active {
+  background: #ce82ff;
+  color: var(--color-white);
+  border: 1px solid #9d44d5;
+  border-bottom: 3px solid #9d44d5;
+}
+
+.item-long .item-choose a {
+  color: #ff9600;
+  border: 1px solid #e38602;
+  border-bottom: 3px solid #e38602;
+}
+
+.item-long .item-choose a:hover,
+.item-long .item-choose a.active {
+  background: #ff9600;
+  color: var(--color-white);
+  border-color: #e38602;
+}
+
+
+.register-group {
+  margin-top: 70px;
+}
+.register-content {
+  max-width: 912px;
+  margin: 30px auto 0px;
+}
+
+.register-content h3 {
+  margin: 20px auto;
+  font-size: 20px;
+  font-weight: 500;
+  width: 100%;
+  text-align: left;
+  max-width: 500px;
+}
+
+.register-content input,
+.chosed-item {
+  display: block;
+  width: 100%;
+  height: 59px;
+  max-width: 500px;
+  margin: 15px auto 0px;
+  border: 1px solid var(--color-text-darker);
+  color: var(--color-text-darker);
+  border-radius: 15px;
+  font-size: 18px;
+  padding-left: 15px;
+  outline: none;
+}
+
+.chosed-item {
+  line-height: 59px;
+  position: relative;
+  padding-left: 30px;
+}
+
+.chosed-item::before {
+  content: "";
+  background: black;
+  width: 11px;
+  height: 11px;
+  border-radius: 6px;
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.order {
+  display: block;
+  width: 100%;
+  max-width: 368px;
+  margin: 30px auto 50px;
+  border: 0px;
+  background: #58cc02;
+  height: 50px;
+  line-height: 50px;
+  border-bottom: 3px solid #65a20e;
+  box-shadow: none;
+  outline: none;
+  font-size: 15px;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: var(--color-white);
+  border-radius: 14px;
+  border-right: 3px solid #65a20e;
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.order:hover {
+ 
+  opacity: 1;
+}

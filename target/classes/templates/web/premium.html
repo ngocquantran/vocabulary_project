@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en" th:replace="~{layout/layout :: main-fragment(~{:: title}, ~{:: #css}, ~{:: .container}, ~{:: #js})}"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security" xmlns:th="https://www.thymeleaf.org">
+<head>
+
+    <title th:text="|UPGRADE - NÂNG CẤP|">Trang chủ</title>
+    <th:block id="css">
+        <link rel="stylesheet" th:href="@{/asset/css/premium.css}"/>
+
+    </th:block>
+
+</head>
+<body>
+
+<div class="container">
+    <div class="grid-wide">
+        <div class="main-content">
+            <div class="package-group">
+                <div class="group-header">
+                    Lựa chọn thông minh giúp bạn chinh phục mọi mục tiêu Anh ngữ!
+                </div>
+                <div class="package-list">
+                    <div class="row">
+
+                    </div>
+
+
+                </div>
+            </div>
+            <div class="register-group" id="register-group">
+                <div class="group-header">
+                    Hoàn tất thông tin đăng ký mua gói học
+                </div>
+                <div class="register-content">
+
+                        <h3>Thông tin liên hệ</h3>
+                        <input
+                                class="register-name"
+                                readonly
+                                required
+                                type="text"
+                        />
+                        <input
+                                class="register-number"
+                                required
+                                type="text"
+                                readonly
+                        />
+                        <input
+                                class="register-email"
+                                readonly
+                                required
+                                type="text"
+                        />
+                        <h3>Khóa học bạn đã chọn:</h3>
+                        <div class="chosed-item" id="chosed-item">Bạn chưa chọn gói học nào</div>
+                        <button class="order">Đặt mua khóa học</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<th:block id="js">
+
+    <script th:inline="javascript">
+        let packages = [[${packages}]];
+        // console.log(packages);
+
+        let user = [[${user}]];
+        // console.log(user);
+
+
+    </script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script th:src="@{/asset/js/premium.js}"></script>
+
+</th:block>
+</body>
+</html>

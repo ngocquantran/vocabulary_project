@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en" th:replace="~{layout/layout-learn :: main-fragment(~{:: title}, ~{:: #css}, ~{:: .app}, ~{:: #js})}"
+      xmlns:th="https://www.thymeleaf.org">
+<head>
+
+    <title th:text="|FILTER - ${topicCourse.title}|">Trang chủ</title>
+    <th:block id="css">
+        <link rel="stylesheet" th:href="@{/asset/css/filter.css}"/>
+    </th:block>
+
+</head>
+<body>
+
+<div class="app">
+    <div class="header">
+        <div class="header-menu">
+            <div class="header-menu-item menu-item-back">
+                <a href="">
+                    <i class="fa-solid fa-xmark"></i>
+                    <span>PLACE AROUND TOWN</span>
+                </a>
+            </div>
+            <div class="header-menu-item menu-item-type">
+                <a href="">Sàng lọc</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="filter-into hidden">
+            <div class="filter-intro-content">
+                <div class="filter-intro-left">
+                    <div class="intro-left-content">
+                        <img alt="" src="asset/img/common/learning-intro.png"/>
+                    </div>
+                </div>
+
+                <div class="filter-intro-right">
+                    <div class="intro-right-content">
+                        <h1>Quy trình học từ vựng tiếng Anh với VOCA</h1>
+                        <h6>Quy trình gồm 3 bước:</h6>
+                        <div class="intro-content">
+                            <div class="intro-item item-filter">
+                                <div class="item-left">
+                                    <span></span>
+                                </div>
+                                <div class="item-right">
+                                    <h4>Bước 1: Sàng lọc</h4>
+                                    <p>
+                                        Giúp xác định rõ mục tiêu cần học, tránh lãng phí thời
+                                        gian với những từ đã biết.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="intro-item item-learning">
+                                <div class="item-left">
+                                    <span></span>
+                                </div>
+                                <div class="item-right">
+                                    <h4>Bước 2: Học từ vựng</h4>
+                                    <p>
+                                        Ứng dụng phương pháp flashcard 3 mặt giúp kích thích tư
+                                        duy và ghi nhớ từ vựng nhanh hơn.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="intro-item item-testing">
+                                <div class="item-left">
+                                    <span></span>
+                                </div>
+                                <div class="item-right">
+                                    <h4>Bước 3: Kiểm tra</h4>
+                                    <p>
+                                        Bài kiểm tra sẽ giúp bạn đánh giá sự tiến bộ của bạn
+                                        trước và sau khi học một cách rõ ràng nhất.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="button-ready-group">
+                <div class="button-ready-content">
+                    <a class="ui-button-long button-start" href="javascript:void(0)"
+                    >Bắt đầu ngay</a
+                    >
+                </div>
+            </div>
+        </div>
+
+        <div class="filter-content">
+            <div class="filter-word-body">
+                <div class="filter-word-progress">
+                    <div class="filter-word-progress-title">
+                        <strong>01</strong>/<span>10</span>
+                    </div>
+                    <div class="filter-word-progress-range">
+                        <span></span>
+                    </div>
+                </div>
+
+                <div class="filter-word-content">
+
+                </div>
+            </div>
+
+            <div class="filter-word-bottom">
+                <p class="filter-word-bottom-heading">
+                    Bạn biết từ vựng này hay không?
+                </p>
+                <div class="filter-word-bottom-option">
+                    <div class="filter-word-bottom-btn btn-no">Không biết</div>
+                    <div class="filter-word-bottom-btn btn-yes">Biết</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="loadMe" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content"  style="box-shadow: 0 0 20px 8px rgba(0, 0, 0, 0.7); ">
+
+                <div class="modal-body text-center">
+                    <div class="spinner-border" style="width: 4rem; height: 4rem;" role="status">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                    <div clas="loader-txt" style="height: 60px">
+                        <p style="font-size: 16px;color: #666">Vui lòng chờ trong giây lát.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+</div>
+
+
+<th:block id="js">
+
+    <script th:inline="javascript">
+
+        let topicCourse = [[${topicCourse}]];
+        // console.log(topicCourse);
+
+        let vocabs = [[${vocabs}]];
+        // console.log(vocabs);
+
+        let topicId = [[${topicId}]];
+        // console.log(topicId);
+
+    </script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script th:src="@{/asset/js/filter.js}"></script>
+
+</th:block>
+</body>
+</html>

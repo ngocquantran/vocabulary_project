@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en"
+      th:replace="~{layout/layout-admin :: main-fragment(~{:: title}, ~{:: #css}, ~{:: .content-wrapper}, ~{:: #js})}"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security" xmlns:th="https://www.thymeleaf.org">
+<head>
+
+    <title th:text="|ADD TOPIC - THÊM CHỦ ĐỀ|">Trang chủ</title>
+    <th:block id="css">
+        <link
+                href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css"
+                rel="stylesheet"
+        />
+        <link rel="stylesheet" th:href="@{/asset/css/admin-topic-add.css}"/>
+
+    </th:block>
+
+</head>
+<body>
+
+<div class="content-wrapper">
+    <!-- Content header -->
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-12">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item">
+                            <a href="/admin/topics">Danh sách chủ đề</a>
+                        </li>
+
+                        <li class="breadcrumb-item active">Thêm mới</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row py-2">
+                <div class="col-12">
+                    <button class="btn btn-primary save-topic" type="button">Lưu</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+
+                            <div class="category group-item">
+                                <div class="row">
+                                    <div class="col-lg-2 col-sm-12">Thể loại:</div>
+                                    <div class="col-lg-8">
+                                        <select
+                                                aria-label="Default select example"
+                                                class="form-select select-category"
+                                        >
+                                            <option value="Từ vựng">Từ vựng</option>
+                                            <option value="Mẫu câu">Mẫu câu</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="course-photo group-item">
+                                <div class="row">
+                                    <div class="col-lg-2 col-sm-12">
+                                        <div
+                                                class="d-flex align-items-center"
+                                                style="height: 100%"
+                                        >
+                                            Ảnh
+                                        </div>
+                                    </div>
+                                    <div class="col-10 d-flex">
+                                        <div class="photo" style="border: 1px solid black">
+                                            <img
+                                                    alt="Thumbnail"
+                                                    src=""
+                                            />
+                                        </div>
+                                        <div class="update-photo" data-bs-target="#modal-picture"
+                                             data-bs-toggle="modal">
+                                            Chọn ảnh
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="title group-item">
+                                <div class="row">
+                                    <div class="col-lg-2 col-sm-12">Tên chủ đề</div>
+                                    <div class="col-lg-8">
+                                         <textarea
+                                                 aria-label="With textarea"
+                                                 class="form-control"
+                                                 placeholder="Topic title"
+                                         ></textarea>
+
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="content group-item">
+                                <div class="row">
+                                    <div class="col-lg-2 col-sm-12">Nội dung:</div>
+                                    <div class="col-lg-8">
+                                        <div class="select2-purple">
+                                            <select
+                                                    class="select-content form-control"
+                                                    id="topic-content"
+                                                    multiple="multiple"
+                                            >
+
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div aria-hidden="true" aria-labelledby="exampleModalLabel" class="modal fade" id="modal-picture" tabindex="-1">
+        <div class="modal-dialog modal-xl modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Chọn ảnh thumbnail</h5>
+                    <button aria-label="Close" class="btn-close" data-bs-dismiss="modal" type="button"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="row py-2">
+                        <div class="col-6">
+                            <div class="input-group mb-3">
+                                <input
+                                        aria-describedby="button-addon2"
+                                        class="form-control search-course"
+                                        placeholder="Nhập thông tin ..."
+                                        type="text"
+                                />
+                                <button
+                                        class="btn btn-outline-secondary"
+                                        id="button-search"
+                                        type="button"
+                                >
+                                    Tìm kiếm
+                                </button>
+                                <button
+                                        class="btn btn-outline-secondary"
+                                        id="button-clear"
+                                        type="button"
+                                >
+                                    Clear
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="picture-wrapper">
+                        <div class="row">
+                            <div class="col-lg-2 col-md-3 col-6">
+                                <label class="picture-content">
+                                    <img alt="" src="/asset/img/home/container/category/vocabulary.svg">
+                                    <p>word</p>
+                                    <input checked="checked" id-word="1" img-src="" name="picture-selection"
+                                           type="radio">
+                                </label>
+                            </div>
+                            <div class="col-lg-2 col-md-3 col-6">
+                                <label class="picture-content">
+                                    <img alt="" src="/asset/img/home/container/category/vocabulary.svg">
+                                    <p>word</p>
+                                    <input checked="checked" id-word="1" img-src="" name="picture-selection"
+                                           type="radio">
+                                </label>
+                            </div>
+                            <div class="col-lg-2 col-md-3 col-6">
+                                <label class="picture-content">
+                                    <img alt="" src="/asset/img/home/container/category/vocabulary.svg">
+                                    <p>word</p>
+                                    <input checked="checked" id-word="1" img-src="" name="picture-selection"
+                                           type="radio">
+                                </label>
+                            </div>
+                            <div class="col-lg-2 col-md-3 col-6">
+                                <label class="picture-content">
+                                    <img alt="" src="/asset/img/home/container/category/vocabulary.svg">
+                                    <p>word</p>
+                                    <input checked="checked" id-word="1" img-src="" name="picture-selection"
+                                           type="radio">
+                                </label>
+                            </div>
+                            <div class="col-lg-2 col-md-3 col-6">
+                                <label class="picture-content">
+                                    <img alt="" src="/asset/img/home/container/category/vocabulary.svg">
+                                    <p>word</p>
+                                    <input checked="checked" id-word="1" img-src="" name="picture-selection"
+                                           type="radio">
+                                </label>
+                            </div>
+                            <div class="col-lg-2 col-md-3 col-6">
+                                <label class="picture-content">
+                                    <img alt="" src="/asset/img/home/container/category/vocabulary.svg">
+                                    <p>word</p>
+                                    <input checked="checked" id-word="1" img-src="" name="picture-selection"
+                                           type="radio">
+                                </label>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" data-bs-dismiss="modal" type="button">OK</button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<th:block id="js">
+
+    <script th:inline="javascript">
+
+        let vocabs = [[${vocabs}]];
+        console.log(vocabs);
+
+        let sentences = [[${sentences}]];
+        console.log(sentences);
+
+
+        function addActiveToNavLink(innerText) {
+            const $navLinkEl = $(".nav-link");
+            $navLinkEl.each((index, el) => {
+                const $title = $(el).find("p");
+                if ($title.text().trim().toLowerCase() === innerText.toLowerCase()) {
+                    $(el).addClass("active");
+                }
+            })
+        }
+
+        addActiveToNavLink("Quản lý chủ đề");
+        addActiveToNavLink("Khóa học");
+
+    </script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <script th:src="@{/asset/js/admin-topic-add.js}"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+    <script th:inline="javascript">
+        // //Initialize Select2 Elements
+        $(".select-content").select2();
+
+    </script>
+
+
+</th:block>
+</body>
+</html>

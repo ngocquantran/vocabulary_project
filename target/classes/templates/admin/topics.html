@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en"
+      th:replace="~{layout/layout-admin :: main-fragment(~{:: title}, ~{:: #css}, ~{:: .content-wrapper}, ~{:: #js})}"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security" xmlns:th="https://www.thymeleaf.org">
+<head>
+
+    <title th:text="|TOPICS - DANH SÁCH CHỦ ĐỀ|">Trang chủ</title>
+    <th:block id="css">
+        <!--    <link rel="stylesheet" th:href="@{/asset/css/home.css}"/>-->
+
+
+    </th:block>
+
+</head>
+<body>
+
+<div class="content-wrapper">
+    <!-- Content header -->
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-12">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item active">Danh sách chủ đề</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row py-2">
+                <div class="col-12">
+                    <a href="/admin/topic-add" class="btn btn-primary" type="button">
+                        <i class="fas fa-plus"></i> Thêm chủ đề
+                    </a>
+                </div>
+            </div>
+            <div class="row py-2">
+                <div class="col-6">
+                    <div class="input-group mb-3">
+                        <input
+                                aria-describedby="button-addon2"
+                                class="form-control search-topic"
+                                placeholder="Nhập thông tin ..."
+                                type="text"
+                        />
+                        <button
+                                class="btn btn-outline-secondary"
+                                id="button-search"
+                                type="button"
+                        >
+                            Tìm kiếm
+                        </button>
+                        <button
+                                class="btn btn-outline-secondary"
+                                id="button-clear"
+                                type="button"
+                        >
+                            Clear
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <table class="table table-bordered table-hover">
+                                <thead class="text-center">
+                                <tr>
+                                    <th class="align-top">Id</th>
+                                    <th class="align-top">Chủ đề</th>
+                                    <th class="align-top">Thể loại</th>
+                                    <th class="align-top">Khóa học</th>
+
+                                    <th class="align-top">Chi tiết</th>
+                                </tr>
+                                </thead>
+                                <tbody class="table-topic-content">
+
+                                </tbody>
+                            </table>
+
+
+                            <div
+                                    class="d-flex justify-content-center mt-3"
+                                    id="pagination"
+                            >
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+</div>
+
+
+<th:block id="js">
+
+    <script th:inline="javascript">
+
+        let pageInfo = [[${pageInfo}]];
+        console.log(pageInfo);
+
+        let keyword = [[${keyword}]];
+        console.log(keyword);
+        $(".search-topic").val(keyword);
+
+
+        function addActiveToNavLink(innerText) {
+            const $navLinkEl = $(".nav-link");
+            $navLinkEl.each((index, el) => {
+                const $title = $(el).find("p");
+                if ($title.text().trim().toLowerCase() === innerText.toLowerCase()) {
+                    $(el).addClass("active");
+                }
+            })
+        }
+
+        addActiveToNavLink("Quản lý nội dung");
+        addActiveToNavLink("Chủ đề");
+
+    </script>
+
+    <script th:src="@{/asset/js/admin-topics.js}"></script>
+
+</th:block>
+</body>
+</html>

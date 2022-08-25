@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en" th:replace="~{layout/layout :: main-fragment(~{:: title}, ~{:: #css}, ~{:: .app}, ~{:: #js})}"
+      xmlns:th="https://www.thymeleaf.org">
+<head>
+
+  <title th:text="|VOCABULARY - ${curCourse.title}|">Trang chủ</title>
+  <th:block id="css">
+    <link rel="stylesheet" th:href="@{/asset/css/course.css}"/>
+    <link
+            rel="stylesheet"
+            th:href="@{/vendor/lightslider-master/dist/css/lightslider.css}"
+    />
+
+  </th:block>
+
+</head>
+<body>
+
+<div class="app">
+
+
+  <div class="container">
+    <div class="course">
+      <h1 class="course__header">
+        1000 ESSENTIAL WORDS in STORIES (Improver)
+      </h1>
+      <div class="course__level-tag level-tag">
+        <span class="a0">A0</span>
+        <span class="a1">A1</span>
+        <span class="a2">A2</span>
+        <span class="b1">B1</span>
+        <span class="b2">B2</span>
+        <span class="c1">C1</span>
+        <span class="c2">C2</span>
+      </div>
+
+      <div class="course__info">
+        <ul class="course__info-list lightSlider">
+          <li class="course__info-item">
+            <div class="course__info-item-progress">
+              <h4>Tiến độ của bạn</h4>
+              <div class="course__info-item-progress-content">
+                <div class="course__info-item-progress-item lesson">
+                  <img
+                          src="asset/img/common/course-progress-star.svg"
+                          alt=""
+                  />
+                  <div class="course__info-item-progress-item-detail">
+                    <div>0</div>
+                    <div>Bài đã học</div>
+                  </div>
+                </div>
+                <div class="course__info-item-progress-item learned">
+                  <img
+                          src="asset/img/common/course-progress-learned.svg"
+                          alt=""
+                  />
+                  <div class="course__info-item-progress-item-detail">
+                    <div>0</div>
+                    <div>Từ đã thuộc</div>
+                  </div>
+                </div>
+                <div class="course__info-item-progress-item not-learn">
+                  <img
+                          src="asset/img/common/course-progress-not-learn.svg"
+                          alt=""
+                  />
+                  <div class="course__info-item-progress-item-detail">
+                    <div>0</div>
+                    <div>Từ chưa thuộc</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+          <li class="course__info-item goal">
+            <h5>Mục tiêu đầu ra</h5>
+            <div class="course__info-item-content"></div>
+          </li>
+          <li class="course__info-item content">
+            <h5>Nội dung khóa học</h5>
+            <div class="course__info-item-content"></div>
+          </li>
+          <li class="course__info-item student">
+            <h5>Đối tượng phù hợp</h5>
+            <div class="course__info-item-content"></div>
+          </li>
+        </ul>
+        <div class="course__info-next-btn">
+          <i class="fa-solid fa-angle-right"></i>
+        </div>
+      </div>
+
+      <div class="course-content">
+        <h3 class="course-content-header">Bài học <span>29</span></h3>
+        <div class="course-content-list">
+          <div class="row" style="width:100%;">
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="choosewordmodel" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+      <div class="modal-content">
+        <div class="modal-header" style="align-items: flex-start;">
+          <div class="choose-study-word-content-header">
+            <h3>Chọn từ bạn muốn học</h3>
+            <div class="choose-study-word-content-header-btn">
+              <div class="choose-study-word-btn all-word">Học tất cả
+              </div>
+              <div class="choose-study-word-btn unknown-word">Học từ chưa thuộc
+              </div>
+            </div>
+          </div>
+          <!-- <h5 class="modal-title" id="exampleModalLabel">Modal title</h5> -->
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="choose-study-word">
+            <div class="choose-study-word-content">
+
+              <form action=""></form>
+              <div class="choose-study-word-content-body">
+                <div class="row">
+
+
+                </div>
+              </div>
+
+
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <div class="choose-study-word-content-footer">
+            <button type="submit" class="choose-word-btn">
+              Bắt đầu học
+            </button>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</div>
+
+
+
+
+<th:block id="js">
+
+  <script th:inline="javascript">
+
+    let authorities=[[${authorities}]].map(au=>au.authority);
+    // console.log(authorities);
+
+    let isNormalUser=authorities.includes("ROLE_USER_NORMAL");
+    // console.log(isNormalUser);
+
+
+
+    let curCourse=[[${curCourse}]];
+    // console.log(curCourse);
+
+    let isFreeCourse=curCourse.group.title=="Khóa học Miễn phí";
+    console.log(isFreeCourse);
+
+    let topics=[[${topics}]];
+    // console.log(topics);
+
+    let userCourse=[[${userCourse}]];
+    // console.log(userCourse);
+
+    let userTopics=[[${userTopics}]];
+    // console.log(userTopics);
+
+    let topicId = 0; //Nhận giá trị để mở modal choose word
+
+  </script>
+
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script th:src="@{/asset/js/choose_word.js}"></script>
+  <script th:src="@{/asset/js/course.js}"></script>
+
+  <script th:src="@{/vendor/lightslider-master/dist/js/lightslider.min.js}"></script>
+
+</th:block>
+</body>
+</html>

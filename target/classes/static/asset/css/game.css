@@ -1,0 +1,287 @@
+.app {
+  flex-direction: column;
+  display: flex;
+  height: 100vh;
+}
+
+.header {
+  background: var(--color-blue);
+  width: 100%;
+  height: 70px;
+  position: relative;
+  z-index: 1000;
+  top: 0px;
+}
+
+.header-menu {
+  padding: 10px 15px;
+  margin: auto;
+  max-width: 980px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.header-menu-item {
+  float: left;
+  height: 100%;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+}
+
+.menu-item-back a {
+  display: flex;
+
+  align-items: center;
+}
+
+.menu-item-back i {
+  font-size: 2.4rem;
+  color: var(--color-white);
+}
+
+.menu-item-back a span {
+  font-size: 1.5rem;
+  color: var(--color-white);
+  margin-left: 10px;
+  text-transform: none;
+}
+
+.menu-item-type {
+  float: right;
+}
+
+.menu-item-type a {
+  border: 2px solid var(--color-white);
+  display: block;
+  height: 50px;
+  border-radius: 6px;
+  padding: 0px 7px;
+  line-height: 48px;
+  font-size: 1.5rem;
+
+  text-transform: uppercase;
+  color: var(--color-white);
+  min-width: 100px;
+  text-align: center;
+}
+
+.header-menu-item .test-countup {
+  font-size: 1.8rem;
+  font-weight: 400;
+  color: var(--color-white);
+  min-width: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.container {
+  margin-top: 0;
+  width: 100%;
+  flex: 1;
+}
+
+.viewport {
+  max-width: 1100px;
+  height: 100%;
+  margin: auto;
+  position: relative;
+}
+
+.sentence-field {
+  margin: 0 auto;
+  /* background: #ffd; */
+}
+
+.word-field,
+.sentence-field {
+  /* width: 910px;
+  height: 120px;
+  padding: 20px;
+  border: 2px solid #333;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  -moz-box-shadow: 0 0 0.3em rgba(0, 0, 0, 0.8);
+  -webkit-box-shadow: 0 0 0.3em rgba(0, 0, 0, 0.8);
+  box-shadow: 0 0 0.3em rgba(0, 0, 0, 0.8); */
+}
+
+/* Individual cards and slots */
+
+.word-field > div,
+.sentence-field > div {
+  /* float: left;
+  width: 70px;
+  height: 78px;
+  padding: 10px;
+  padding-top: 20px;
+  padding-bottom: 0;
+  border: 2px solid #333;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  margin: 0 0 0 10px;
+  background: #fff; */
+  max-width: 280px;
+  position: absolute !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  width: auto;
+  padding: 10px;
+  border: 1px solid var(--color-border-gray-light);
+  border-radius: 5px;
+  cursor: move;
+  background-color: #fff;
+}
+
+/* .word-field div:first-child,
+.sentence-field div:first-child {
+  margin-left: 0;
+} */
+
+.word-field div.hovered {
+  background: #aaa;
+}
+
+.sentence-field div.ui-draggable-dragging {
+  -moz-box-shadow: 0 0 0.5em rgba(0, 0, 0, 0.8);
+  -webkit-box-shadow: 0 0 0.5em rgba(0, 0, 0, 0.8);
+  box-shadow: 0 0 0.5em rgba(0, 0, 0, 0.8);
+}
+
+#word0 {
+  top: 5%;
+  right: 20%;
+}
+
+#word1 {
+  top: 12%;
+  right: 5%;
+}
+#word2 {
+  top: 90%;
+  right: 70%;
+}
+#word3 {
+  top: 30%;
+  right: 60%;
+}
+#word4 {
+  top: 80%;
+  right: 10%;
+}
+#word5 {
+  top: 63%;
+  right: 54%;
+}
+#word6 {
+  top: 15%;
+  right: 75%;
+}
+#word7 {
+  top: 88%;
+  right: 90%;
+}
+#word8 {
+  top: 5%;
+  right: 80%;
+}
+#word9 {
+  top: 45%;
+  right: 80%;
+}
+
+#sentence0 {
+  top: 55%;
+  right: 80%;
+}
+
+#sentence1 {
+  top: 62%;
+  right: 17%;
+}
+#sentence2 {
+  top: 15%;
+  right: 15%;
+}
+#sentence3 {
+  top: 75%;
+  right: 65%;
+}
+#sentence4 {
+  top: 25%;
+  right: 80%;
+}
+#sentence5 {
+  top: 43%;
+  right: 12%;
+}
+#sentence6 {
+  top: 50%;
+  right: 45%;
+}
+#sentence7 {
+  top: 2%;
+  right: 45%;
+}
+#sentence8 {
+  top: 30%;
+  right: 20%;
+}
+#sentence9 {
+  top: 85%;
+  right: 30%;
+}
+
+/* "You did it!" message */
+#successMessage {
+  position: absolute;
+  left: 580px;
+  top: 250px;
+  width: 0;
+  height: 0;
+  z-index: 100;
+  background: #dfd;
+  border: 2px solid #333;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  -moz-box-shadow: 0.3em 0.3em 0.5em rgba(0, 0, 0, 0.8);
+  -webkit-box-shadow: 0.3em 0.3em 0.5em rgba(0, 0, 0, 0.8);
+  box-shadow: 0.3em 0.3em 0.5em rgba(0, 0, 0, 0.8);
+  padding: 20px;
+}
+
+.is-correct {
+  border: 3px solid #adff2f !important;
+  animation: correct linear 0.5s;
+  opacity: 0;
+}
+
+.is-wrong {
+  animation: wrong linear 1s;
+}
+
+@keyframes correct {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes wrong {
+  from {
+    border: 3px solid red;
+  }
+  to {
+    border: 1px solid var(--color-border-gray-light);
+  }
+}

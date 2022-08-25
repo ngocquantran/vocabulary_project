@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en" th:replace="~{layout/layout :: main-fragment(~{:: title}, ~{:: #css}, ~{:: .container}, ~{:: #js})}"
+      xmlns:th="https://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+
+  <title th:text="|SETTING - CÀI ĐẶT|">Trang chủ</title>
+  <th:block id="css">
+    <link rel="stylesheet" th:href="@{/asset/css/profile.css}"/>
+
+  </th:block>
+
+</head>
+<body>
+
+<div class="container">
+  <div class="grid-wide">
+    <div class="main-content">
+      <div class="change-option">
+        <div class="option on">Thông tin chung</div>
+        <div class="option">Mật khẩu</div>
+      </div>
+      <div class="user-info">
+
+          <div class="info-header">
+            <h1>Thông tin cá nhân</h1>
+            <button>LƯU THAY ĐỔI</button>
+          </div>
+          <div class="info-content">
+            <div class="info-item">
+              <label>Ảnh đại diện</label>
+              <div class="info-item-content">
+                <div class="info-avatar">
+                  <img
+                          src=""
+                          alt=""
+                  />
+                </div>
+                <div class="update">
+                  <label>
+                    <span>CẬP NHẬT</span>
+                    <input type="file" accept="image/png, image/jpg"/>
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="info-item">
+              <label>Họ và tên *</label>
+              <div class="info-item-content">
+                <input
+                        class="info-name input-info"
+                        placeholder="Họ và tên"
+                        type="text"
+                        value="Trần Ngọc Quân"
+                        required
+                />
+              </div>
+            </div>
+            <div class="info-item">
+              <label>Email *</label>
+              <div class="info-item-content">
+                <input
+                        class="info-email input-info"
+                        placeholder="Email"
+                        type="email"
+                        value="quan31794@gmail.com"
+                        readonly
+                />
+              </div>
+            </div>
+            <div class="info-item">
+              <label>Số điện thoại *</label>
+              <div class="info-item-content">
+                <input
+                        class="info-number input-info"
+                        placeholder="Số điện thoại"
+                        type="text"
+                        value="0962367123"
+                        required
+                />
+              </div>
+
+            </div>
+            <div class="error" style="display: none">Vui lòng điền đủ thông tin</div>
+
+          </div>
+
+      </div>
+      <div class="user-pass">
+          <div class="info-header">
+            <h1>Mật khẩu</h1>
+            <button>LƯU THAY ĐỔI</button>
+          </div>
+          <div class="info-content">
+            <div class="info-item">
+              <label>Mật khẩu cũ *</label>
+              <div class="info-item-content">
+                <input
+                        class="old-password input-info"
+                        placeholder="Mật khẩu cũ"
+                        type="password"
+                        required
+                />
+              </div>
+            </div>
+            <div class="info-item">
+              <label>Mật khẩu mới *</label>
+              <div class="info-item-content">
+                <input
+                        class="new-password input-info"
+                        placeholder="Mật khẩu mới"
+                        type="password"
+                        required
+                />
+              </div>
+            </div>
+            <div class="info-item">
+              <label>Xác nhận mật khẩu mới *</label>
+              <div class="info-item-content">
+                <input
+                        class="confirm-password input-info"
+                        placeholder="Xác nhận mật khẩu mới"
+                        type="password"
+                        required
+                />
+              </div>
+
+            </div>
+            <div class="error" style="display: none">Mật khẩu mới không khớp</div>
+            <div class="success" style="display: none">Cập nhật mật khẩu thành công</div>
+          </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<th:block id="js">
+
+  <script th:inline="javascript">
+
+    let user = [[${user}]];
+    // console.log(user);
+
+
+
+
+
+  </script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script th:src="@{/asset/js/profile.js}"></script>
+
+</th:block>
+</body>
+</html>

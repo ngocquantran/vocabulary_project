@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en" th:replace="~{layout/layout :: main-fragment(~{:: title}, ~{:: #css}, ~{:: .container}, ~{:: #js})}"
+      xmlns:th="https://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+
+  <title th:text="|COURSE - KHÓA HỌC CỦA BẠN|">Trang chủ</title>
+  <th:block id="css">
+    <link rel="stylesheet" th:href="@{/asset/css/license.css}"/>
+
+  </th:block>
+
+</head>
+<body>
+
+<div class="container">
+  <div class="grid-wide">
+    <div class="main-content">
+      <div class="change-option">
+        <div class="option on">Khóa học của tôi</div>
+        <div class="option">Đơn hàng của tôi</div>
+      </div>
+      <div class="user-course">
+        <h1>Khóa học của tôi</h1>
+        <div class="course-table">
+          <table class="table">
+            <thead>
+            <tr>
+              <th scope="col">Sản phẩm</th>
+              <th scope="col">Thời gian học</th>
+              <th scope="col">Ngày kích hoạt</th>
+              <th scope="col">Ngày hết hạn</th>
+              <th scope="col">Trạng thái</th>
+            </tr>
+            </thead>
+            <tbody class="table-group-divider">
+
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <div class="user-order">
+        <h1>Đơn hàng của tôi</h1>
+        <div class="order-table">
+          <table class="table">
+            <thead>
+            <tr>
+              <th scope="col">Mã đơn hàng</th>
+              <th scope="col">Sản phẩm</th>
+              <th scope="col">Ngày mua</th>
+              <th scope="col">Trạng thái</th>
+              <th scope="col">Hành động</th>
+
+            </tr>
+            </thead>
+            <tbody class="table-group-divider">
+
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal fade" id="orderDetail" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title flex-grow-1 text-center" id="exampleModalLabel">THANH TOÁN</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body p-5">
+          <div class="row">
+            <div class="col-lg-8 col-md-12">
+              <div class="payment">
+                <h3>1. Thông tin tài khoản</h3>
+                <div class="user-info">
+                  <div class="row">
+                    <div class="col-sm-4">
+                      <input type="text" class="name" placeholder="Học tên" value="Trần Ngọc Quân" readonly required>
+                    </div>
+                    <div class="col-sm-4">
+                      <input type="text" class="email" placeholder="Email" value="quan31794@gmail.com" readonly
+                             required>
+                    </div>
+                    <div class="col-sm-4">
+                      <input type="text" class="phone" placeholder="Điện thoại" value="0962367123" required>
+                    </div>
+                  </div>
+
+                </div>
+                <h3>2. Phương thức chuyển khoản</h3>
+                <div class="transac-info">
+                  <div class="transac-info-item highlight">
+                    <i class="fa-solid fa-user"></i>
+                    <span>Chủ tài khoản: </span>
+                    <span>Vocabulary</span>
+                  </div>
+                  <div class="transac-info-item highlight">
+                    <i class="fa-regular fa-credit-card"></i>
+                    <span>Số tài khoản: </span>
+                    <span>123456789</span>
+                  </div>
+                  <div class="transac-info-item highlight">
+                    <i class="fa-solid fa-building-columns"></i>
+                    <span>Ngân hàng: </span>
+                    <span>Ngân hàng Techcombank</span>
+                  </div>
+                  <div class="transac-info-item">
+                    Nội dung chuyển khoản: Nộp học phí - &#60;khoá học&#62; - &#60;họ tên&#62; - &#60;số di động&#62;
+                  </div>
+                  <div class="transac-info-item">Khóa học sẽ được kích hoạt sau khi chúng tôi kiểm tra tài khoản và
+                    xác nhận việc thanh toán của bạn thành công.
+                  </div>
+
+                </div>
+
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-12">
+              <div class="bill">
+                <div class="bill-header">Đơn hàng</div>
+                <div class="bill-package">
+                  <strong>PREMIUM 12 THÁNG</strong>
+                  <span>1.999.000 đ</span>
+                </div>
+                <div class="bill-value">
+                  <span>Tạm tính</span>
+                  <span>1.999.000 đ</span>
+                </div>
+                <div class="bill-discount">
+                  <span>Giảm giá</span>
+                  <span>0 đ</span>
+                </div>
+                <div class="bill-total">
+                  <span>Tổng tiền</span>
+                  <span class="total">1.999.000 đ</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<th:block id="js">
+
+  <script th:inline="javascript">
+    let orders = [[${orders}]];
+    // console.log(orders);
+
+    let user = [[${user}]];
+    // console.log(user);
+
+    let activeOrders = [[${activeOrders}]];
+    // console.log(activeOrders);
+
+
+
+
+
+  </script>
+  <script th:src="@{/asset/js/license.js}"></script>
+
+</th:block>
+</body>
+</html>

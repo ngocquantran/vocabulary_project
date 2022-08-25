@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en" th:replace="~{layout/layout :: main-fragment(~{:: title}, ~{:: #css}, ~{:: .container}, ~{:: #js})}"
+      xmlns:th="https://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+
+  <title th:text="|PERSONAL - TRANG CÁ NHÂN|">Trang chủ</title>
+  <th:block id="css">
+    <link rel="stylesheet" th:href="@{/asset/css/personal.css}"/>
+
+  </th:block>
+
+</head>
+<body>
+
+<div class="container">
+  <div class="grid-wide">
+    <div class="person-info">
+      <div class="person-info-content">
+        <div class="avatar">
+          <div class="avatar-img">
+            <img
+                    src="https://home.voca.vn/assets/avatar/default.png"
+                    alt="Quân"
+            />
+          </div>
+
+          <!-- <div class="upload-img"><i class="fa-solid fa-camera"></i></div> -->
+        </div>
+
+        <h5>trần ngọc quân</h5>
+
+        <div class="status">Thành viên thường</div>
+
+        <div class="start">Đã tham gia <span>04, 2014</span></div>
+        <a href="#" class="upgrade">
+          <img src="/asset/img/home/header/menu-vip-button.svg" alt=""
+          /></a>
+
+        <a th:href="@{/user/profile}" class="btn-setting"
+        ><i class="fa-solid fa-gear"></i
+        ></a>
+      </div>
+    </div>
+
+    <div class="person-study">
+      <h2>Học tập</h2>
+      <div class="study-content">
+        <div class="row">
+          <div class="col col-6">
+            <div class="study-item item-course">
+              <div class="item-icon">
+                <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="23.842"
+                        height="25.549"
+                        viewBox="0 0 23.842 25.549"
+                >
+                  <g transform="translate(0.749 0.748)">
+                    <path
+                            d="M.749,2784.375c0,2,.942,3.626,2.1,3.626H22.214c-.462,0-.841-1.625-.841-3.626s.379-3.626.841-3.626H2.853C1.691,2780.749.749,2782.373.749,2784.375Z"
+                            transform="translate(-0.749 -2780.749)"
+                            fill="#ffdfe0"
+                    ></path>
+                    <path
+                            d="M.749,2802.545c0,2,.942,3.626,2.1,3.626H22.214c-.462,0-.841-1.624-.841-3.626s.379-3.626.841-3.626H2.853C1.691,2798.919.749,2800.543.749,2802.545Z"
+                            transform="translate(-0.749 -2782.12)"
+                            fill="#fff5d3"
+                    ></path>
+                    <path
+                            d="M23.161,2793.461c0,2-.942,3.626-2.1,3.626H1.7c.462,0,.841-1.624.841-3.626s-.379-3.626-.841-3.626h19.36C22.219,2789.835,23.161,2791.459,23.161,2793.461Z"
+                            transform="translate(-0.821 -2781.435)"
+                            fill="#ddf4ff"
+                    ></path>
+                    <g transform="translate(0.001 0.002)">
+                      <path
+                              d="M23.092,2788.08H4.416a3.675,3.675,0,0,1-3.663-3.663h0a3.674,3.674,0,0,1,3.663-3.666H23.092"
+                              transform="translate(-0.75 -2780.751)"
+                              fill="none"
+                              stroke="#fc4848"
+                              stroke-linecap="round"
+                              stroke-miterlimit="10"
+                              stroke-width="1.5"
+                      ></path>
+                      <path
+                              d="M23.092,2798.841H4.416A3.673,3.673,0,0,0,.753,2802.5h0a3.674,3.674,0,0,0,3.663,3.662H23.092"
+                              transform="translate(-0.75 -2782.116)"
+                              fill="none"
+                              stroke="#ffc800"
+                              stroke-linecap="round"
+                              stroke-miterlimit="10"
+                              stroke-width="1.5"
+                      ></path>
+                      <path
+                              d="M.75,2797.121H19.426a3.672,3.672,0,0,0,3.666-3.662h0a3.672,3.672,0,0,0-3.662-3.662H.754"
+                              transform="translate(-0.75 -2781.434)"
+                              fill="none"
+                              stroke="#1cb0f6"
+                              stroke-linecap="round"
+                              stroke-miterlimit="10"
+                              stroke-width="1.5"
+                      ></path>
+                      <path
+                              d="M8.987,2793.4c0,.589.5.946.89.628l.888-.735L12.327,2792a.328.328,0,0,1,.432,0l1.562,1.294.888.735c.385.318.89-.038.89-.628v-7.622a.054.054,0,0,0-.046-.059H9.033a.056.056,0,0,0-.046.059Z"
+                              transform="translate(-1.371 -2781.126)"
+                              fill="#fc4848"
+                      ></path>
+                    </g>
+                  </g>
+                </svg>
+              </div>
+              <span class="item-title">Khóa học</span>
+              <i></i>
+              <strong>27</strong>
+            </div>
+          </div>
+          <div class="col col-6">
+            <div class="study-item item-topic">
+              <div class="item-icon">
+                <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="31.599"
+                        height="31.44"
+                        viewBox="0 0 31.599 31.44"
+                >
+                  <g transform="translate(-45.101 -343.474)">
+                    <g transform="translate(44.5 347.694)">
+                      <path
+                              d="M51.744,111.924l-4.287,1.091a.655.655,0,0,0-.473.8h0l.323,1.27a.654.654,0,0,0,.8.474h0l4.287-1.091a.655.655,0,0,0,.473-.8h0l-.323-1.27a.654.654,0,0,0-.8-.474Z"
+                              transform="translate(-31.02 -90.286)"
+                              fill="#1cb0f6"
+                      ></path>
+                      <path
+                              d="M19.607,78.188,43.9,72.008a1.311,1.311,0,0,1,1.593.947h0l4.686,18.417a1.31,1.31,0,0,1-.946,1.593h0L24.94,99.145a1.311,1.311,0,0,1-1.594-.947h0L18.661,79.781a1.311,1.311,0,0,1,.947-1.593h0Z"
+                              transform="translate(-18.019 -71.967)"
+                              fill="#1cb0f6"
+                              fill-rule="evenodd"
+                      ></path>
+                      <path
+                              d="M51,109.509l-3.334.848a.654.654,0,0,0-.474.8h0l.2.794a.655.655,0,0,0,.8.473h0l3.334-.848a.655.655,0,0,0,.473-.8h0l-.2-.794a.654.654,0,0,0-.8-.474Z"
+                              transform="translate(-31.115 -89.178)"
+                              fill="#d2e4e8"
+                      ></path>
+                      <path
+                              d="M28.263,105.449l23.5-5.978.888,3.492a.655.655,0,0,1-.473.8l-11.113,2.828-3.653.929-7.462,1.9a.655.655,0,0,1-.8-.473h0Z"
+                              transform="translate(-22.442 -84.583)"
+                              fill="#d2e4e8"
+                              fill-rule="evenodd"
+                      ></path>
+                      <path
+                              d="M38.714,97.011l-.546-2.144a2.294,2.294,0,0,0-2.788-1.657l-9.526,2.423.747,2.937L21.977,80.392a.656.656,0,0,1,.473-.8h0l8.891-2.262a2.293,2.293,0,0,1,2.788,1.657A2.294,2.294,0,0,1,35.786,76.2h0l8.891-2.263a.656.656,0,0,1,.8.473h0L50.847,95.53l-1.494-5.875-9.527,2.424a2.294,2.294,0,0,0-1.656,2.788Z"
+                              transform="translate(-19.549 -72.862)"
+                              fill="#fff"
+                              fill-rule="evenodd"
+                      ></path>
+                      <g transform="translate(0 9.045) rotate(-28)">
+                        <path
+                                d="M3.738,0l.415.1L.415,15.249,0,15.147Z"
+                                transform="translate(0.86 0)"
+                                fill="rgba(255,105,231,0.25)"
+                        ></path>
+                        <path
+                                d="M12.7,6.629l-.1.415L1.436,4.292l.1-.415Zm.957-3.878-.1.415L2.393.415,2.5,0Zm-.478,1.939-.1.415L1.915,2.353l.1-.415L13.178,4.69ZM12.22,8.568l-.1.415L.957,6.231l.1-.415Zm-.478,1.939-.1.415L.479,8.17l.1-.415Zm-.479,1.939-.1.415L0,10.109l.1-.415Z"
+                                transform="translate(0 3.16)"
+                                fill="rgba(0,224,255,0.25)"
+                        ></path>
+                        <path
+                                d="M3.128,2.246A.853.853,0,1,0,3.537.59h0a.853.853,0,0,0-.409,1.656ZM2.992,2.8A1.422,1.422,0,0,0,3.705.046L3.673.038A1.422,1.422,0,0,0,2.992,2.8ZM1.217,9.987a.853.853,0,1,0,.409-1.656h0a.853.853,0,0,0-.409,1.656Zm-.136.552a1.421,1.421,0,1,0,.682-2.76h0a1.421,1.421,0,0,0-.682,2.76ZM2.173,6.117A.853.853,0,1,0,1.55,5.084a.853.853,0,0,0,.624,1.033Zm-.136.552a1.422,1.422,0,0,0,.736-2.746l-.055-.013a1.422,1.422,0,0,0-.681,2.76Z"
+                                transform="translate(2.579 3.728)"
+                                fill="#c4c4c4"
+                                fill-rule="evenodd"
+                        ></path>
+                        <path
+                                d="M4.419.074a.284.284,0,0,1,.02.4L2.629,2.469a.285.285,0,0,1-.4.019l-.02-.02L1.019,1.15A.284.284,0,1,1,1.442.77l.977,1.085L4.018.093a.284.284,0,0,1,.4-.02h0ZM3.473,3.907a.284.284,0,0,1,.02.4L1.682,6.3a.284.284,0,0,1-.4.02l-.02-.02L.073,4.984A.284.284,0,1,1,.5,4.6l.977,1.084,1.6-1.761a.284.284,0,0,1,.4-.02Z"
+                                transform="translate(3.471 2.96)"
+                                fill="#15e041"
+                                fill-rule="evenodd"
+                        ></path>
+                      </g>
+                    </g>
+                    <g transform="translate(72.603 353.651) rotate(151)">
+                      <path
+                              d="M4.731.965,3.246,4.244,0,3.251.972,0,4.524.579A.276.276,0,0,1,4.752.9.272.272,0,0,1,4.731.965Z"
+                              transform="translate(13.447 0)"
+                              fill="#ffbba8"
+                      ></path>
+                      <path
+                              d="M15.2,4.243,2.274,11.17,0,6.926,12.929,0Z"
+                              transform="translate(1.491 0)"
+                              fill="#ffd300"
+                      ></path>
+                      <path
+                              d="M14.065,2.122,1.137,9.048,0,6.926,12.928,0l1.137,2.122Z"
+                              transform="translate(2.628 2.122)"
+                              fill="#ffe600"
+                      ></path>
+                      <path
+                              d="M3.667,3.88l-.939.5a1.234,1.234,0,0,1-1.669-.51l-.91-1.7A1.234,1.234,0,0,1,.648.5l.94-.5L3.666,3.88Z"
+                              transform="translate(0 7.108)"
+                              fill="#ff769d"
+                      ></path>
+                      <path
+                              d="M3.078,5.065a.786.786,0,0,1-1.064-.321h0L.093,1.157A.786.786,0,0,1,1.479.415L3.4,4A.786.786,0,0,1,3.078,5.065Z"
+                              transform="translate(1.152 6.325)"
+                              fill="#cfcfcf"
+                      ></path>
+                      <path
+                              d="M1.073,2,0,0,1.488.243a.276.276,0,0,1,.228.316.281.281,0,0,1-.021.07L1.073,2Z"
+                              transform="translate(16.483 0.337)"
+                              fill="#4c4c4c"
+                      ></path>
+                    </g>
+                  </g>
+                </svg>
+              </div>
+              <span class="item-title">Bài học</span>
+              <i></i>
+              <strong>27</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="person-cate">
+      <h2>Khóa học</h2>
+      <div class="cate-content">
+        <div class="cate-item item-vocab">
+          <div class="cate-thumb">
+            <img
+                    src="/asset/img/home/container/category/vocabulary.svg"
+                    alt=""
+            />
+          </div>
+          <div class="cate-title">Từ vựng</div>
+          <div class="cate-progress">Đang học <span>21</span> khóa</div>
+        </div>
+        <div class="cate-item item-sentence">
+          <div class="cate-thumb">
+            <img
+                    src="/asset/img/home/container/category/sentence.svg"
+                    alt=""
+            />
+          </div>
+          <div class="cate-title">Mẫu câu</div>
+          <div class="cate-progress">Đang học <span>21</span> khóa</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="person-learn">
+      <h2>Lịch sử gần đây</h2>
+      <div class="learn-content">
+        <div class="learn-item item-vocab">
+          <a href="">
+            <div class="learn-date">08/07/2022</div>
+            <div class="learn-thumb">
+              <img
+                      src="/asset/img/course_thumb/1000-essential-words-in-stories-advanced-avatar.jpg"
+                      alt=""
+              />
+            </div>
+            <div class="learn-text">
+              <div class="title">
+                1000 ESSENTIAL WORDS IN STORIES (ADVANCED)
+              </div>
+              <div class="cate">Từ vựng</div>
+            </div>
+            <div class="learn-progress">
+              <div class="learn-progress-value" style="display: none">
+                <span>2</span><span>7</span>
+              </div>
+              <div class="progress-bar">
+                <div class="progress-bar-value"></div>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="learn-item item-sen">
+          <a href="">
+            <div class="learn-date">08/07/2022</div>
+            <div class="learn-thumb">
+              <img
+                      src="/asset/img/course_thumb/1000-essential-words-in-stories-advanced-avatar.jpg"
+                      alt=""
+              />
+            </div>
+            <div class="learn-text">
+              <div class="title">
+                1000 ESSENTIAL WORDS IN STORIES (ADVANCED)
+              </div>
+              <div class="cate">Mẫu câu</div>
+            </div>
+            <div class="learn-progress">
+              <div class="learn-progress-value" style="display: none">
+                <span>2</span><span>7</span>
+              </div>
+              <div class="progress-bar">
+                <div class="progress-bar-value"></div>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="learn-item item-vocab">
+          <a href="">
+            <div class="learn-date">08/07/2022</div>
+            <div class="learn-thumb">
+              <img
+                      src="/asset/img/course_thumb/1000-essential-words-in-stories-advanced-avatar.jpg"
+                      alt=""
+              />
+            </div>
+            <div class="learn-text">
+              <div class="title">
+                1000 ESSENTIAL WORDS IN STORIES (ADVANCED)
+              </div>
+              <div class="cate">Từ vựng</div>
+            </div>
+            <div class="learn-progress">
+              <div class="learn-progress-value" style="display: none">
+                <span>2</span><span>7</span>
+              </div>
+              <div class="progress-bar">
+                <div class="progress-bar-value"></div>
+              </div>
+            </div>
+          </a>
+        </div>
+        <div class="learn-item item-vocab">
+          <a href="">
+            <div class="learn-date">08/07/2022</div>
+            <div class="learn-thumb">
+              <img
+                      src="/asset/img/course_thumb/1000-essential-words-in-stories-advanced-avatar.jpg"
+                      alt=""
+              />
+            </div>
+            <div class="learn-text">
+              <div class="title">
+                1000 ESSENTIAL WORDS IN STORIES (ADVANCED)
+              </div>
+              <div class="cate">Từ vựng</div>
+            </div>
+            <div class="learn-progress">
+              <div class="learn-progress-value" style="display: none">
+                <span>2</span><span>7</span>
+              </div>
+              <div class="progress-bar">
+                <div class="progress-bar-value"></div>
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<th:block id="js">
+
+  <script th:inline="javascript">
+
+    let user = [[${user}]];
+    // console.log(user);
+
+    let numberOfTopics = [[${numberOfTopics}]];
+    // console.log(numberOfTopics);
+
+    let userCourses = [[${userCourses}]];
+    // console.log(userCourses);
+
+  </script>
+  <script th:src="@{/asset/js/personal.js}"></script>
+
+</th:block>
+</body>
+</html>

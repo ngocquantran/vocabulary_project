@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en" th:replace="~{layout/layout-admin :: main-fragment(~{:: title}, ~{:: #css}, ~{:: .content-wrapper}, ~{:: #js})}"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security" xmlns:th="https://www.thymeleaf.org">
+<head>
+
+  <title th:text="|VOCABS - DANH SÁCH TỪ VỰNG|">Trang chủ</title>
+  <th:block id="css">
+        <link rel="stylesheet" th:href="@{/asset/css/admin-vocabs.css}"/>
+
+  </th:block>
+
+</head>
+<body>
+
+<div class="content-wrapper">
+  <!-- Content header -->
+  <div class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-12">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item active">Danh sách từ vựng</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main content -->
+  <section class="content">
+    <div class="container-fluid">
+      <div class="row py-2">
+        <div class="col-12">
+          <a href="/admin/vocab-add" type="button" class="btn btn-primary">
+            <i class="fas fa-plus"></i> Thêm từ vựng
+          </a>
+        </div>
+      </div>
+      <div class="row py-2">
+        <div class="col-6">
+          <div class="input-group mb-3">
+            <input
+                    type="text"
+                    class="form-control search-user"
+                    placeholder="Nhập thông tin ..."
+                    aria-describedby="button-addon2"
+            />
+            <button
+                    class="btn btn-outline-secondary"
+                    type="button"
+                    id="button-search"
+            >
+              Tìm kiếm
+            </button>
+            <button
+                    class="btn btn-outline-secondary"
+                    type="button"
+                    id="button-clear"
+            >
+              Clear
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-body">
+              <table class="table table-bordered table-hover">
+                <thead class="text-center">
+                <tr>
+                  <th class="align-top">Id</th>
+                  <th class="align-top">Từ</th>
+                  <th class="align-top">Loại từ</th>
+                  <th class="align-top">Phiên âm</th>
+                  <th class="align-top">Nghĩa</th>
+                  <th class="align-top">Preview</th>
+                  <th class="align-top">Hành động</th>
+                </tr>
+                </thead>
+                <tbody class="table-vocab-content">
+
+                </tbody>
+              </table>
+
+              <div
+                      class="d-flex justify-content-center mt-3"
+                      id="pagination"
+              >
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div
+          class="modal fade"
+          id="previewModal"
+          tabindex="-1"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+  >
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Preview</h5>
+          <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body mt-5 mb-5">
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<th:block id="js">
+
+  <script th:inline="javascript">
+    let pageInfo = [[${pageInfo}]];
+    console.log(pageInfo);
+
+    let keyword = [[${keyword}]];
+    console.log(keyword);
+    $(".search-user").val(keyword);
+
+
+
+    function addActiveToNavLink(innerText){
+      const $navLinkEl=$(".nav-link");
+      $navLinkEl.each((index,el)=>{
+        const $title=$(el).find("p");
+        if ($title.text().trim().toLowerCase()===innerText.toLowerCase()){
+          $(el).addClass("active");
+        }
+      })
+    }
+    addActiveToNavLink("Quản lý nội dung");
+    addActiveToNavLink("Từ vựng");
+
+  </script>
+  <script th:src="@{/asset/js/admin-vocabs.js}"></script>
+
+</th:block>
+</body>
+</html>

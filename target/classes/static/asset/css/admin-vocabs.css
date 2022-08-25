@@ -1,0 +1,268 @@
+.layer {
+  max-width: 100%;
+  transform: translateZ(-100px);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: #fff;
+  border-radius: 5px;
+  box-shadow: 0px 0px 15px 0px rgb(254 254 254 / 50%);
+
+}
+
+
+
+/* Learning page ------------------------------------------------------------ */
+
+.learning-content {
+  position: relative;
+}
+.learning-word-body {
+  position: relative;
+  margin: auto;
+  width: 965px;
+  padding: 30px 15px;
+}
+
+
+
+.learning-word-content {
+  max-width: 810px;
+  height: 260px;
+  position: relative;
+  z-index: 1;
+  margin-top: 30px;
+  margin: 30px auto 0px;
+  transform-style: preserve-3d;
+}
+
+.learning-word-layer {
+ 
+}
+
+.learning-word-viewport {
+  /* border: 1px solid var(--color-border-gray-light);
+  border-bottom: 3px solid var(--color-border-gray-light); */
+  /* overflow: hidden; */
+  border-radius: 20px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  perspective: 800px;
+  perspective-origin: 50%;
+}
+
+.learning-word-viewport-container {
+  height: 100%;
+  width: 100%;
+  transform-style: preserve-3d;
+  position: relative;
+  transition: all 1s;
+}
+
+.learning-word-viewport-slide {
+  height: 100%;
+  width: 100%;
+  background: #fff;
+  border-radius: 20px;
+  border: 1px solid #cfcfcf;
+  padding: 30px 30px;
+  position: absolute;
+  border-bottom: 5px solid #cfcfcf;
+}
+
+.learning-word-viewport-slide.slide1 {
+  background: #fffdf3;
+  border-color: #fbe56d;
+  transform: translateZ(75px);
+}
+
+.learning-word-viewport-slide.slide2 {
+  background: #ebfbff;
+  border-color: #84d8ff;
+  transform: rotateX(120deg) translateZ(75px);
+}
+
+.learning-word-viewport-slide.slide3 {
+  background: #fcfff9;
+  border-color: #a5ed6e;
+  transform: rotateX(240deg) translateZ(75px);
+}
+
+
+
+.learning-word-viewport .card-img {
+  display: inline-block;
+  width: 192px;
+  height: 192;
+  padding: 6px;
+ 
+  border-radius: 10px;
+  overflow: hidden;
+  float: left;
+}
+
+.learning-word-viewport .card-img img {
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+   border: 2px solid #1cb0f6;
+}
+
+.learning-word-viewport .card-content {
+  display: inline-block;
+  width: calc(100% - 265px);
+  float: left;
+  margin-left: 30px;
+}
+
+.learning-word-viewport .card-content-title {
+  font-weight: 400;
+  font-size: 25px;
+  color: #afafaf;
+  margin: 0;
+  font-weight: 700;
+}
+
+.learning-word-viewport .card-content-text {
+  font-weight: 400;
+  font-size: 20px;
+  color: var(--color-text-dark);
+  font-weight: 500;
+  margin-top: 5px;
+}
+
+.learning-word-viewport .card-content-type {
+  font-size: 20px;
+  margin-left: 0px;
+}
+
+.learning-word-viewport .card-turn {
+  display: inline-block;
+  position: absolute;
+  right: 30px;
+  bottom: 15px;
+  cursor: pointer;
+  text-align: right;
+}
+
+.learning-word-viewport .card-turn i {
+  font-size: 2rem;
+  color: rgb(5, 210, 210);
+}
+
+.learning-word-viewport .card-turn .turn-icon span {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  text-align: center;
+  background: #ffb020;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 600;
+  border-radius: 8px;
+  border: 1px solid;
+  line-height: 13px;
+  top: 30%;
+  left: -15px;
+  position: absolute;
+}
+
+.learning-word-viewport .card-content-text-main {
+  font-weight: 500;
+  font-size: 2rem;
+  color: var(--color-text-darker);
+  margin-bottom: 5px;
+  margin-top: -5px;
+  font-weight: 700;
+}
+
+.learning-word-viewport .card-content-text-main .card-content-type {
+  font-size: 2rem;
+  margin-left: 5px;
+}
+
+.learning-word-viewport .card-content-phonetic {
+  margin-bottom: 10px;
+  margin-top: 0px;
+  color: #4c4c4c;
+
+}
+
+.learning-word-viewport .card-content-phonetic i{
+  background: none;
+  width: 31.333px;
+  height: 32px;
+  border-radius: 0;
+  margin-right: 8px;
+  float: left;
+  margin-top: 6px;
+  color: rgb(7, 232, 232);
+}
+
+.learning-word-viewport .text-definition-vi {
+  font-weight: 400;
+  font-weight: 500;
+  color: #777777;
+  font-size: 20px;
+  margin-top: 15px;
+}
+
+.learning-word-viewport .example-group {
+  float: left;
+  width: 100%;
+}
+
+.learning-word-viewport .example-group i {
+  background: none;
+  width: 31.333px;
+  height: 32px;
+  border-radius: 0;
+  position: absolute;
+  left: 0;
+  margin-right: 15px;
+  float: left;
+  margin-top: 6px;
+  color: rgb(7, 232, 232);
+}
+
+.learning-word-viewport .card-content-example {
+  font-weight: 500;
+  margin-bottom: 0px;
+  font-weight: 700;
+  padding-left: 45px;
+  position: relative;
+  margin-top: 0;
+  font-size: 30px;
+  color: #4c4c4c;
+  line-height: 1.4;
+  float: none;
+  width: 100%;
+}
+
+.learning-word-viewport .card-content-example .example-en span:nth-child(2) {
+color: #58CC02;
+}
+
+.learning-word-viewport .example-vi {
+  float: none;
+  display: block;
+  width: 100%;
+  font-size: 22px;
+  text-align: left;
+  margin-left: 45px;
+  color: #afafaf;
+  height: unset;
+  margin-top: 10px;
+}
+
+.learning-word-viewport .example-vi:hover {
+color: var(--color-blue);
+}
+
+

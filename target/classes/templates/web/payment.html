@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en" th:replace="~{layout/layout :: main-fragment(~{:: title}, ~{:: #css}, ~{:: .container}, ~{:: #js})}"
+      xmlns:th="https://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+
+  <title th:text="|PAYMENT - THANH TOÁN|">Trang chủ</title>
+  <th:block id="css">
+    <link rel="stylesheet" th:href="@{/asset/css/payment.css}"/>
+
+  </th:block>
+
+</head>
+<body>
+
+<div class="container">
+  <div class="grid-wide">
+
+      <div class="row">
+        <h2 style="color: #1899d6; margin-bottom: 30px">Đặt hàng thành công! Vui lòng thanh toán theo thông tin bên dưới:</h2>
+        <div class="col-lg-8 col-md-12">
+
+          <div class="payment">
+            <h3>1. Thông tin tài khoản</h3>
+            <div class="user-info">
+              <div class="row">
+                <div class="col-sm-4">
+                  <input type="text" class="name" placeholder="Học tên" value="Trần Ngọc Quân" readonly required>
+                </div>
+                <div class="col-sm-4">
+                  <input type="text" class="email" placeholder="Email" value="quan31794@gmail.com" readonly
+                         required>
+                </div>
+                <div class="col-sm-4">
+                  <input type="text" class="phone" placeholder="Điện thoại" value="0962367123" required>
+                </div>
+              </div>
+
+            </div>
+            <h3>2. Phương thức chuyển khoản</h3>
+            <div class="transac-info">
+              <div class="transac-info-item highlight">
+                <i class="fa-solid fa-user"></i>
+                <span>Chủ tài khoản: </span>
+                <span>Vocabulary</span>
+              </div>
+              <div class="transac-info-item highlight">
+                <i class="fa-regular fa-credit-card"></i>
+                <span>Số tài khoản: </span>
+                <span>123456789</span>
+              </div>
+              <div class="transac-info-item highlight">
+                <i class="fa-solid fa-building-columns"></i>
+                <span>Ngân hàng: </span>
+                <span>Ngân hàng Techcombank</span>
+              </div>
+              <div class="transac-info-item">
+                Nội dung chuyển khoản: Nộp học phí - &#60;khoá học&#62; - &#60;họ tên&#62; - &#60;số di động&#62;
+              </div>
+              <div class="transac-info-item">Khóa học sẽ được kích hoạt sau khi chúng tôi kiểm tra tài khoản và
+                xác nhận việc thanh toán của bạn thành công.
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-12">
+          <div class="bill">
+            <div class="bill-header">Đơn hàng</div>
+            <div class="bill-package">
+              <strong>PREMIUM 12 THÁNG</strong>
+              <span>1.999.000 đ</span>
+            </div>
+            <div class="bill-value">
+              <span>Tạm tính</span>
+              <span>1.999.000 đ</span>
+            </div>
+            <div class="bill-discount">
+              <span>Giảm giá</span>
+              <span>0 đ</span>
+            </div>
+            <div class="bill-total">
+              <span>Tổng tiền</span>
+              <span class="total">1.999.000 đ</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+  </div>
+</div>
+
+
+
+
+<th:block id="js">
+
+  <script th:inline="javascript">
+    let order = [[${order}]];
+    // console.log(order);
+
+    let price= parseInt(order.aPackage.pricePerMonth) *parseInt(order.aPackage.duration)
+    let formatprice=formatCash(price.toString());
+
+    $(".user-info .name").val(order.user.fullName);
+    $(".user-info .email").val(order.user.email);
+    $(".user-info .phone").val(order.user.phone);
+    $(".bill-package strong").text(order.aPackage.title);
+    $(".bill-package span").text(formatprice+"đ");
+    $(".bill-value span").eq(1).text(formatprice+"đ");
+    $(".bill-total .total").text(formatprice+"đ");
+
+    function formatCash(str) {
+      return str.split('').reverse().reduce((prev, next, index) => {
+        return ((index % 3) ? next : (next + ',')) + prev
+      })
+    }
+
+
+  </script>
+<!--  <script th:src="@{/asset/js/payment.js}"></script>-->
+
+</th:block>
+</body>
+</html>

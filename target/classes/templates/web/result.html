@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en" th:replace="~{layout/layout-learn :: main-fragment(~{:: title}, ~{:: #css}, ~{:: .app}, ~{:: #js})}"
+      xmlns:th="https://www.thymeleaf.org">
+<head>
+
+  <title th:text="|TEST RESULT - ${topicCourse.title}|">Trang chủ</title>
+  <th:block id="css">
+    <link rel="stylesheet" th:href="@{/asset/css/test_result.css}"/>
+
+  </th:block>
+
+</head>
+<body>
+
+<div class="app">
+  <div class="header">
+    <div class="header-menu">
+      <a href="" class="header-menu-item">
+        <i class="fa-solid fa-arrow-left"></i>
+        <span>Về bộ từ</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="wide">
+      <div class="result-message">
+        <div class="result-message-content">
+          <div class="result-message-left">
+            <img src="asset/img/common/testing-pass.png" alt="" class="result-message-img pass" />
+            <img src="asset/img/common/testing-pass.png" alt="" class="result-message-img fail hidden" />
+          </div>
+          <div class="result-message-right">
+            <h3 class="result-message-notify pass">
+              Bạn đã vượt qua chủ đề từ vựng này.
+            </h3>
+
+            <h4 class="result-message-desc">
+              Thành tích lần này của bạn chưa vượt qua thành tích cao nhất
+              mà bạn đã từng đạt được. Hãy cải thiện để có kết quả cao hơn!
+            </h4>
+
+
+            <div class="result-message-button">
+              <a href="#" topic="4363" is_unknow="0" is_finish="0" parent="4362" class="btn-learning"
+                 data-bs-toggle="modal" data-bs-target="#choosewordmodel">Học lại</a>
+              <a href="#" class="btn-testing">Kiểm tra lại</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="result-evaluate">
+        <div class="result-evaluate-header">BẢNG ĐÁNH GIÁ KẾT QUẢ</div>
+
+        <div class="result-evaluate-content">
+          <div class="result-evaluate-circle">
+            <h2 class="result-evaluate-circle-title">Kết quả kiểm tra</h2>
+            <div class="result-evaluate-circle-right">
+              <div class="result-evaluate-circle-right-wrapper">
+                <span class="result-evaluate-circle-percent">94%</span>
+                <canvas id="result-evaluate-circle-chart" style="width: 120px; height: 120px"></canvas>
+
+              </div>
+            </div>
+            <div class="result-evaluate-circle-text">
+              <div class="result-evaluate-circle-desc">
+                <i class="fa-regular fa-clock"></i>
+                Thời gian:
+                <span>63</span>s
+              </div>
+              <div class="result-evaluate-circle-classify">
+                <div class="result-evaluate-circle-know">
+                  <span>12</span> đã thuộc
+                </div>
+                <div class="result-evaluate-circle-un-know">
+                  <span>8</span> chưa thuộc
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="result-evaluate-graph">
+            <h2 class="result-evaluate-graph-title">Biểu đồ tiến độ</h2>
+            <div class="result-evaluate-graph-content">
+              <canvas id="result-evaluate-graph-chart"></canvas>
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="rank-content">
+        <div class="rank-header">BẢNG XẾP HẠNG</div>
+        <div class="rank-wrapper">
+          <div class="user-rank-group">
+            <div class="user-rank-content">
+              <h5>Thứ hạng của bạn</h5>
+              <div class="user-rank-item">
+                <span class="rank"></span>
+                <span class="avatar">
+                   <img src="https://home.voca.vn/assets/avatar/default.png" />
+                </span>
+
+                <span class="name"></span>
+                <span class="right"></span>
+                <span class="time"></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="rank-group">
+            <div class="rank-left">
+              <h3>Top 3</h3>
+              <div class="rank-left-content">
+                <div class="rank-left-item">
+                  <div class="content-item item-2">
+                    <span class="hat"></span>
+                    <span class="avatar"><img
+                            src=""
+                            alt="" /></span>
+                    <span class="name"></span>
+                    <span class="position" data-bs-html="true" data-bs-toggle="tooltip" data-bs-placement="bottom"
+                          data-bs-title=""></span>
+                  </div>
+                  <div class="content-item item-1">
+                    <span class="hat"></span>
+                    <span class="avatar"><img
+                            src=""
+                            alt="" /></span>
+                    <span class="name"></span>
+                    <span class="position" data-bs-html="true" data-bs-toggle="tooltip" data-bs-placement="bottom"
+                          data-bs-title=""></span>
+                  </div>
+                  <div class="content-item item-3">
+                    <span class="hat"></span>
+                    <span class="avatar"><img
+                            src=""
+                            alt="" /></span>
+                    <span class="name"></span>
+                    <span class="position" data-bs-html="true" data-bs-toggle="tooltip" data-bs-placement="bottom"
+                          data-bs-title=""></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="rank-right">
+              <div class="rank-right-content">
+                <div class="rank-right-header">
+                  <h3>Top 8</h3>
+                </div>
+
+                <div class="rank-right-body">
+                  <div class="rank-item top-4">
+                    <div class="rank">4</div>
+                    <div class="avatar">
+                      <img src="/asset/img/home/header/default_avt.png" alt="" />
+                    </div>
+                    <div class="name"></div>
+                    <div class="info">
+                      <span class="right">Từ đúng </span>
+                      <span class="time">Thời gian </span>
+                    </div>
+                  </div>
+                  <div class="rank-item top-5">
+                    <div class="rank">5</div>
+                    <div class="avatar">
+                      <img src="/asset/img/home/header/default_avt.png" alt="" />
+                    </div>
+                    <div class="name"></div>
+                    <div class="info">
+                      <span class="right">Từ đúng </span>
+                      <span class="time">Thời gian </span>
+                    </div>
+                  </div>
+                  <div class="rank-item top-6">
+                    <div class="rank">6</div>
+                    <div class="avatar">
+                      <img src="/asset/img/home/header/default_avt.png" alt="" />
+                    </div>
+                    <div class="name"></div>
+                    <div class="info">
+                      <span class="right">Từ đúng </span>
+                      <span class="time">Thời gian </span>
+                    </div>
+                  </div>
+                  <div class="rank-item top-7">
+                    <div class="rank">7</div>
+                    <div class="avatar">
+                      <img src="/asset/img/home/header/default_avt.png" alt="" />
+                    </div>
+                    <div class="name"></div>
+                    <div class="info">
+                      <span class="right">Từ đúng </span>
+                      <span class="time">Thời gian </span>
+                    </div>
+                  </div>
+                  <div class="rank-item top-8">
+                    <div class="rank">8</div>
+                    <div class="avatar">
+                      <img src="/asset/img/home/header/default_avt.png" alt="" />
+                    </div>
+                    <div class="name"></div>
+                    <div class="info">
+                      <span class="right">Từ đúng </span>
+                      <span class="time">Thời gian </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="vocab-summary">
+        <div class="vocab-summary-header">TỔNG HỢP TỪ VỰNG</div>
+        <div class="vocab-group forget">
+          <div class="vocab-group-header">
+            <p>Từ bạn chưa thuộc</p>
+            <span>1</span>
+          </div>
+          <div class="vocab-list">
+            <div class="row row-cols-lg-5 row-cols-md-3 row-cols-2">
+
+            </div>
+          </div>
+        </div>
+
+        <div class="vocab-group remember">
+          <div class="vocab-group-header">
+            <p>Từ bạn đã thuộc</p>
+            <span>1</span>
+          </div>
+          <div class="vocab-list">
+            <div class="row row-cols-lg-5 row-cols-md-3 row-cols-2">
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="sen-summary">
+        <div class="sen-summary-header">TỔNG HỢP MẪU CÂU</div>
+        <div class="sen-group forget">
+          <div class="sen-group-header">
+            <p>Câu bạn làm sai</p>
+            <span>1</span>
+          </div>
+          <div class="sen-list">
+            <div class="sen-item">
+              <h4>Câu hỏi 1: Chọn câu văn phù hợp với phiên âm sau:</h4>
+              <div class="question-content">
+                maɪ neɪm ɪz ˈseərə kɑːrtər
+              </div>
+              <div class="right-answer-content">
+                <h5>Đáp án đúng:</h5>
+                <div class="answer-content">
+                  My name is Sarah Carter.
+                </div>
+              </div>
+              <div class="wrong-answer-content">
+                <h5>Đáp án của bạn:</h5>
+                <div class="answer-content">
+                  My nanny is Sarah Carter.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="sen-group remember">
+          <div class="sen-group-header">
+            <p>Câu bạn làm đúng</p>
+            <span>1</span>
+          </div>
+          <div class="sen-list">
+
+          </div>
+        </div>
+      </div>
+
+      <div class="discuss">
+        <div class="discuss-header">THẢO LUẬN</div>
+        <div class="input-field comment level-1">
+          <textarea rows="4" placeholder="Viết bình luận của bạn"></textarea>
+          <button>Gửi</button>
+        </div>
+
+        <div class="discuss-content">
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="choosewordmodel" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+      <div class="modal-content">
+        <div class="modal-header" style="align-items: flex-start;">
+          <div class="choose-study-word-content-header">
+            <h3>Chọn từ bạn muốn học</h3>
+            <div class="choose-study-word-content-header-btn">
+              <div class="choose-study-word-btn all-word">Học tất cả
+              </div>
+              <div class="choose-study-word-btn unknown-word">Học từ chưa thuộc
+              </div>
+            </div>
+          </div>
+          <!-- <h5 class="modal-title" id="exampleModalLabel">Modal title</h5> -->
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="choose-study-word">
+            <div class="choose-study-word-content">
+
+              <form action=""></form>
+              <div class="choose-study-word-content-body">
+                <div class="row row-cols-lg-5">
+
+                </div>
+              </div>
+
+
+              </form>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <div class="choose-study-word-content-footer">
+            <button type="submit" class="choose-word-btn">
+              Bắt đầu học
+            </button>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+
+
+
+<th:block id="js">
+
+  <script th:inline="javascript">
+    let topicCourse=[[${topicCourse}]];
+    // console.log(topicCourse);
+
+    let topicId = topicCourse.id;
+
+
+    let testResults=[[${testResults}]];
+    // console.log(testResults);
+
+    let userRank=[[${userRank}]];
+    // console.log(userRank);
+
+    let userTopicRecords=[[${userTopicRecords}]];
+    // console.log(userTopicRecords);
+
+    let state=[[${state}]];
+    // console.log(state);
+
+    let topRanks=[[${topRanks}]];
+    console.log(topRanks);
+
+
+
+
+
+  </script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"
+          integrity="sha512-QSkVNOCYLtj73J4hbmVoOV6KVZuMluZlioC+trLpewV8qMjsWqlIQvkn1KGX2StWvPMdWGBqim1xlC8krl1EKQ=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script th:src="@{/asset/js/choose_word.js}"></script>
+  <script th:src="@{/asset/js/test_result.js}"></script>
+
+  <script th:inline="javascript">
+    function reLearningVocabs(){
+      if(keyAPI==="vocabs"){
+        $(".btn-learning").on("click", initChooseWord);
+      }
+    }
+    reLearningVocabs();
+
+
+  </script>
+
+
+
+</th:block>
+</body>
+</html>

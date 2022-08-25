@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en" th:replace="~{layout/layout :: main-fragment(~{:: title}, ~{:: #css}, ~{:: .container}, ~{:: #js})}"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security" xmlns:th="https://www.thymeleaf.org">
+<head>
+
+    <title>VOCABULARY - Hệ thống học tiếng anh thông minh</title>
+    <th:block id="css">
+        <link rel="stylesheet" th:href="@{/asset/css/home.css}"/>
+
+    </th:block>
+
+</head>
+<body>
+
+<div class="container">
+    <div class="grid-wide">
+        <div class="container__selection">
+            <div class="container__section-header">Kỹ năng</div>
+            <div class="container__selection-wrapper">
+                <ul class="container__selection__list">
+                    <li class="container__selection__item" th:attr="id-category=${category.id}"
+                        th:each="category:${categories}">
+                        <label>
+                            <a th:href="@{/(category=${category.id})} ">
+
+                                <input id-category="1" name="container__selection__item"
+                                       th:checked="${category.id==cateId}"
+                                       type="radio">
+                                <img alt="" th:src="${category.img}">
+                            </a>
+                        </label>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="container__cur-course">
+            <div class="container__section-header"></div>
+            <div class="container__cur-course-wrapper">
+                <ul class="container__cur-course-list">
+
+                </ul>
+            </div>
+        </div>
+
+
+
+
+
+        <div class="container__courses">
+            <div class="container__section-header-content d-flex flex-lg-row flex-md-row flex-column">
+                <h2>Hệ thống khóa học</h2>
+                <div class="course-filter d-flex flex-lg-row flex-md-row flex-column align-items-center">
+                    <div class="filter-search">
+                        <input placeholder="TÌM KIẾM" type="text"/>
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                    </div>
+                    <div class="d-flex align-items-center  mt-md-0 mt-3">
+                        <div class="filter-group dropdown">
+                            <div
+                                    aria-expanded="false"
+                                    class="dropdown-toggle filter-group-btn"
+                                    data-bs-toggle="dropdown"
+                                    id="dropdownMenuButton1"
+                            >
+                                NHÓM
+                            </div>
+                            <ul
+                                    aria-labelledby="dropdownMenuButton1"
+                                    class="dropdown-menu dropdown-menu-end"
+                            >
+                                <li class="dropdown-item" id-group="0">
+                                    Tất cả
+                                    khóa học
+
+                                </li>
+                                <li class="dropdown-item" th:attr="id-group=${group.id}"
+                                    th:each="group:${groupsWithCourses}" th:text="${group.title}">
+                                    Tất cả khóa học
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="filter-level dropdown">
+                            <div
+                                    aria-expanded="false"
+                                    class="dropdown-toggle filter-group-btn"
+                                    data-bs-toggle="dropdown"
+                                    id="dropdownMenuButton2"
+                            >
+                                CẤP ĐỘ
+                            </div>
+                            <ul
+                                    aria-labelledby="dropdownMenuButton2"
+                                    class="dropdown-menu dropdown-menu-end"
+                            >
+                                <li class="dropdown-item" th:attr="id-level=${level.id}" th:each="level:${levels}">
+                                    <img
+                                            alt=""
+                                            th:src="${level.img}"
+                                    />
+                                    <span th:text="|${level.description} (${level.title})|">Khóa A0</span>
+                                </li>
+
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="container__courses-content">
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<th:block id="js">
+
+    <script th:inline="javascript">
+        let originalGroupsCourses = [[${groupsWithCourses}]];
+        // console.log(originalGroupsCourses);
+
+        let user = [[${user}]];
+        // console.log(user);
+
+        let userCourses = [[${userCourses}]];
+        // console.log(userCourses);
+
+    </script>
+    <script th:src="@{/asset/js/index.js}"></script>
+
+</th:block>
+</body>
+</html>

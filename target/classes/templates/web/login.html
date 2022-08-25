@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en" th:replace="~{layout/layout :: main-fragment(~{:: title}, ~{:: #css}, ~{:: .app}, ~{:: #js})}"
+      xmlns:th="https://www.thymeleaf.org">
+<head>
+
+    <title th:text="|LOGIN - ĐĂNG NHẬP|">Trang chủ</title>
+    <th:block id="css">
+        <link rel="stylesheet" th:href="@{/asset/css/login.css}"/>
+
+
+    </th:block>
+
+</head>
+<body>
+
+<div class="app" style="margin-top: 70px">
+
+
+    <div class="content">
+        <div class="authen-content">
+            <div class="login-form">
+                <h1 class="form-header">Đăng nhập</h1>
+                <h2 class="description">
+                    VOCABULARY cam kết cùng bạn học xoá bỏ rào cản Anh ngữ!
+                </h2>
+
+                <div class="email-group">
+                    <input
+                            class="ui-input"
+                            name="email"
+                            placeholder="Email"
+                            required=""
+                            type="email"
+                    />
+                </div>
+                <div class="password-group">
+                    <input
+                            class="ui-input"
+                            name="pass"
+                            placeholder="Mật khẩu"
+                            required=""
+                            type="password"
+                    />
+                </div>
+                <div class="error" style=" display:none;color: red;font-size: 1.5rem;line-height: 40px">* Email hoặc mật
+                    khẩu không chính xác
+                </div>
+                <div class="d-flex justify-content-center spinner-signin" >
+                    <div class="spinner-border" role="status" style="display: none">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                </div>
+                <button class="authen-btn login">Đăng nhập</button>
+
+
+                <div
+                        class="forgot-password"
+                        data-bs-target="#modalForgetPw"
+                        data-bs-toggle="modal"
+                >
+                    QUÊN MẬT KHẨU?
+                </div>
+                <div class="other-login">
+                    <div class="or-group">
+                        <div class="or-line"></div>
+                        <div class="or-text">Hoặc</div>
+                        <div class="or-line"></div>
+                    </div>
+
+<!--                    <div class="other-button">-->
+<!--                        <a-->
+<!--                                class="authen-btn google"-->
+<!--                                href="javascript:void(0)"-->
+<!--                                onclick="googleLogin('0','');"-->
+<!--                        >-->
+<!--                            <i></i>-->
+<!--                            <span>ĐĂNG NHẬP VỚI GOOGLE</span>-->
+<!--                        </a>-->
+<!--                    </div>-->
+                </div>
+                <div class="have-no-account">
+                    <span>Bạn chưa có tài khoản?</span>
+                    <span class="switch">Đăng ký</span>
+                    <p></p>
+                </div>
+            </div>
+            <div class="signup-form" style="display: none">
+                <h1 class="form-header">Đăng ký</h1>
+                <h2 class="description">
+                    VOCABULARY cam kết cùng bạn học xoá bỏ rào cản Anh ngữ!
+                </h2>
+
+                <div class="name-group">
+                    <input
+                            class="ui-input"
+                            placeholder="Họ và tên"
+                            required=""
+                            type="text"
+                    />
+                </div>
+                <div class="email-group">
+                    <input
+                            class="ui-input"
+                            placeholder="Email"
+                            required=""
+                            type="email"
+                    />
+                </div>
+                <div class="password-group">
+                    <input
+                            class="ui-input"
+                            placeholder="Mật khẩu"
+                            required=""
+                            type="password"
+                    />
+                </div>
+                <div class="d-flex justify-content-center spinner-signup" >
+                    <div class="spinner-border" role="status" style="display: none">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                </div>
+                <div class="error" style=" display:none;color: red;font-size: 1.5rem;line-height: 40px"></div>
+                <div class="signup-success" style=" display:none;color: rgb(28, 176, 246);font-size: 1.5rem;line-height: 40px"></div>
+                <button class="authen-btn signup">Đăng ký thành viên</button>
+
+
+                <div class="other-login">
+                    <div class="or-group">
+                        <div class="or-line"></div>
+                        <div class="or-text">Hoặc</div>
+                        <div class="or-line"></div>
+                    </div>
+
+<!--                    <div class="other-button">-->
+<!--                        <a-->
+<!--                                class="authen-btn google"-->
+<!--                                href="javascript:void(0)"-->
+<!--                                onclick="googleLogin('0','');"-->
+<!--                        >-->
+<!--                            <i></i>-->
+<!--                            <span>ĐĂNG NHẬP VỚI GOOGLE</span>-->
+<!--                        </a>-->
+<!--                    </div>-->
+                </div>
+                <div class="have-no-account">
+                    <span>Bạn đã có tài khoản?</span>
+                    <span class="switch">Đăng nhập</span>
+                    <p>
+                        Khi bạn đăng ký trên VOCABULARY bạn đã đồng ý với các Điều khoản và
+                        chính sách riêng tư của chúng tôi.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div
+            aria-hidden="true"
+            aria-labelledby="exampleModalLabel"
+            class="modal fade"
+            id="modalForgetPw"
+            tabindex="-1"
+    >
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title flex-grow-1 text-center" id="exampleModalLabel">Quên mật khẩu</h1>
+                    <button
+                            aria-label="Close"
+                            class="btn-close"
+                            data-bs-dismiss="modal"
+                            type="button"
+                    ></button>
+                </div>
+                <div class="modal-body">
+                    <div class="password-form text-center">
+                        <h4 class="description">
+                            Mật khẩu mới sẽ được gửi đến email của bạn
+                        </h4>
+
+                        <input
+                                name="_token"
+                                type="hidden"
+                                value="OLCgkpKtSGTVOABm0INwfHSrwuiosppPgGdPaRtV"
+                        />
+                        <input
+                                class="ui-input email-reset"
+                                name="email"
+                                placeholder="Email"
+                                required=""
+                                type="email"
+                                value=""
+                        />
+                        <div class="reset-success" style=" display:none;color: rgb(28, 176, 246);font-size: 1.5rem;line-height: 40px">Đã gửi mail!</div>
+                        <div class="d-flex justify-content-center " >
+                            <div class="spinner-border spinner-reset" role="status" style="display: none">
+                                <span class="visually-hidden">Loading...</span>
+                            </div>
+                        </div>
+                        <button class="submit authen-btn submit-reset" >Gửi</button>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+
+<th:block id="js">
+
+    <script th:inline="javascript">
+
+
+
+
+    </script>
+
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <script th:src="@{/asset/js/login.js}"></script>
+
+
+</th:block>
+</body>
+</html>

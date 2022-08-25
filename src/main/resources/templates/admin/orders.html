@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en" th:replace="~{layout/layout-admin :: main-fragment(~{:: title}, ~{:: #css}, ~{:: .content-wrapper}, ~{:: #js})}"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security" xmlns:th="https://www.thymeleaf.org">
+<head>
+
+  <title th:text="|ORDERS - DANH SÁCH ĐƠN HÀNG|">Trang chủ</title>
+  <th:block id="css">
+
+<!--    <link rel="stylesheet" th:href="@{/asset/css/home.css}"/>-->
+
+  </th:block>
+
+</head>
+<body>
+
+<div class="content-wrapper">
+  <!-- Content header -->
+  <div class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-12">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item active">Danh sách đơn hàng</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main content -->
+  <section class="content">
+    <div class="container-fluid">
+      <div class="row py-2">
+        <div class="col-12">
+          <div class="btn-group" role="group" >
+            <a href="" type="button" class="btn me-2 btn-status " style="border-radius:0;min-width:150px" status-value="PENDING">
+              Chờ xác nhận </a>
+            <a href="" type="button" class="btn  me-2 btn-status" style="border-radius:0;min-width:150px" status-value="ACTIVATED">
+              Đã kích hoạt </a>
+            <a href="" type="button" class="btn  me-2 btn-status" style="border-radius:0;min-width:150px" status-value="EXPIRED">
+              Hết hạn </a>
+          </div>
+        </div>
+      </div>
+      <div class="row py-2">
+        <div class="col-6">
+          <div class="input-group mb-3">
+            <input
+                    type="text"
+                    class="form-control search-user"
+                    placeholder="Nhập thông tin ..."
+                    aria-describedby="button-addon2"
+            />
+            <button
+                    class="btn btn-outline-secondary"
+                    type="button"
+                    id="button-search"
+            >
+              Tìm kiếm
+            </button>
+            <button
+                    class="btn btn-outline-secondary"
+                    type="button"
+                    id="button-clear"
+            >
+              Clear
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-body">
+              <div class="table-responsive">
+                <table class="table table-bordered table-hover">
+                  <thead>
+                  <tr>
+                    <th class="align-top">Mã đơn hàng</th>
+                    <th class="align-top">Ngày đặt hàng</th>
+                    <th class="align-top">Họ tên</th>
+                    <th class="align-top">Email</th>
+                    <th class="align-top">Sản phẩm</th>
+                    <th class="align-top">Hành động</th>
+                    <th class="align-top">Ngày kích hoạt</th>
+                  </tr>
+                  </thead>
+                  <tbody class="table-orders-content">
+                  </tbody>
+                </table>
+              </div>
+
+              <div
+                      class="d-flex justify-content-center mt-3"
+                      id="pagination"
+              >
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+
+<th:block id="js">
+
+  <script th:inline="javascript">
+    let pageInfo = [[${pageInfo}]];
+    console.log(pageInfo);
+
+    let keyword = [[${keyword}]];
+    console.log(keyword);
+    $(".search-user").val(keyword);
+
+    let status = [[${status}]];
+    console.log(status);
+
+
+
+
+
+
+    function addActiveToNavLink(innerText){
+      const $navLinkEl=$(".nav-link");
+      $navLinkEl.each((index,el)=>{
+        const $title=$(el).find("p");
+        if ($title.text().trim().toLowerCase()===innerText.toLowerCase()){
+          $(el).addClass("active");
+        }
+      })
+    }
+    addActiveToNavLink("Quản lý user");
+    addActiveToNavLink("Danh sách đơn hàng");
+
+  </script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script th:src="@{/asset/js/admin-orders.js}"></script>
+
+</th:block>
+</body>
+</html>

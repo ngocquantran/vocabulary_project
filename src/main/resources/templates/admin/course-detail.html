@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en" th:replace="~{layout/layout-admin :: main-fragment(~{:: title}, ~{:: #css}, ~{:: .content-wrapper}, ~{:: #js})}"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security" xmlns:th="https://www.thymeleaf.org">
+<head>
+
+  <title th:text="|COURSE DETAIL - ${course.title}|">Trang chủ</title>
+  <th:block id="css">
+    <link
+            rel="stylesheet"
+            th:href="@{/vendor/lightslider-master/dist/css/lightslider.css}"
+    />
+        <link rel="stylesheet" th:href="@{/asset/css/admin-course-detail.css}"/>
+
+  </th:block>
+
+</head>
+<body>
+
+<div class="content-wrapper">
+  <!-- Content header -->
+  <div class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-12">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+              <a href="/admin/courses">Danh sách khóa học</a>
+            </li>
+            <li class="breadcrumb-item active" th:text="${course.title}">Let's go</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main content -->
+  <section class="content">
+    <div class="container-fluid">
+      <div class="row py-2">
+        <div class="col-12">
+          <a th:href="@{/admin/course-edit(id=${course.id})}" type="button" class="btn btn-primary">
+            <i class="fas fa-plus"></i> Chỉnh sửa
+          </a>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-body">
+              <div class="course">
+                <h1 class="course__header" th:text="${course.title}">let's go</h1>
+                <div class="course__level-tag level-tag">
+                  <span class="a0">A0</span>
+                  <span class="a1">A1</span>
+                  <span class="a2">A2</span>
+                  <span class="b1">B1</span>
+                  <span class="b2">B2</span>
+                  <span class="c1">C1</span>
+                  <span class="c2">C2</span>
+                </div>
+
+                <div class="course__info">
+                  <ul class="course__info-list lightSlider">
+
+                    <li class="course__info-item goal">
+                      <h5>Mục tiêu đầu ra</h5>
+                      <div class="course__info-item-content"></div>
+                    </li>
+                    <li class="course__info-item content">
+                      <h5>Nội dung khóa học</h5>
+                      <div class="course__info-item-content"></div>
+                    </li>
+                    <li class="course__info-item student">
+                      <h5>Đối tượng phù hợp</h5>
+                      <div class="course__info-item-content"></div>
+                    </li>
+                  </ul>
+                  <div class="course__info-next-btn">
+                    <i class="fa-solid fa-angle-right"></i>
+                  </div>
+                </div>
+
+                <div class="course-content">
+                  <h3 class="course-content-header">
+                    Bài học <span th:text="${course.numberOfTopics}">7</span>
+                  </h3>
+                  <div class="course-content-list">
+                    <div class="row" style="width: 100%">
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+
+<th:block id="js">
+
+  <script th:inline="javascript">
+
+    let course = [[${course}]];
+    console.log(course);
+
+    let topics = [[${topics}]];
+    console.log(topics);
+
+
+
+
+    function addActiveToNavLink(innerText){
+      const $navLinkEl=$(".nav-link");
+      $navLinkEl.each((index,el)=>{
+        const $title=$(el).find("p");
+        if ($title.text().trim().toLowerCase()===innerText.toLowerCase()){
+          $(el).addClass("active");
+        }
+      })
+    }
+    addActiveToNavLink("Quản lý nội dung");
+    addActiveToNavLink("Khóa học");
+
+  </script>
+
+  <script th:src="@{/asset/js/admin-course-detail.js}"></script>
+  <script th:src="@{/vendor/lightslider-master/dist/js/lightslider.min.js}"></script>
+
+</th:block>
+</body>
+</html>

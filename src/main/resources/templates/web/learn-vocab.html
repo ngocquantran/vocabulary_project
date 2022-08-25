@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en" th:replace="~{layout/layout-learn :: main-fragment(~{:: title}, ~{:: #css}, ~{:: .app}, ~{:: #js})}"
+      xmlns:th="https://www.thymeleaf.org">
+<head>
+
+  <title th:text="|LEARN - ${topicCourse.title}|">Trang chủ</title>
+  <th:block id="css">
+    <link rel="stylesheet" th:href="@{/asset/css/learn.css}"/>
+
+  </th:block>
+
+</head>
+<body>
+
+<div class="app">
+  <div class="header">
+    <div class="header-menu">
+      <div class="header-menu-item menu-item-back">
+        <a href="">
+          <i class="fa-solid fa-xmark"></i>
+          <span>PLACE AROUND TOWN</span>
+        </a>
+      </div>
+      <div class="header-menu-item menu-item-type">
+        <a href="">HỌC</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="learning-content">
+      <div class="learning-word-body">
+        <div class="learning-word-progress">
+          <div class="learning-word-progress-title">
+            <strong></strong>/<span></span>
+          </div>
+          <div class="learning-word-progress-range">
+            <span></span>
+          </div>
+        </div>
+
+        <div class="learning-word-content"></div>
+
+        <template class="vocab-template">
+          <div class="learning-word-layer layer" words="establish">
+            <div class="learning-word-viewport">
+              <div class="learning-word-viewport-container" rotate-data="0">
+                <div class="learning-word-viewport-slide slide1 on">
+                  <div class="card-img">
+                    <img src="asset/img/word_thumb/establish.jpg" alt="" />
+                  </div>
+                  <div class="card-content">
+                    <p class="card-content-title">Definition:</p>
+                    <p class="card-content-text">
+                      <span class="card-content-type">(v)</span> to start an
+                      organization or company
+                    </p>
+                  </div>
+                  <div class="card-turn">
+                        <span class="turn-icon">
+                          <span>1</span>
+                          <i class="fa-solid fa-rotate"></i>
+                        </span>
+                  </div>
+                </div>
+
+                <div class="learning-word-viewport-slide slide2">
+                  <div class="card-img">
+                    <img src="asset/img/word_thumb/establish.jpg" alt="" />
+                  </div>
+
+                  <div class="card-content">
+                    <p class="card-content-text-main">
+                      establish <span class="card-content-type">(n)</span>
+                    </p>
+
+                    <p class="card-content-phonetic">
+                          <span class="play-sound">
+                            <i class="fa-solid fa-volume-high"></i>
+                            <audio
+                                    src="asset/mp3/word_pronunciation/establish.mp3"
+                            ></audio>
+                          </span>
+                      <span>/ɪˈstæblɪʃ/</span>
+                    </p>
+
+                    <div class="text-definition-vi">Thành lập</div>
+                  </div>
+
+                  <div class="card-turn">
+                        <span class="turn-icon">
+                          <span>2</span>
+                          <i class="fa-solid fa-rotate"></i>
+                        </span>
+                  </div>
+                </div>
+
+                <div class="learning-word-viewport-slide slide3">
+                  <div class="card-img">
+                    <img src="asset/img/word_thumb/establish.jpg" alt="" />
+                  </div>
+
+                  <div class="card-content">
+                    <div class="example-group">
+                      <p class="card-content-example">
+                            <span class="play-sound">
+                              <i class="fa-solid fa-volume-high"></i>
+                              <audio
+                                      src="asset/mp3/word_sentence/establish.mp3"
+                              ></audio>
+                            </span>
+                        <span class="example-en">
+                              <span></span>
+                              <span></span>
+                              <span></span>
+                            </span>
+                      </p>
+                      <p class="example-vi">
+                        Công ty của tôi thành lập vào tháng 10 năm 2014.
+                      </p>
+                    </div>
+                  </div>
+
+                  <div class="card-turn">
+                        <span class="turn-icon">
+                          <span>3</span>
+                          <i class="fa-solid fa-rotate"></i>
+                        </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="learning-word-fill">
+              <input
+                      type="text"
+                      class="form-control learning-fill-word"
+                      placeholder="Gõ từ vựng đoán được vào đây"
+              />
+              <button class="">Kiểm tra</button>
+            </div>
+            <div class="dimmer"></div>
+          </div>
+        </template>
+
+        <div class="learning-word-bottom">
+          <div class="learning-word-bottom-cover">
+            <div class="learning-word-bottom-btn btn-back">QUAY LẠI</div>
+            <div class="learning-word-bottom-btn btn-next">TIẾP TỤC</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- <div class="filter-word-bottom">
+        <p class="filter-word-bottom-heading">
+          Bạn biết từ vựng này hay không?
+        </p>
+        <div class="filter-word-bottom-option">
+          <div class="filter-word-bottom-btn btn-no">Không biết</div>
+          <div class="filter-word-bottom-btn btn-yes">Biết</div>
+        </div>
+      </div> -->
+    </div>
+  </div>
+
+  <audio
+          th:src="@{/asset/mp3/common/answer_right.mp3}"
+          class="sound-answer-right"
+  ></audio>
+  <audio
+          th:src="@{/asset/mp3/common/answer_wrong.mp3}"
+          class="sound-answer-wrong"
+  ></audio>
+
+  <div class="modal hidden">
+    <div class="modal-body">
+      <div class="trial-alert hidden">
+        <div class="trial-alert-content">
+          <div class="trial-left">
+            <img th:src="@{/asset/img/common/trial-expired.svg}" alt="" />
+          </div>
+
+          <div class="trial-middle">
+            <div class="trial-middle-title">Bài học hiện tạm khoá</div>
+            <div class="trial-middle-content">
+              Đây là khoá học có tính phí. Hãy nâng cấp lên Premium để học
+              tiếp bạn nhé!
+            </div>
+          </div>
+
+          <div class="trial-right">
+            <a href="" class="btn-trial-remain">KHÔNG CẢM ƠN</a>
+            <a href="" class="btn-trial-upgrade">NÂNG CẤP PREMIUM</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<th:block id="js">
+
+  <script th:inline="javascript">
+    let topicCourse=[[${topicCourse}]];
+    // console.log(topicCourse);
+
+    let studiedVocabs=[[${vocabs}]];
+    // console.log(studiedVocabs);
+
+
+
+  </script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script th:src="@{/asset/js/learn.js}"></script>
+
+</th:block>
+</body>
+</html>

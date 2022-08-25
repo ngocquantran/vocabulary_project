@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en" th:replace="~{layout/layout-admin :: main-fragment(~{:: title}, ~{:: #css}, ~{:: .content-wrapper}, ~{:: #js})}"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security" xmlns:th="https://www.thymeleaf.org">
+<head>
+
+  <title th:text="|USER DETAIL - ${user.fullName}|">Trang chủ</title>
+  <th:block id="css">
+        <link rel="stylesheet" th:href="@{/asset/css/admin-user-detail.css}"/>
+
+  </th:block>
+
+</head>
+<body>
+
+<div class="content-wrapper">
+  <!-- Content header -->
+  <div class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-12">
+          <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+              <a href="/admin/users">Danh sách user</a>
+            </li>
+            <li class="breadcrumb-item active">quan@gmail.com</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Main content -->
+  <section class="content">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-body">
+              <div class="person-info">
+                <div class="person-info-content">
+
+                </div>
+              </div>
+
+              <h3 class="section-header">Học tập</h3>
+              <div class="table-responsive">
+                <table class="table table-bordered table-hover">
+                  <thead class="text-center">
+                  <tr>
+                    <th class="align-top">#</th>
+                    <th class="align-top">Khóa học</th>
+                    <th class="align-top">Phân loại</th>
+                    <th class="align-top">Tiến độ</th>
+                  </tr>
+                  </thead>
+                  <tbody class="table-study-content">
+
+                  </tbody>
+                </table>
+              </div>
+
+              <h3 class="section-header">Sản phẩm</h3>
+
+              <div class="table-responsive">
+                <table class="table table-bordered table-hover">
+                  <thead class="text-center">
+                  <tr>
+                    <th class="align-top">Sản phẩm</th>
+                    <th class="align-top">Thời gian học</th>
+                    <th class="align-top">Ngày mua</th>
+                    <th class="align-top">Ngày kích hoạt</th>
+                    <th class="align-top">Ngày hết hạn</th>
+
+                  </tr>
+                  </thead>
+                  <tbody class="table-package-content">
+
+
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+
+<th:block id="js">
+
+  <script th:inline="javascript">
+    let user = [[${user}]];
+    console.log(user);
+
+    let userCourses = [[${userCourses}]];
+    console.log(userCourses);
+
+
+    let activeOrders = [[${activeOrders}]];
+    console.log(activeOrders);
+
+
+
+    function addActiveToNavLink(innerText){
+      const $navLinkEl=$(".nav-link");
+      $navLinkEl.each((index,el)=>{
+        const $title=$(el).find("p");
+        if ($title.text().trim().toLowerCase()===innerText.toLowerCase()){
+          $(el).addClass("active");
+        }
+      })
+    }
+    addActiveToNavLink("Quản lý user");
+    addActiveToNavLink("Danh sách user");
+
+  </script>
+  <script th:src="@{/asset/js/admin-user-detail.js}"></script>
+
+</th:block>
+</body>
+</html>

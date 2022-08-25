@@ -1,0 +1,147 @@
+.authen-content {
+  max-width: 403px;
+  margin: auto;
+  padding: 60px 15px;
+}
+
+.form-header {
+  font-size: 2.3rem;
+  text-align: center;
+  font-weight: 700;
+  margin: auto;
+}
+.description {
+  font-size: 1.5rem;
+  text-align: center;
+  color: #777777;
+  line-height: 1.4;
+  margin: 20px auto 30px;
+  max-width: 290px;
+}
+
+.authen-content input,
+#modalForgetPw input {
+  display: block;
+  width: 100%;
+  height: 48px;
+  border-radius: 10px;
+  border: 1px solid #e5e5e5;
+  font-size: 15px;
+  font-weight: 400;
+  padding-left: 15px;
+  background: #f7f7f7;
+  margin-bottom: 10px;
+  color: var(--color-text);
+  outline: none;
+}
+
+.authen-btn {
+  width: 100%;
+  max-width: 100%;
+  text-transform: uppercase;
+  margin-top: 10px;
+  height: 48px;
+  line-height: 48px;
+  border: 0;
+  border-radius: 10px;
+  text-align: center;
+  cursor: pointer;
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.authen-btn.login,
+.authen-btn.signup,
+#modalForgetPw .submit {
+  background: #00a3f8;
+  color: var(--color-white);
+  border-color: #0088ac;
+
+  border-bottom: 3px solid #0088ac;
+}
+
+.forgot-password {
+  font-size: 13px;
+  font-weight: 500;
+  color: #00a3f8;
+  display: block;
+  text-align: center;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+.other-login .or-group {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.other-login .or-line {
+  background: #e5e5e5;
+  flex-grow: 1;
+  height: 2px;
+}
+.other-login .or-text {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: var(--color-text-light);
+  flex-grow: 0;
+  padding: 0 8px;
+  font-weight: 500;
+}
+
+.authen-btn.google {
+  display: block;
+  color: #777777;
+  border: 1px solid var(--color-border-gray-light);
+  border-bottom: 3px solid var(--color-border-gray-light);
+}
+.have-no-account {
+  margin-top: 22px;
+  font-size: 15px;
+  color: #4c4c4c;
+  text-align: center;
+}
+.switch {
+  text-transform: uppercase;
+  color: var(--color-blue);
+  font-size: 1.4rem;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.have-no-account > p {
+  font-size: 13px;
+  color: #afafaf;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.google i {
+  width: 19.826px;
+  height: 20.402px;
+  background: url(https://raw.githubusercontent.com/ngocquantran/image/main/voca-bg.svg) 0px -160px;
+  margin-right: 10px;
+  flex: 0 0 auto;
+  display: inline-block;
+}
+
+#modalForgetPw .description {
+  color: var(--color-text);
+  font-size: 15px;
+  margin-bottom: 30px;
+}
+
+#modalForgetPw .password-form {
+  width: 400px;
+  margin: auto;
+  padding-bottom: 50px;
+}
+
+
+#modalForgetPw .submit {
+  width: 80px;
+}

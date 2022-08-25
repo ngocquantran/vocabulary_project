@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en" th:replace="~{layout/layout-learn :: main-fragment(~{:: title}, ~{:: #css}, ~{:: .app}, ~{:: #js})}"
+      xmlns:th="https://www.thymeleaf.org">
+<head>
+
+    <title th:text="|FILTER RESULT - ${topicCourse.title}|">Trang chủ</title>
+    <th:block id="css">
+        <link rel="stylesheet" th:href="@{/asset/css/filter.css}"/>
+
+
+    </th:block>
+
+</head>
+<body>
+
+<div class="app">
+    <div class="header">
+        <div class="header-menu">
+            <div class="header-menu-item menu-item-back">
+                <a href="">
+                    <i class="fa-solid fa-xmark"></i>
+                    <span>PLACE AROUND TOWN</span>
+                </a>
+            </div>
+            <div class="header-menu-item menu-item-type">
+                <a href="">Sàng lọc</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="filter-result">
+            <div class="filter-result-content">
+                <div class="filter-result-left">
+                    <div class="filter-result-left-img">
+                        <img alt="" src="asset/img/common/filter-result.png"/>
+                    </div>
+                    <div class="filter-result-left-content">
+                        <h3>
+                            Bạn vừa hoàn thành bước
+                            <strong>Sàng lọc</strong>
+                        </h3>
+                        <h4>Bây giờ hãy chuyển sang bước học từ vựng thôi nào</h4>
+                    </div>
+                </div>
+
+                <div class="filter-result-right">
+                    <div class="filter-result-right-content">
+                        <h2>Kết quả sàng lọc</h2>
+                        <div class="filter-result-right-circle">
+                            <canvas id="filter-result-right-circle-chart" style="width: 160px; height: 160px;"></canvas>
+
+                        </div>
+                        <div class="filter-result-right-text">
+                            <div class="filter-result-right-know">
+                                <span>12</span> đã biết
+                            </div>
+                            <div class="filter-result-right-un-know">
+                                <span>8</span> chưa biết
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="button-ready-group">
+                <div class="button-ready-content">
+                    <div class="ui-button-long button-start-study" data-bs-target="#choosewordmodel"
+                         data-bs-toggle="modal">Bắt
+                        đầu học
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div aria-hidden="true" aria-labelledby="exampleModalLabel" class="modal fade" id="choosewordmodel" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg">
+            <div class="modal-content">
+                <div class="modal-header" style="align-items: flex-start;">
+                    <div class="choose-study-word-content-header">
+                        <h3>Chọn từ bạn muốn học</h3>
+                        <div class="choose-study-word-content-header-btn">
+                            <div class="choose-study-word-btn all-word">Học tất cả
+                            </div>
+                            <div class="choose-study-word-btn unknown-word">Học từ chưa biết
+                            </div>
+                        </div>
+                    </div>
+                    <!-- <h5 class="modal-title" id="exampleModalLabel">Modal title</h5> -->
+                    <button aria-label="Close" class="btn-close" data-bs-dismiss="modal" type="button"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="choose-study-word">
+                        <div class="choose-study-word-content">
+
+                            <form action=""></form>
+                            <div class="choose-study-word-content-body">
+                                <div class="row">
+                                    <div class="col col-lg-6">
+                                        <div class="choose-study-word-item">
+                                            <img alt="" src="/asset/img/word_thumb/abide-by.jpg">
+                                            <label>
+                                                <p class="choose-study-word-item-text">abide by
+                                                    <span>(phrasal verb)</span></p>
+                                                <input id="" name="" type="checkbox" value="abide-by">
+                                                <span class="custom-checkbox">
+                            <span class="icon-all"></span>
+                          </span>
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="col col-lg-6">
+                                        <div class="choose-study-word-item  item-unknown">
+                                            <img alt="" src="/asset/img/word_thumb/abide-by.jpg">
+                                            <label>
+                                                <p class="choose-study-word-item-text">abide by
+                                                    <span>(phrasal verb)</span></p>
+                                                <input id="" name="" type="checkbox" value="abide-by">
+                                                <span class="custom-checkbox">
+                            <span class="icon-all"></span>
+                          </span>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <div class="choose-study-word-content-footer">
+                        <button class="choose-word-btn" type="submit">
+                            Bắt đầu học
+                        </button>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<th:block id="js">
+
+    <script th:inline="javascript">
+
+        let topicCourse = [[${topicCourse}]];
+        // console.log(topicCourse);
+
+        let vocabsToChoose = [[${vocabsToChoose}]];
+        // console.log(vocabsToChoose);
+
+
+    </script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script crossorigin="anonymous"
+            integrity="sha512-QSkVNOCYLtj73J4hbmVoOV6KVZuMluZlioC+trLpewV8qMjsWqlIQvkn1KGX2StWvPMdWGBqim1xlC8krl1EKQ=="
+            referrerpolicy="no-referrer" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"></script>
+    <script th:src="@{/asset/js/filter_result.js}"></script>
+
+</th:block>
+</body>
+</html>

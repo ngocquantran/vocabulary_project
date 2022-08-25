@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:sec="http://www.thymeleaf.org/extras/spring-security" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+
+    <title>Title</title>
+</head>
+<body>
+<!-- Header -->
+<header th:fragment="header">
+    <nav class="navbar fixed-top navbar-expand-lg bg-light" style="height: 70px;" >
+        <div class="container-lg container-md container-sm">
+            <a class="navbar-brand fw-bold fs-2" th:href="@{/}" style="color: white"><img style="height: 60px" alt="" src="/asset/img/common/logo2.png"/></a>
+
+            <div class="d-flex" >
+                <ul class="navbar me-auto mb-2 mb-lg-0 align-items-center">
+                    <th:block sec:authorize="not isAuthenticated()" >
+                        <div class="nav-item"><a class="nav-link ms-5 login-btn" th:href="@{/login-form}">ĐĂNG NHẬP</a></div>
+                    </th:block>
+
+                    <th:block sec:authorize="(isAuthenticated() && hasRole('USER_NORMAL'))">
+                        <div class="nav-item ms-2 d-none d-md-block">
+                            <a th:href="@{/premium}">
+                            <img alt="" src="/asset/img/home/header/menu-vip-button.svg"/>
+                        </a>
+                        </div>
+                    </th:block>
+                    <th:block sec:authorize="isAuthenticated()">
+                        <div class="nav-item nav-item-name ms-5 d-none d-md-block" th:text="${#authentication.principal.getFullName()}">ĐĂNG NHẬP
+                        </div>
+                    </th:block>
+                    <th:block sec:authorize="isAuthenticated()">
+                        <div class="nav-item nav-item-user dropdown ms-2">
+                            <div class="dropdown-toggle user-avatar" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><img
+                                    alt="" th:src="${#authentication.principal.getUser().getAvatar()}"/>
+                            </div>
+
+                            <ul class="dropdown-menu dropdown-menu-end">
+                                <li >
+                                    <a class="dropdown-item" th:href="@{/user/personal}"> Trang cá nhân </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" th:href="@{/user/profile}"> Cài đặt chung </a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" th:href="@{/user/license}"> Quản lý khóa học </a>
+                                </li>
+                                <li >
+                                    <a class="dropdown-item" th:href="@{/logout}"> Đăng xuất </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </th:block>
+
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+
+</body>
+</html>

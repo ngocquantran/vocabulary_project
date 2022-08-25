@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en"
+      th:replace="~{layout/layout-admin :: main-fragment(~{:: title}, ~{:: #css}, ~{:: .content-wrapper}, ~{:: #js})}"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security" xmlns:th="https://www.thymeleaf.org">
+<head>
+
+    <title th:text="|ADD VOCAB - THÊM TỪ VỰNG|">Trang chủ</title>
+    <th:block id="css">
+        <link rel="stylesheet" th:href="@{/asset/css/admin-vocab-add.css}"/>
+
+    </th:block>
+
+</head>
+<body>
+
+<div class="content-wrapper">
+    <!-- Content header -->
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-12">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item">
+                            <a href="/admin/vocabs">Danh sách từ vựng</a>
+                        </li>
+                        <li class="breadcrumb-item active">Thêm mới</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row py-2">
+                <div class="col-12">
+                    <button class="btn btn-primary save-vocab" type="button">Lưu</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="vocab-photo group-item">
+                                <div class="row">
+                                    <div class="col-lg-2 col-sm-12">
+                                        <div
+                                                class="d-flex align-items-center"
+                                                style="height: 100%"
+                                        >
+                                            Ảnh
+                                        </div>
+                                    </div>
+                                    <div class="col-10 d-flex">
+                                        <div class="photo" style="border: 1px solid black">
+                                            <img
+                                                    alt="Ảnh từ vựng"
+                                                    src=""
+                                            />
+                                        </div>
+
+                                        <div class="update-photo">
+                                            <label>
+                                                <span>CHỌN ẢNH</span>
+                                                <input
+                                                        accept="image/png, image/jpg"
+                                                        type="file"
+                                                />
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="word group-item">
+                                <div class="row">
+                                    <div class="col-lg-2 col-sm-12">Từ vựng:</div>
+                                    <div class="col-lg-8">
+                                        <textarea
+                                                aria-label="With textarea"
+                                                class="form-control"
+                                                placeholder="Word"
+                                        ></textarea>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="type group-item">
+                                <div class="row">
+                                    <div class="col-lg-2 col-sm-12">Thể loại:</div>
+                                    <div class="col-lg-8">
+                                        <select
+                                                aria-label="Default select example"
+                                                class="form-select"
+                                        >
+                                            <option value="(n)">(n)</option>
+                                            <option value="(v)">(v)</option>
+                                            <option value="(adj)">(adj)</option>
+                                            <option value="(adv)">(adv)</option>
+
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="phonetic group-item">
+                                <div class="row">
+                                    <div class="col-lg-2 col-sm-12">Phiên âm:</div>
+                                    <div class="col-lg-8">
+                                          <textarea
+                                                  aria-label="With textarea"
+                                                  class="form-control"
+                                                  placeholder="Phonetic"
+                                          ></textarea>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="en-meaning group-item">
+                                <div class="row">
+                                    <div class="col-lg-2 col-sm-12">Nghĩa tiếng Anh:</div>
+                                    <div class="col-lg-8">
+                                          <textarea
+                                                  aria-label="With textarea"
+                                                  class="form-control"
+                                                  placeholder="English definition"
+                                          ></textarea>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="vn-meaning group-item">
+                                <div class="row">
+                                    <div class="col-lg-2 col-sm-12">Nghĩa tiếng Việt:</div>
+                                    <div class="col-lg-8">
+                                          <textarea
+                                                  aria-label="With textarea"
+                                                  class="form-control"
+                                                  placeholder="Vietnamese definition"
+                                          ></textarea>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="en-sen group-item">
+                                <div class="row">
+                                    <div class="col-lg-2 col-sm-12"><p>Ví dụ tiếng anh:</p>
+                                        <p style="font-style: italic;color: grey">(Điền theo thứ tự, từ vựng điền ở
+                                            giữa)</p></div>
+                                    <div class="col-lg-8">
+                                        <div>
+                                            <div class="row">
+                                                <div class="col-4">
+                                                <textarea
+                                                        aria-label="With textarea"
+                                                        class="form-control"
+                                                        placeholder="Left part"
+                                                ></textarea>
+                                                </div>
+                                                <div class="col-4">
+                                                <textarea
+                                                        aria-label="With textarea"
+                                                        class="form-control"
+                                                        placeholder="Word"
+                                                ></textarea>
+                                                </div>
+                                                <div class="col-4">
+                                                <textarea
+                                                        aria-label="With textarea"
+                                                        class="form-control"
+                                                        placeholder="Right part"
+                                                ></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="vn-sen group-item">
+                                <div class="row">
+                                    <div class="col-lg-2 col-sm-12">Ví dụ tiếng việt:</div>
+                                    <div class="col-lg-8">
+                                         <textarea
+                                                 aria-label="With textarea"
+                                                 class="form-control"
+                                                 placeholder="Example"
+                                         ></textarea>
+
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="word-audio group-item">
+                                <div class="row">
+                                    <div class="col-lg-2 col-sm-12">Audio từ vựng:</div>
+                                    <div class="col-1 text-center">
+                          <span class="play-sound">
+                            <i class="fa-solid fa-volume-high"></i>
+                            <audio
+                                    src=""
+                            ></audio>
+                          </span>
+                                    </div>
+                                    <div class="col-lg-7">
+                                        <input accept="audio/mpeg" class="form-control word-audio-input" type="file"/>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="sen-audio group-item">
+                                <div class="row">
+                                    <div class="col-lg-2 col-sm-12">Audio ví dụ:</div>
+                                    <div class="col-1 text-center">
+                          <span class="play-sound">
+                            <i class="fa-solid fa-volume-high"></i>
+                            <audio
+                                    src=""
+                            ></audio>
+                          </span>
+                                    </div>
+                                    <div class="col-lg-7">
+                                        <input accept="audio/mpeg" class="form-control sen-audio-input" type="file"/>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+
+<th:block id="js">
+
+    <script th:inline="javascript">
+
+        let vocab = [[${vocab}]];
+        console.log(vocab);
+
+
+        function addActiveToNavLink(innerText) {
+            const $navLinkEl = $(".nav-link");
+            $navLinkEl.each((index, el) => {
+                const $title = $(el).find("p");
+                if ($title.text().trim().toLowerCase() === innerText.toLowerCase()) {
+                    $(el).addClass("active");
+                }
+            })
+        }
+
+        addActiveToNavLink("Quản lý nội dung");
+        addActiveToNavLink("Từ vựng");
+
+    </script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <script th:src="@{/asset/js/admin-vocab-add.js}"></script>
+
+
+</th:block>
+</body>
+</html>
