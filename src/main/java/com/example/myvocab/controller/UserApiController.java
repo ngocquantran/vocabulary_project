@@ -38,7 +38,6 @@ public class UserApiController {
     public void updatePassword(@RequestBody UpdatePasswordRequest request) {
         Users user = ((UserDetailsCustom) SecurityContextHolder.getContext().getAuthentication().getPrincipal()).getUser();
         userService.handleChangeUserPassword(user, request);
-
     }
 
     @PostMapping("/api/user/updateAvatar")

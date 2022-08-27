@@ -4,9 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
-import java.util.HashSet;
-import java.util.Objects;
-import java.util.Set;
+import java.util.*;
 
 @Getter
 @Setter
@@ -35,7 +33,7 @@ public class Vocab {
             CascadeType.MERGE
     })
     @JsonIgnore
-    private Set<Topic> topics=new HashSet<>();
+    private List<Topic> topics=new ArrayList<>();
 
 
 

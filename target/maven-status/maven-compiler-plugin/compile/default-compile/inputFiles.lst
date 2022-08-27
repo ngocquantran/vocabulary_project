@@ -1,123 +1,118 @@
-C:\Study\IT\Others\project\myvocab\src\main\java\com\example\myvocab\model\Package.java
-C:\Study\IT\Others\project\myvocab\src\main\java\com\example\myvocab\repo\SentenceRepo.java
-C:\Study\IT\Others\project\myvocab\src\main\java\com\example\myvocab\controller\client\LearningController.java
-C:\Study\IT\Others\project\myvocab\src\main\java\com\example\myvocab\exception\NotFoundException.java
-C:\Study\IT\Others\project\myvocab\src\main\java\com\example\myvocab\model\enummodel\UserState.java
-C:\Study\IT\Others\project\myvocab\src\main\java\com\example\myvocab\filter\SearchOperation.java
-C:\Study\IT\Others\project\myvocab\src\main\java\com\example\myvocab\mapper\VocabTestMapper.java
-C:\Study\IT\Others\project\myvocab\src\main\java\com\example\myvocab\dto\CommentDto.java
-C:\Study\IT\Others\project\myvocab\src\main\java\com\example\myvocab\model\TopicDiscuss.java
-C:\Study\IT\Others\project\myvocab\src\main\java\com\example\myvocab\request\VocabAddRequest.java
-C:\Study\IT\Others\project\myvocab\src\main\java\com\example\myvocab\model\enummodel\RoleUser.java
-C:\Study\IT\Others\project\myvocab\src\main\java\com\example\myvocab\repo\UserTopicVocabRepo.java
-C:\Study\IT\Others\project\myvocab\src\main\java\com\example\myvocab\model\enummodel\OrderStatus.java
-C:\Study\IT\Others\project\myvocab\src\main\java\com\example\myvocab\util\Validation.java
-C:\Study\IT\Others\project\myvocab\src\main\java\com\example\myvocab\dto\OrdersInfo.java
-C:\Study\IT\Others\project\myvocab\src\main\java\com\example\myvocab\model\Orders.java
-C:\Study\IT\Others\project\myvocab\src\main\java\com\example\myvocab\model\enummodel\LearningStage.java
-C:\Study\IT\Others\project\myvocab\src\main\java\com\example\myvocab\config\WebConfig.java
-C:\Study\IT\Others\project\myvocab\src\main\java\com\example\myvocab\model\UserTopicRecord.java
-C:\Study\IT\Others\project\myvocab\src\main\java\com\example\myvocab\model\enummodel\RoleUserConverter.java
-C:\Study\IT\Others\project\myvocab\src\main\java\com\example\myvocab\request\LoginRequest.java
-C:\Study\IT\Others\project\myvocab\src\main\java\com\example\myvocab\request\CourseAddRequest.java
-C:\Study\IT\Others\project\myvocab\src\main\java\com\example\myvocab\repo\CommentsRepo.java
-C:\Study\IT\Others\project\myvocab\src\main\java\com\example\myvocab\filter\SearchCriteria.java
-C:\Study\IT\Others\project\myvocab\src\main\java\com\example\myvocab\model\UserCourse.java
-C:\Study\IT\Others\project\myvocab\src\main\java\com\example\myvocab\dto\TopicHaveCourseDto.java
-C:\Study\IT\Others\project\myvocab\src\main\java\com\example\myvocab\dto\PageDto.java
-C:\Study\IT\Others\project\myvocab\src\main\java\com\example\myvocab\model\UserRole.java
-C:\Study\IT\Others\project\myvocab\src\main\java\com\example\myvocab\dto\ContextDto.java
-C:\Study\IT\Others\project\myvocab\src\main\java\com\example\myvocab\request\LearnVocabRequest.java
-C:\Study\IT\Others\project\myvocab\src\main\java\com\example\myvocab\dto\VocabTestDto.java
-C:\Study\IT\Others\project\myvocab\src\main\java\com\example\myvocab\model\enummodel\CourseStatus.java
-C:\Study\IT\Others\project\myvocab\src\main\java\com\example\myvocab\request\UpdateUserInfoRequest.java
-C:\Study\IT\Others\project\myvocab\src\main\java\com\example\myvocab\model\UserTopicSentence.java
-C:\Study\IT\Others\project\myvocab\src\main\java\com\example\myvocab\util\TimeStampFormat.java
-C:\Study\IT\Others\project\myvocab\src\main\java\com\example\myvocab\dto\UserTopicRankDto.java
-C:\Study\IT\Others\project\myvocab\src\main\java\com\example\myvocab\model\enummodel\Gender.java
-C:\Study\IT\Others\project\myvocab\src\main\java\com\example\myvocab\model\Course.java
-C:\Study\IT\Others\project\myvocab\src\main\java\com\example\myvocab\request\TopicAddRequest.java
-C:\Study\IT\Others\project\myvocab\src\main\java\com\example\myvocab\controller\server\WebController.java
-C:\Study\IT\Others\project\myvocab\src\main\java\com\example\myvocab\repo\PackageRepo.java
-C:\Study\IT\Others\project\myvocab\src\main\java\com\example\myvocab\dto\UserPersonalDto.java
-C:\Study\IT\Others\project\myvocab\src\main\java\com\example\myvocab\service\AdminService.java
-C:\Study\IT\Others\project\myvocab\src\main\java\com\example\myvocab\model\Roles.java
-C:\Study\IT\Others\project\myvocab\src\main\java\com\example\myvocab\repo\UserTopicSentenceRepo.java
-C:\Study\IT\Others\project\myvocab\src\main\java\com\example\myvocab\model\enummodel\CourseStatusConverter.java
-C:\Study\IT\Others\project\myvocab\src\main\java\com\example\myvocab\repo\UserTopicRecordRepo.java
-C:\Study\IT\Others\project\myvocab\src\main\java\com\example\myvocab\model\enummodel\TopicState.java
-C:\Study\IT\Others\project\myvocab\src\main\java\com\example\myvocab\security\AuthenticationEntryPointCustom.java
-C:\Study\IT\Others\project\myvocab\src\main\java\com\example\myvocab\dto\VocabTestResultDto.java
-C:\Study\IT\Others\project\myvocab\src\main\java\com\example\myvocab\model\Vocab.java
-C:\Study\IT\Others\project\myvocab\src\main\java\com\example\myvocab\config\SecurityConfig.java
-C:\Study\IT\Others\project\myvocab\src\main\java\com\example\myvocab\model\CourseCategory.java
-C:\Study\IT\Others\project\myvocab\src\main\java\com\example\myvocab\dto\CourseByCategoryDto.java
-C:\Study\IT\Others\project\myvocab\src\main\java\com\example\myvocab\repo\RolesRepo.java
-C:\Study\IT\Others\project\myvocab\src\main\java\com\example\myvocab\dto\FilterVocabDto.java
-C:\Study\IT\Others\project\myvocab\src\main\java\com\example\myvocab\controller\server\AuthApi.java
-C:\Study\IT\Others\project\myvocab\src\main\java\com\example\myvocab\repo\UserTopicRepo.java
-C:\Study\IT\Others\project\myvocab\src\main\java\com\example\myvocab\exception\ErrorMessage.java
-C:\Study\IT\Others\project\myvocab\src\main\java\com\example\myvocab\controller\client\TopicController.java
-C:\Study\IT\Others\project\myvocab\src\main\java\com\example\myvocab\service\ViewService.java
-C:\Study\IT\Others\project\myvocab\src\main\java\com\example\myvocab\model\UserTopic.java
-C:\Study\IT\Others\project\myvocab\src\main\java\com\example\myvocab\controller\server\UserViewController.java
-C:\Study\IT\Others\project\myvocab\src\main\java\com\example\myvocab\repo\LevelsRepo.java
-C:\Study\IT\Others\project\myvocab\src\main\java\com\example\myvocab\dto\VocabPictureDto.java
-C:\Study\IT\Others\project\myvocab\src\main\java\com\example\myvocab\dto\ChooseVocabDto.java
-C:\Study\IT\Others\project\myvocab\src\main\java\com\example\myvocab\service\FileService.java
-C:\Study\IT\Others\project\myvocab\src\main\java\com\example\myvocab\model\enummodel\GenderConverter.java
-C:\Study\IT\Others\project\myvocab\src\main\java\com\example\myvocab\dto\TopicToCourseDto.java
-C:\Study\IT\Others\project\myvocab\src\main\java\com\example\myvocab\controller\server\AdminApiController.java
-C:\Study\IT\Others\project\myvocab\src\main\java\com\example\myvocab\request\CommentRequest.java
-C:\Study\IT\Others\project\myvocab\src\main\java\com\example\myvocab\model\enummodel\OrderStatusConverter.java
-C:\Study\IT\Others\project\myvocab\src\main\java\com\example\myvocab\repo\ContextRepo.java
-C:\Study\IT\Others\project\myvocab\src\main\java\com\example\myvocab\controller\client\HomeController.java
-C:\Study\IT\Others\project\myvocab\src\main\java\com\example\myvocab\repo\CourseCategoryRepo.java
-C:\Study\IT\Others\project\myvocab\src\main\java\com\example\myvocab\controller\client\VocabController.java
-C:\Study\IT\Others\project\myvocab\src\main\java\com\example\myvocab\repo\OrdersRepo.java
-C:\Study\IT\Others\project\myvocab\src\main\java\com\example\myvocab\repo\TopicRepo.java
-C:\Study\IT\Others\project\myvocab\src\main\java\com\example\myvocab\model\enummodel\LearningStageConverter.java
-C:\Study\IT\Others\project\myvocab\src\main\java\com\example\myvocab\dto\UserCourseInfo.java
-C:\Study\IT\Others\project\myvocab\src\main\java\com\example\myvocab\request\TestVocabResultRequest.java
-C:\Study\IT\Others\project\myvocab\src\main\java\com\example\myvocab\repo\VocabRepo.java
-C:\Study\IT\Others\project\myvocab\src\main\java\com\example\myvocab\MyvocabApplication.java
-C:\Study\IT\Others\project\myvocab\src\main\java\com\example\myvocab\filter\OrderSpecification.java
-C:\Study\IT\Others\project\myvocab\src\main\java\com\example\myvocab\filter\OderSpecificationBuilder.java
-C:\Study\IT\Others\project\myvocab\src\main\java\com\example\myvocab\controller\client\TestController.java
-C:\Study\IT\Others\project\myvocab\src\main\java\com\example\myvocab\controller\server\AdminViewController.java
-C:\Study\IT\Others\project\myvocab\src\main\java\com\example\myvocab\model\Users.java
-C:\Study\IT\Others\project\myvocab\src\main\java\com\example\myvocab\service\UserLearningService.java
-C:\Study\IT\Others\project\myvocab\src\main\java\com\example\myvocab\model\enummodel\TopicStateConverter.java
-C:\Study\IT\Others\project\myvocab\src\main\java\com\example\myvocab\request\FilterVocabRequest.java
-C:\Study\IT\Others\project\myvocab\src\main\java\com\example\myvocab\exception\BadRequestException.java
-C:\Study\IT\Others\project\myvocab\src\main\java\com\example\myvocab\model\UserTopicVocab.java
-C:\Study\IT\Others\project\myvocab\src\main\java\com\example\myvocab\security\UserDetailsCustom.java
-C:\Study\IT\Others\project\myvocab\src\main\java\com\example\myvocab\controller\server\UserApiController.java
-C:\Study\IT\Others\project\myvocab\src\main\java\com\example\myvocab\request\UpdatePasswordRequest.java
-C:\Study\IT\Others\project\myvocab\src\main\java\com\example\myvocab\exception\HandleException.java
-C:\Study\IT\Others\project\myvocab\src\main\java\com\example\myvocab\model\UserCourseGame.java
-C:\Study\IT\Others\project\myvocab\src\main\java\com\example\myvocab\model\Sentence.java
-C:\Study\IT\Others\project\myvocab\src\main\java\com\example\myvocab\request\SignUpRequest.java
-C:\Study\IT\Others\project\myvocab\src\main\java\com\example\myvocab\dto\UserTopicVocabDto.java
-C:\Study\IT\Others\project\myvocab\src\main\java\com\example\myvocab\model\Context.java
-C:\Study\IT\Others\project\myvocab\src\main\java\com\example\myvocab\util\FileUploadUtil.java
-C:\Study\IT\Others\project\myvocab\src\main\java\com\example\myvocab\controller\client\CourseController.java
-C:\Study\IT\Others\project\myvocab\src\main\java\com\example\myvocab\repo\CourseGroupRepo.java
-C:\Study\IT\Others\project\myvocab\src\main\java\com\example\myvocab\dto\UserOrderInfo.java
-C:\Study\IT\Others\project\myvocab\src\main\java\com\example\myvocab\security\UserDetailsServiceCustom.java
-C:\Study\IT\Others\project\myvocab\src\main\java\com\example\myvocab\model\Comments.java
-C:\Study\IT\Others\project\myvocab\src\main\java\com\example\myvocab\model\Topic.java
-C:\Study\IT\Others\project\myvocab\src\main\java\com\example\myvocab\request\TestSenResultRequest.java
-C:\Study\IT\Others\project\myvocab\src\main\java\com\example\myvocab\model\CourseGroup.java
-C:\Study\IT\Others\project\myvocab\src\main\java\com\example\myvocab\repo\UserRoleRepo.java
-C:\Study\IT\Others\project\myvocab\src\main\java\com\example\myvocab\dto\UsersInfo.java
-C:\Study\IT\Others\project\myvocab\src\main\java\com\example\myvocab\mapper\UserTopicVocabMapper.java
-C:\Study\IT\Others\project\myvocab\src\main\java\com\example\myvocab\repo\CourseRepo.java
-C:\Study\IT\Others\project\myvocab\src\main\java\com\example\myvocab\model\enummodel\UserStateConverter.java
-C:\Study\IT\Others\project\myvocab\src\main\java\com\example\myvocab\security\FilterCustom.java
-C:\Study\IT\Others\project\myvocab\src\main\java\com\example\myvocab\model\Levels.java
-C:\Study\IT\Others\project\myvocab\src\main\java\com\example\myvocab\config\MethodSecurityConfig.java
-C:\Study\IT\Others\project\myvocab\src\main\java\com\example\myvocab\dto\SentencePictureDto.java
-C:\Study\IT\Others\project\myvocab\src\main\java\com\example\myvocab\repo\UsersRepo.java
-C:\Study\IT\Others\project\myvocab\src\main\java\com\example\myvocab\service\UserService.java
-C:\Study\IT\Others\project\myvocab\src\main\java\com\example\myvocab\repo\UserCourseRepo.java
+C:\Study\IT\Others\project - local\myvocab\src\main\java\com\example\myvocab\model\enummodel\LearningStage.java
+C:\Study\IT\Others\project - local\myvocab\src\main\java\com\example\myvocab\model\Course.java
+C:\Study\IT\Others\project - local\myvocab\src\main\java\com\example\myvocab\model\CourseGroup.java
+C:\Study\IT\Others\project - local\myvocab\src\main\java\com\example\myvocab\repo\UserTopicRecordRepo.java
+C:\Study\IT\Others\project - local\myvocab\src\main\java\com\example\myvocab\request\FilterVocabRequest.java
+C:\Study\IT\Others\project - local\myvocab\src\main\java\com\example\myvocab\dto\CommentDto.java
+C:\Study\IT\Others\project - local\myvocab\src\main\java\com\example\myvocab\dto\TopicToCourseDto.java
+C:\Study\IT\Others\project - local\myvocab\src\main\java\com\example\myvocab\dto\VocabTestResultDto.java
+C:\Study\IT\Others\project - local\myvocab\src\main\java\com\example\myvocab\request\VocabAddRequest.java
+C:\Study\IT\Others\project - local\myvocab\src\main\java\com\example\myvocab\model\Roles.java
+C:\Study\IT\Others\project - local\myvocab\src\main\java\com\example\myvocab\model\Users.java
+C:\Study\IT\Others\project - local\myvocab\src\main\java\com\example\myvocab\security\AuthenticationEntryPointCustom.java
+C:\Study\IT\Others\project - local\myvocab\src\main\java\com\example\myvocab\service\FileService.java
+C:\Study\IT\Others\project - local\myvocab\src\main\java\com\example\myvocab\model\UserCourse.java
+C:\Study\IT\Others\project - local\myvocab\src\main\java\com\example\myvocab\security\FilterCustom.java
+C:\Study\IT\Others\project - local\myvocab\src\main\java\com\example\myvocab\model\enummodel\Gender.java
+C:\Study\IT\Others\project - local\myvocab\src\main\java\com\example\myvocab\model\enummodel\OrderStatusConverter.java
+C:\Study\IT\Others\project - local\myvocab\src\main\java\com\example\myvocab\request\UpdatePasswordRequest.java
+C:\Study\IT\Others\project - local\myvocab\src\main\java\com\example\myvocab\dto\VocabPictureDto.java
+C:\Study\IT\Others\project - local\myvocab\src\main\java\com\example\myvocab\dto\FilterVocabDto.java
+C:\Study\IT\Others\project - local\myvocab\src\main\java\com\example\myvocab\model\UserTopicSentence.java
+C:\Study\IT\Others\project - local\myvocab\src\main\java\com\example\myvocab\model\Orders.java
+C:\Study\IT\Others\project - local\myvocab\src\main\java\com\example\myvocab\repo\PackageRepo.java
+C:\Study\IT\Others\project - local\myvocab\src\main\java\com\example\myvocab\model\enummodel\RoleUser.java
+C:\Study\IT\Others\project - local\myvocab\src\main\java\com\example\myvocab\model\enummodel\UserState.java
+C:\Study\IT\Others\project - local\myvocab\src\main\java\com\example\myvocab\repo\UserCourseRepo.java
+C:\Study\IT\Others\project - local\myvocab\src\main\java\com\example\myvocab\model\enummodel\RoleUserConverter.java
+C:\Study\IT\Others\project - local\myvocab\src\main\java\com\example\myvocab\model\enummodel\LearningStageConverter.java
+C:\Study\IT\Others\project - local\myvocab\src\main\java\com\example\myvocab\repo\RolesRepo.java
+C:\Study\IT\Others\project - local\myvocab\src\main\java\com\example\myvocab\repo\UserTopicVocabRepo.java
+C:\Study\IT\Others\project - local\myvocab\src\main\java\com\example\myvocab\dto\UserTopicRankDto.java
+C:\Study\IT\Others\project - local\myvocab\src\main\java\com\example\myvocab\filter\OderSpecificationBuilder.java
+C:\Study\IT\Others\project - local\myvocab\src\main\java\com\example\myvocab\request\CourseAddRequest.java
+C:\Study\IT\Others\project - local\myvocab\src\main\java\com\example\myvocab\controller\UserViewController.java
+C:\Study\IT\Others\project - local\myvocab\src\main\java\com\example\myvocab\request\CommentRequest.java
+C:\Study\IT\Others\project - local\myvocab\src\main\java\com\example\myvocab\exception\BadRequestException.java
+C:\Study\IT\Others\project - local\myvocab\src\main\java\com\example\myvocab\model\UserTopic.java
+C:\Study\IT\Others\project - local\myvocab\src\main\java\com\example\myvocab\repo\LevelsRepo.java
+C:\Study\IT\Others\project - local\myvocab\src\main\java\com\example\myvocab\exception\NotFoundException.java
+C:\Study\IT\Others\project - local\myvocab\src\main\java\com\example\myvocab\service\UserLearningService.java
+C:\Study\IT\Others\project - local\myvocab\src\main\java\com\example\myvocab\dto\TopicHaveCourseDto.java
+C:\Study\IT\Others\project - local\myvocab\src\main\java\com\example\myvocab\model\enummodel\OrderStatus.java
+C:\Study\IT\Others\project - local\myvocab\src\main\java\com\example\myvocab\service\UserService.java
+C:\Study\IT\Others\project - local\myvocab\src\main\java\com\example\myvocab\security\UserDetailsServiceCustom.java
+C:\Study\IT\Others\project - local\myvocab\src\main\java\com\example\myvocab\controller\WebController.java
+C:\Study\IT\Others\project - local\myvocab\src\main\java\com\example\myvocab\model\UserTopicVocab.java
+C:\Study\IT\Others\project - local\myvocab\src\main\java\com\example\myvocab\repo\CourseCategoryRepo.java
+C:\Study\IT\Others\project - local\myvocab\src\main\java\com\example\myvocab\request\TopicAddRequest.java
+C:\Study\IT\Others\project - local\myvocab\src\main\java\com\example\myvocab\repo\VocabRepo.java
+C:\Study\IT\Others\project - local\myvocab\src\main\java\com\example\myvocab\util\FileUploadUtil.java
+C:\Study\IT\Others\project - local\myvocab\src\main\java\com\example\myvocab\mapper\VocabTestMapper.java
+C:\Study\IT\Others\project - local\myvocab\src\main\java\com\example\myvocab\model\enummodel\TopicState.java
+C:\Study\IT\Others\project - local\myvocab\src\main\java\com\example\myvocab\mapper\UserTopicVocabMapper.java
+C:\Study\IT\Others\project - local\myvocab\src\main\java\com\example\myvocab\model\Vocab.java
+C:\Study\IT\Others\project - local\myvocab\src\main\java\com\example\myvocab\dto\UserOrderInfo.java
+C:\Study\IT\Others\project - local\myvocab\src\main\java\com\example\myvocab\repo\UserTopicSentenceRepo.java
+C:\Study\IT\Others\project - local\myvocab\src\main\java\com\example\myvocab\repo\OrdersRepo.java
+C:\Study\IT\Others\project - local\myvocab\src\main\java\com\example\myvocab\dto\UserCourseInfo.java
+C:\Study\IT\Others\project - local\myvocab\src\main\java\com\example\myvocab\model\enummodel\CourseStatusConverter.java
+C:\Study\IT\Others\project - local\myvocab\src\main\java\com\example\myvocab\model\Levels.java
+C:\Study\IT\Others\project - local\myvocab\src\main\java\com\example\myvocab\model\enummodel\UserStateConverter.java
+C:\Study\IT\Others\project - local\myvocab\src\main\java\com\example\myvocab\util\Validation.java
+C:\Study\IT\Others\project - local\myvocab\src\main\java\com\example\myvocab\config\WebConfig.java
+C:\Study\IT\Others\project - local\myvocab\src\main\java\com\example\myvocab\filter\OrderSpecification.java
+C:\Study\IT\Others\project - local\myvocab\src\main\java\com\example\myvocab\dto\SentencePictureDto.java
+C:\Study\IT\Others\project - local\myvocab\src\main\java\com\example\myvocab\dto\ContextDto.java
+C:\Study\IT\Others\project - local\myvocab\src\main\java\com\example\myvocab\dto\UserTopicVocabDto.java
+C:\Study\IT\Others\project - local\myvocab\src\main\java\com\example\myvocab\controller\AuthApi.java
+C:\Study\IT\Others\project - local\myvocab\src\main\java\com\example\myvocab\filter\SearchOperation.java
+C:\Study\IT\Others\project - local\myvocab\src\main\java\com\example\myvocab\request\TestSenResultRequest.java
+C:\Study\IT\Others\project - local\myvocab\src\main\java\com\example\myvocab\config\SecurityConfig.java
+C:\Study\IT\Others\project - local\myvocab\src\main\java\com\example\myvocab\model\Context.java
+C:\Study\IT\Others\project - local\myvocab\src\main\java\com\example\myvocab\config\TestJpaConfig.java
+C:\Study\IT\Others\project - local\myvocab\src\main\java\com\example\myvocab\dto\CourseByCategoryDto.java
+C:\Study\IT\Others\project - local\myvocab\src\main\java\com\example\myvocab\service\ViewService.java
+C:\Study\IT\Others\project - local\myvocab\src\main\java\com\example\myvocab\controller\UserApiController.java
+C:\Study\IT\Others\project - local\myvocab\src\main\java\com\example\myvocab\repo\UserRoleRepo.java
+C:\Study\IT\Others\project - local\myvocab\src\main\java\com\example\myvocab\config\MethodSecurityConfig.java
+C:\Study\IT\Others\project - local\myvocab\src\main\java\com\example\myvocab\repo\ContextRepo.java
+C:\Study\IT\Others\project - local\myvocab\src\main\java\com\example\myvocab\dto\UsersInfo.java
+C:\Study\IT\Others\project - local\myvocab\src\main\java\com\example\myvocab\controller\AdminViewController.java
+C:\Study\IT\Others\project - local\myvocab\src\main\java\com\example\myvocab\model\enummodel\CourseStatus.java
+C:\Study\IT\Others\project - local\myvocab\src\main\java\com\example\myvocab\repo\UserTopicRepo.java
+C:\Study\IT\Others\project - local\myvocab\src\main\java\com\example\myvocab\controller\AdminApiController.java
+C:\Study\IT\Others\project - local\myvocab\src\main\java\com\example\myvocab\request\SignUpRequest.java
+C:\Study\IT\Others\project - local\myvocab\src\main\java\com\example\myvocab\request\LoginRequest.java
+C:\Study\IT\Others\project - local\myvocab\src\main\java\com\example\myvocab\repo\CourseRepo.java
+C:\Study\IT\Others\project - local\myvocab\src\main\java\com\example\myvocab\repo\SentenceRepo.java
+C:\Study\IT\Others\project - local\myvocab\src\main\java\com\example\myvocab\repo\CourseGroupRepo.java
+C:\Study\IT\Others\project - local\myvocab\src\main\java\com\example\myvocab\dto\ChooseVocabDto.java
+C:\Study\IT\Others\project - local\myvocab\src\main\java\com\example\myvocab\model\TopicDiscuss.java
+C:\Study\IT\Others\project - local\myvocab\src\main\java\com\example\myvocab\repo\UsersRepo.java
+C:\Study\IT\Others\project - local\myvocab\src\main\java\com\example\myvocab\dto\UserPersonalDto.java
+C:\Study\IT\Others\project - local\myvocab\src\main\java\com\example\myvocab\model\Package.java
+C:\Study\IT\Others\project - local\myvocab\src\main\java\com\example\myvocab\repo\CommentsRepo.java
+C:\Study\IT\Others\project - local\myvocab\src\main\java\com\example\myvocab\model\UserCourseGame.java
+C:\Study\IT\Others\project - local\myvocab\src\main\java\com\example\myvocab\service\AdminService.java
+C:\Study\IT\Others\project - local\myvocab\src\main\java\com\example\myvocab\model\enummodel\GenderConverter.java
+C:\Study\IT\Others\project - local\myvocab\src\main\java\com\example\myvocab\security\UserDetailsCustom.java
+C:\Study\IT\Others\project - local\myvocab\src\main\java\com\example\myvocab\dto\PageDto.java
+C:\Study\IT\Others\project - local\myvocab\src\main\java\com\example\myvocab\request\TestVocabResultRequest.java
+C:\Study\IT\Others\project - local\myvocab\src\main\java\com\example\myvocab\model\CourseCategory.java
+C:\Study\IT\Others\project - local\myvocab\src\main\java\com\example\myvocab\util\TimeStampFormat.java
+C:\Study\IT\Others\project - local\myvocab\src\main\java\com\example\myvocab\dto\OrdersInfo.java
+C:\Study\IT\Others\project - local\myvocab\src\main\java\com\example\myvocab\dto\VocabTestDto.java
+C:\Study\IT\Others\project - local\myvocab\src\main\java\com\example\myvocab\model\UserTopicRecord.java
+C:\Study\IT\Others\project - local\myvocab\src\main\java\com\example\myvocab\exception\HandleException.java
+C:\Study\IT\Others\project - local\myvocab\src\main\java\com\example\myvocab\model\Comments.java
+C:\Study\IT\Others\project - local\myvocab\src\main\java\com\example\myvocab\repo\TopicRepo.java
+C:\Study\IT\Others\project - local\myvocab\src\main\java\com\example\myvocab\model\Topic.java
+C:\Study\IT\Others\project - local\myvocab\src\main\java\com\example\myvocab\request\UpdateUserInfoRequest.java
+C:\Study\IT\Others\project - local\myvocab\src\main\java\com\example\myvocab\model\enummodel\TopicStateConverter.java
+C:\Study\IT\Others\project - local\myvocab\src\main\java\com\example\myvocab\request\LearnVocabRequest.java
+C:\Study\IT\Others\project - local\myvocab\src\main\java\com\example\myvocab\MyvocabApplication.java
+C:\Study\IT\Others\project - local\myvocab\src\main\java\com\example\myvocab\filter\SearchCriteria.java
+C:\Study\IT\Others\project - local\myvocab\src\main\java\com\example\myvocab\model\Sentence.java
+C:\Study\IT\Others\project - local\myvocab\src\main\java\com\example\myvocab\model\UserRole.java
+C:\Study\IT\Others\project - local\myvocab\src\main\java\com\example\myvocab\exception\ErrorMessage.java

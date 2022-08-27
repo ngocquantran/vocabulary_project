@@ -80,9 +80,7 @@ public class ViewService {
         return userTopicRepo.findByUserCourse_Course_IdAndUserCourse_User_Id(courseId, userId);
     }
 
-    public List<Vocab> getVocabsByTopic(Long topicId) {
-        return vocabRepo.findByTopics_Id(topicId);
-    }
+
 
 
     public TopicToCourseDto getCourseFromTopic(Long topicId) {

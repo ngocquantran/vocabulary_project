@@ -16,6 +16,7 @@ public interface VocabRepo extends JpaRepository<Vocab, Long> {
     @Query("select v from Vocab v left join v.topics topics where topics.id = ?1")
     List<Vocab> findByTopics_Id(Long id);
 
+    @Query("select v from Vocab v left join v.topics topics where topics.course.id = ?1")
     List<Vocab> findByTopics_Course_Id(Long id);
 
     @Query("SELECT new com.example.myvocab.dto.FilterVocabDto(v.id,v.word,v.type,v.audio) "+

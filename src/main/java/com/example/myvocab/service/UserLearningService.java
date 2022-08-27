@@ -64,11 +64,8 @@ public class UserLearningService {
     }
 
 
-    public UserCourse createUserCourse(Long courseId, String userId) {
-        Users user = isUserExist(userId);
-        Course course = isCourseExist(courseId);
-
-        Optional<UserCourse> o_userCourse = userCourseRepo.findByCourse_IdAndUser_Id(courseId, userId);
+    public UserCourse createUserCourse(Course course,Users user) {
+        Optional<UserCourse> o_userCourse = userCourseRepo.findByCourse_IdAndUser_Id(course.getId(), user.getId());
         if (o_userCourse.isPresent()) {//Check if userCourse already exist => no more create
             return o_userCourse.get();
         }
@@ -76,17 +73,15 @@ public class UserLearningService {
                 .course(course)
                 .user(user)
                 .build();
-        userCourseRepo.save(userCourse);
 
-        return userCourse;
+        return userCourseRepo.save(userCourse);
     }
 
-    public UserTopic createPendingUserTopic(Long topicId, String userId) {
-        Topic topic = isTopicExist(topicId);
+    public UserTopic createPendingUserTopic(Topic topic, Users user) {
         Course course = topic.getCourse();
-        UserCourse userCourse = createUserCourse(course.getId(), userId);
+        UserCourse userCourse = createUserCourse(course, user);
 
-        Optional<UserTopic> o_userTopic = userTopicRepo.findByTopic_IdAndUserCourse_User_Id(topicId, userId, UserTopic.class);
+        Optional<UserTopic> o_userTopic = userTopicRepo.findByTopic_IdAndUserCourse_User_Id(topic.getId(), user.getId(), UserTopic.class);
         if (o_userTopic.isPresent()) { // check if userTopic already exist => change to PENDING status
             UserTopic userTopic = o_userTopic.get();
             userTopic.setStatus(TopicState.PENDING);
@@ -125,7 +120,8 @@ public class UserLearningService {
 
     public void initUserTopicVocabs(Long topicId, String userId) {
         UserTopic userTopic = isUserTopicExist(topicId, userId);
-        List<Vocab> vocabs = vocabRepo.findByTopics_Id(topicId);
+//        List<Vocab> vocabs = vocabRepo.findByTopics_Id(topicId);
+        List<Vocab> vocabs = userTopic.getTopic().getVocabs();
 
         for (Vocab v : vocabs) {
             Optional<UserTopicVocab> o_userTopicVocab = userTopicVocabRepo.findByUserTopic_IdAndVocab_Id(userTopic.getId(), v.getId());
@@ -140,10 +136,10 @@ public class UserLearningService {
         }
     }
 
-    public void handleSubmittedFilterVocabResult(Long topicId, String userId, List<FilterVocabRequest> requests) {
-        UserTopic userTopic = createPendingUserTopic(topicId, userId);                                        //Initial userToping in Pending status
-        UserTopicRecord userTopicRecord = createUserTopicRecordByStage(topicId, userId, LearningStage.FIRST);   // Initial UserTopicRecord in First stage
-        initUserTopicVocabs(topicId, userId);                                                               //Create List of vocabs by topic for user
+    public void handleSubmittedFilterVocabResult(Topic topic, Users user, List<FilterVocabRequest> requests) {
+        UserTopic userTopic = createPendingUserTopic(topic, user);                                        //Initial userToping in Pending status
+        UserTopicRecord userTopicRecord = createUserTopicRecordByStage(topic.getId(), user.getId(), LearningStage.FIRST);   // Initial UserTopicRecord in First stage
+        initUserTopicVocabs(topic.getId(), user.getId());                                                               //Create List of vocabs by topic for user
 
         Long numberOfRightAnswers = requests.stream().filter(vocabRequest -> vocabRequest.isStatus()).count();
         userTopicRecord.setRightAnswers(numberOfRightAnswers.intValue());                                   // Save known vocabs for Record stage First
@@ -154,7 +150,7 @@ public class UserLearningService {
         for (FilterVocabRequest v : requests) {
             Optional<UserTopicVocab> o_userTopicVocab = userTopicVocabRepo.findByUserTopic_IdAndVocab_Id(userTopic.getId(), v.getVocabId());
             if (o_userTopicVocab.isEmpty()) {
-                throw new NotFoundException("Không tìm thấy từ vựng có id = " + v.getVocabId() + " trong topic có id = " + topicId);
+                throw new NotFoundException("Không tìm thấy từ vựng có id = " + v.getVocabId() + " trong topic có id = " + topic.getId());
             }
             UserTopicVocab userTopicVocab = o_userTopicVocab.get();
             userTopicVocab.setStatus(v.isStatus());
@@ -164,7 +160,9 @@ public class UserLearningService {
     }
 
     public List<Vocab> getTopicVocabs(Long topicId) {
-        return vocabRepo.findByTopics_Id(topicId);
+        Topic topic=isTopicExist(topicId);
+        return topic.getVocabs();
+//        return vocabRepo.findByTopics_Id(topicId);
     }
 
     public List<ChooseVocabDto> getTopicVocabToChoose(Long topicId, String userId) {
@@ -322,8 +320,8 @@ public class UserLearningService {
         updateLatestAccessTimestampOfUserCourse(userTopic);
     }
 
-    public void handleSentenceTestResult(Long topicId, String userId, List<TestSenResultRequest> requests) {
-        UserTopic userTopic = initialUserTopic(topicId, userId);
+    public void handleSentenceTestResult(Long topicId, Users user, List<TestSenResultRequest> requests) {
+        UserTopic userTopic = initialUserTopic(topicId, user);
 
         // Initial userTopicRecord First stage - default parameter=0
         initialUserTopicRecordAtFirstStage(userTopic);
@@ -439,7 +437,7 @@ public class UserLearningService {
             }
         }
         Topic nextTopic = topicRepo.findTopicById(idNext, Topic.class).get();
-        UserTopic userTopic = createPendingUserTopic(nextTopic.getId(), curUserTopic.getUserCourse().getUser().getId());
+        UserTopic userTopic = createPendingUserTopic(nextTopic, curUserTopic.getUserCourse().getUser());
         userTopic.setStatus(TopicState.NOW);
         userTopicRepo.save(userTopic);
 
@@ -564,9 +562,9 @@ public class UserLearningService {
         return contextDtos;
     }
 
-    public UserTopic initialUserTopic(Long topicId, String userId) {
+    public UserTopic initialUserTopic(Long topicId, Users user) {
         Topic topic = isTopicExist(topicId);
-        UserCourse userCourse = createUserCourse(topic.getCourse().getId(), userId);
+        UserCourse userCourse = createUserCourse(topic.getCourse(), user);
         Optional<UserTopic> o_userTopic = userTopicRepo.findByUserCourse_IdAndTopic_Id(userCourse.getId(), topic.getId());
         if (o_userTopic.isEmpty()) {
             UserTopic userTopic = UserTopic.builder()
@@ -644,10 +642,9 @@ public class UserLearningService {
 
 
     //COMMENT SECTION
-    public Comments createComment(Long topicId, String userId, CommentRequest request) {
-        UserTopic userTopic = isUserTopicExist(topicId, userId);
+    public Comments createComment(UserTopic userTopic, CommentRequest request) {
 
-        Optional<Comments> parentComment = commentsRepo.findByIdAndUserTopic_Topic_Id(request.getIdParent(), topicId);
+        Optional<Comments> parentComment = commentsRepo.findByIdAndUserTopic_Topic_Id(request.getIdParent(), userTopic.getTopic().getId());
         if (request.getIdParent() != null && parentComment.isEmpty()) {
             throw new NotFoundException("Không tìm thấy comment có id = " + request.getIdParent() + "trong topic này");
         }
@@ -665,8 +662,7 @@ public class UserLearningService {
 
     public List<CommentDto> getAllCommentsByTopic(Long topicId) {
         TimeStampFormat timeStampFormat = new TimeStampFormat();
-        Topic topic = isTopicExist(topicId);
-        List<Comments> comments = commentsRepo.findByUserTopic_Topic_Id(topic.getId());
+        List<Comments> comments = commentsRepo.findByUserTopic_Topic_Id(topicId);
         List<CommentDto> commentDtos = comments.stream()
                 .map(c -> new CommentDto(
                         c.getId(),

@@ -106,7 +106,7 @@ public class WebController {
         TopicToCourseDto topicToCourseDto = viewService.getCourseFromTopic(topicId);
         model.addAttribute("topicCourse", topicToCourseDto);
 
-        List<Vocab> vocabs = viewService.getVocabsByTopic(topicId);
+        List<Vocab> vocabs = userLearningService.getTopicVocabs(topicId);//--------------------
         model.addAttribute("vocabs", vocabs);
 
         model.addAttribute("topicId", topicId);
@@ -124,8 +124,8 @@ public class WebController {
             return new ResponseEntity<>(HttpStatus.FORBIDDEN);
         }
 
-
-        userLearningService.handleSubmittedFilterVocabResult(topicId, userDetails.getUser().getId(), requests);
+        Topic topic = userLearningService.isTopicExist(topicId);
+        userLearningService.handleSubmittedFilterVocabResult(topic, userDetails.getUser(), requests);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
@@ -247,7 +247,7 @@ public class WebController {
             return new ResponseEntity<>(HttpStatus.FORBIDDEN);
         }
 
-        userLearningService.handleSentenceTestResult(topicId, userDetails.getUser().getId(), requests);
+        userLearningService.handleSentenceTestResult(topicId, userDetails.getUser(), requests);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
@@ -316,17 +316,19 @@ public class WebController {
 
     @GetMapping("/api/topic-comments")
     public ResponseEntity<?> getAllTopicComments(@RequestParam(name = "id") Long topicId) {
-        List<CommentDto> list = userLearningService.getAllCommentsByTopic(topicId);
-        list.stream().forEach(System.out::println);
+        Topic topic = userLearningService.isTopicExist(topicId);
+        List<CommentDto> list = userLearningService.getAllCommentsByTopic(topic.getId());
         return new ResponseEntity<>(list, HttpStatus.OK);
     }
 
     @PostMapping(value = "/api/topic-comments", consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> createComment(@RequestParam(name = "id") Long topicId,
                                            @RequestBody CommentRequest request,
+
                                            @AuthenticationPrincipal UserDetailsCustom userDetails) {
-        System.out.println(request);
-        Comments comment = userLearningService.createComment(topicId, userDetails.getUser().getId(), request);
+        UserTopic userTopic = userLearningService.isUserTopicExist(topicId, userDetails.getUser().getId());
+        Comments comment = userLearningService.createComment(userTopic, request);
+
         return new ResponseEntity<>(comment, HttpStatus.CREATED);
     }
 
