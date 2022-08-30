@@ -35,6 +35,10 @@ public class Vocab {
     @JsonIgnore
     private List<Topic> topics=new ArrayList<>();
 
+    public void addTopic(Topic topic){
+        this.topics.add(topic);
+    }
+
 
 
 }

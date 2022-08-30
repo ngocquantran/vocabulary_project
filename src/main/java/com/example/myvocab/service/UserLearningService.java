@@ -64,7 +64,7 @@ public class UserLearningService {
     }
 
 
-    public UserCourse createUserCourse(Course course,Users user) {
+    public UserCourse createUserCourse(Course course, Users user) {
         Optional<UserCourse> o_userCourse = userCourseRepo.findByCourse_IdAndUser_Id(course.getId(), user.getId());
         if (o_userCourse.isPresent()) {//Check if userCourse already exist => no more create
             return o_userCourse.get();
@@ -73,7 +73,6 @@ public class UserLearningService {
                 .course(course)
                 .user(user)
                 .build();
-
         return userCourseRepo.save(userCourse);
     }
 
@@ -93,9 +92,7 @@ public class UserLearningService {
                 .topic(topic)
                 .userCourse(userCourse)
                 .build();
-        userTopicRepo.save(userTopic);
-
-        return userTopic;
+        return userTopicRepo.save(userTopic);
     }
 
 
@@ -113,14 +110,12 @@ public class UserLearningService {
                 .stage(stage)
                 .userTopic(userTopic)
                 .build();
-        userTopicRecordRepo.save(userTopicRecord);
-        return userTopicRecord;
-    }
 
+        return userTopicRecordRepo.save(userTopicRecord);
+    }
 
     public void initUserTopicVocabs(Long topicId, String userId) {
         UserTopic userTopic = isUserTopicExist(topicId, userId);
-//        List<Vocab> vocabs = vocabRepo.findByTopics_Id(topicId);
         List<Vocab> vocabs = userTopic.getTopic().getVocabs();
 
         for (Vocab v : vocabs) {
@@ -160,7 +155,7 @@ public class UserLearningService {
     }
 
     public List<Vocab> getTopicVocabs(Long topicId) {
-        Topic topic=isTopicExist(topicId);
+        Topic topic = isTopicExist(topicId);
         return topic.getVocabs();
 //        return vocabRepo.findByTopics_Id(topicId);
     }
@@ -469,11 +464,12 @@ public class UserLearningService {
         boolean isUserIdInTop8 = false;
         //First take top 8 rank
         for (int i = 0; i < recordList.size(); i++) {
+            Users user=recordList.get(i).getUserTopic().getUserCourse().getUser();
             UserTopicRankDto rankDto = UserTopicRankDto.builder()
                     .rank(i + 1)
-                    .userName(recordList.get(i).getUserTopic().getUserCourse().getUser().getFullName())
-                    .userId(recordList.get(i).getUserTopic().getUserCourse().getUser().getId())
-                    .userImg(recordList.get(i).getUserTopic().getUserCourse().getUser().getAvatar())
+                    .userName(user.getFullName())
+                    .userId(user.getId())
+                    .userImg(user.getAvatar())
                     .testTime(recordList.get(i).getTestTime())
                     .rightAnswers(recordList.get(i).getRightAnswers())
                     .build();
@@ -489,18 +485,18 @@ public class UserLearningService {
         if (!isUserIdInTop8) {
             rankDtoList.add(addUserTopicRankIfOutOfTop8(recordList, userId));
         }
-
         return rankDtoList;
     }
 
     public UserTopicRankDto addUserTopicRankIfOutOfTop8(List<UserTopicRecord> recordList, String userId) {
         for (int i = 0; i < recordList.size(); i++) {
-            if (recordList.get(i).getUserTopic().getUserCourse().getUser().getId().equals(userId)) {
+            Users user=recordList.get(i).getUserTopic().getUserCourse().getUser();
+            if (user.getId().equals(userId)) {
                 return UserTopicRankDto.builder()
                         .rank(i + 1)
-                        .userName(recordList.get(i).getUserTopic().getUserCourse().getUser().getFullName())
-                        .userId(recordList.get(i).getUserTopic().getUserCourse().getUser().getId())
-                        .userImg(recordList.get(i).getUserTopic().getUserCourse().getUser().getAvatar())
+                        .userName(user.getFullName())
+                        .userId(user.getId())
+                        .userImg(user.getAvatar())
                         .testTime(recordList.get(i).getTestTime())
                         .rightAnswers(recordList.get(i).getRightAnswers())
                         .build();
@@ -509,22 +505,6 @@ public class UserLearningService {
         throw new NotFoundException("Không tìm thấy user id " + userId + " trong topic record");
     }
 
-    public List<UserTopicRankDto> getTopTenRank(Long topicId) {
-        Topic topic = isTopicExist(topicId);
-        List<UserTopicRecord> recordList = userTopicRecordRepo.getTopEightOfUserTopic(topic.getId());
-        List<UserTopicRankDto> rankDtoList = new ArrayList<>();
-        for (int i = 0; i < recordList.size(); i++) {
-            UserTopicRankDto rankDto = UserTopicRankDto.builder()
-                    .rank(i + 1)
-                    .userName(recordList.get(i).getUserTopic().getUserCourse().getUser().getFullName())
-                    .userImg(recordList.get(i).getUserTopic().getUserCourse().getUser().getAvatar())
-                    .testTime(recordList.get(i).getTestTime())
-                    .rightAnswers(recordList.get(i).getRightAnswers())
-                    .build();
-            rankDtoList.add(rankDto);
-        }
-        return rankDtoList;
-    }
 
 
 //    Learning Sentence Category
@@ -657,7 +637,6 @@ public class UserLearningService {
                 .build();
 
         return commentsRepo.save(comment);
-
     }
 
     public List<CommentDto> getAllCommentsByTopic(Long topicId) {
@@ -675,6 +654,10 @@ public class UserLearningService {
                 .collect(Collectors.toList());
 
         // sort nested comments
+        return sortAllCommentsByTopic(commentDtos);
+    }
+
+    public List<CommentDto> sortAllCommentsByTopic(List<CommentDto> commentDtos) {
         HashMap<Long, List<CommentDto>> map = new HashMap<>();
         List<CommentDto> parents = new ArrayList<>();
         for (CommentDto c : commentDtos) {
@@ -777,9 +760,7 @@ public class UserLearningService {
     }
 
     public UserTopic isUserTopicExist(Long topicId, String userId) {
-        Topic topic = isTopicExist(topicId);
-        Users user = isUserExist(userId);
-        Optional<UserTopic> o_userTopic = userTopicRepo.findByTopic_IdAndUserCourse_User_Id(topic.getId(), user.getId(), UserTopic.class);
+        Optional<UserTopic> o_userTopic = userTopicRepo.findByTopic_IdAndUserCourse_User_Id(topicId, userId, UserTopic.class);
         if (o_userTopic.isEmpty()) {
             throw new BadRequestException("Không tìm thấy UserTopic");
         }

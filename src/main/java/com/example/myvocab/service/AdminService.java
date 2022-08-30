@@ -237,6 +237,7 @@ public class AdminService {
                     throw new NotFoundException("Không tìm thấy vocab id =" + id);
                 }
                 topic.addVocab(o_vocab.get());
+                o_vocab.get().addTopic(topic);
             }
         } else {
             for (Long id : request.getContent()) {
@@ -245,6 +246,7 @@ public class AdminService {
                     throw new NotFoundException("Không tìm thấy sentence id =" + id);
                 }
                 topic.addSentence(o_sen.get());
+                o_sen.get().addTopic(topic);
             }
         }
         topicRepo.save(topic);

@@ -38,5 +38,9 @@ public class Sentence {
     @JsonIgnore
     private Set<Topic> topics=new HashSet<>();
 
+    public void addTopic(Topic topic){
+        this.topics.add(topic);
+    }
+
 
 }
