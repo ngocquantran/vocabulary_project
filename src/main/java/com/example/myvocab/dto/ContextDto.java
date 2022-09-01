@@ -2,11 +2,13 @@ package com.example.myvocab.dto;
 
 import com.example.myvocab.model.enummodel.Gender;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
 @AllArgsConstructor
+@Builder
 public class ContextDto {
     private Long id;
     private int personNumber;

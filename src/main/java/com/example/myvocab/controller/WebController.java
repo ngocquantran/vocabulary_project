@@ -39,7 +39,6 @@ public class WebController {
     private ViewService viewService;
     @Autowired
     private UserLearningService userLearningService;
-
     @Autowired
     private UserService userService;
 
@@ -157,8 +156,9 @@ public class WebController {
             return new ResponseEntity<>(HttpStatus.FORBIDDEN);
         }
 
-        //        Lấy danh sách từ đã chọn để học  và lưu vào database
-        userLearningService.saveLearnRequestToUserTopicVocab(topicId, userDetails.getUser().getId(), requests);
+        Topic topic=userLearningService.isTopicExist(topicId);
+        //Lấy danh sách từ đã chọn để học  và lưu vào database
+        userLearningService.saveLearnRequestToUserTopicVocab(topic.getId(), userDetails.getUser().getId(), requests);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
