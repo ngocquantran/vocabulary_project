@@ -91,6 +91,10 @@ function order() {
 
 async function submitOrder() {
     try {
+        if (isOrderPendingExist){
+            alert("Bạn đã đặt hàng trước đó. Vui lòng chờ đơn hàng cũ được kích hoạt.");
+            return;
+        }
         let idPackage = parseInt($(".item-choose a.active").attr("id-package"));
         let res = await axios.post(`/api/user/order?id=${idPackage}`);
         let idorder = parseInt(res.data)

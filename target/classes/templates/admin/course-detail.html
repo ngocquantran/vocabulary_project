@@ -41,6 +41,11 @@
           <a th:href="@{/admin/course-edit(id=${course.id})}" type="button" class="btn btn-primary">
             <i class="fas fa-plus"></i> Chỉnh sửa
           </a>
+          <th:block th:if="!${isUserCourseExist}">
+            <div type="button" class="btn btn-danger ms-3 delete-course-btn">
+              <i class="fas fa-plus"></i> Xóa
+            </div>
+          </th:block>
         </div>
       </div>
 
@@ -111,6 +116,9 @@
     let topics = [[${topics}]];
     console.log(topics);
 
+    let isUserCourseExist = [[${isUserCourseExist}]];
+    console.log(isUserCourseExist);
+
 
 
 
@@ -127,6 +135,7 @@
     addActiveToNavLink("Khóa học");
 
   </script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
   <script th:src="@{/asset/js/admin-course-detail.js}"></script>
   <script th:src="@{/vendor/lightslider-master/dist/js/lightslider.min.js}"></script>

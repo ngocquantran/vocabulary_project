@@ -28,6 +28,10 @@ public interface OrdersRepo extends JpaRepository<Orders, Long>, JpaSpecificatio
     @Query("select o from Orders o left join o.user left join o.aPackage where o.status = ?1 and concat(o.user.fullName,' ',o.user.email,' ',o.aPackage.title) like %?2% group by o order by o.orderDate desc ")
     Page<OrdersInfo> findByStatusAndKeyWord(OrderStatus status,String keyword, Pageable pageable);
 
+    boolean existsByUser_IdAndStatus(String id, OrderStatus status);
+
+
+
 
 
 

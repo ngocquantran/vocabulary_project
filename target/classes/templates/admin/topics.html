@@ -39,7 +39,7 @@
                 </div>
             </div>
             <div class="row py-2">
-                <div class="col-6">
+                <div class="col-12 col-md-6">
                     <div class="input-group mb-3">
                         <input
                                 aria-describedby="button-addon2"
@@ -68,21 +68,24 @@
                 <div class="col-12">
                     <div class="card">
                         <div class="card-body">
-                            <table class="table table-bordered table-hover">
-                                <thead class="text-center">
-                                <tr>
-                                    <th class="align-top">Id</th>
-                                    <th class="align-top">Chủ đề</th>
-                                    <th class="align-top">Thể loại</th>
-                                    <th class="align-top">Khóa học</th>
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-hover">
+                                    <thead class="text-center">
+                                    <tr>
+                                        <th class="align-top">Id</th>
+                                        <th class="align-top">Chủ đề</th>
+                                        <th class="align-top">Thể loại</th>
+                                        <th class="align-top">Khóa học</th>
 
-                                    <th class="align-top">Chi tiết</th>
-                                </tr>
-                                </thead>
-                                <tbody class="table-topic-content">
+                                        <th class="align-top">Chi tiết</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody class="table-topic-content">
 
-                                </tbody>
-                            </table>
+                                    </tbody>
+                                </table>
+                            </div>
+
 
 
                             <div
@@ -128,6 +131,7 @@
         addActiveToNavLink("Chủ đề");
 
     </script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
     <script th:src="@{/asset/js/admin-topics.js}"></script>
 

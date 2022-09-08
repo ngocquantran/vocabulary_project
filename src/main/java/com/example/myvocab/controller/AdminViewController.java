@@ -158,6 +158,9 @@ public class AdminViewController {
         List<Topic> topics = viewService.getTopicByCourseId(courseId);
         model.addAttribute("topics", topics);
 
+        boolean isUserCourseExist=userLearningService.isUserCourseExist(courseId);
+        model.addAttribute("isUserCourseExist", isUserCourseExist);
+
         return "admin/course-detail";
     }
 

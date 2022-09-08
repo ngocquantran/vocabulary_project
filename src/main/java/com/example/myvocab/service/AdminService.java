@@ -64,6 +64,9 @@ public class AdminService {
     @Autowired
     private UserRoleRepo userRoleRepo;
 
+    @Autowired
+    private UserCourseRepo userCourseRepo;
+
     public PageDto getListOfDataByPage(int pageNum, Page<?> page) {
         PageDto pageDto = PageDto.builder()
                 .currentPage(pageNum)
@@ -250,6 +253,41 @@ public class AdminService {
             }
         }
         topicRepo.save(topic);
+    }
+
+    public void deleteTopic(Long topicId) {
+        Optional<Topic> o_topic = topicRepo.findById(topicId);
+        if (o_topic.isEmpty()) {
+            return;
+        }
+        Topic topic = o_topic.get();
+        if (topic.getCourse() != null) {
+            return;
+        }
+        topicRepo.delete(topic);
+    }
+
+    public void deleteCourse(Long courseId) {
+        Optional<Course> o_course = courseRepo.findById(courseId);
+        if (o_course.isEmpty()) {
+            return;
+        }
+        boolean isCourseAlreadyLearned = userCourseRepo.existsByCourse_Id(courseId);
+        if (isCourseAlreadyLearned) {   // Do not delete course which is already learned by a user
+            return;
+        }
+
+        Course course = o_course.get();
+
+        List<Topic> topics = topicRepo.findByCourse_IdOrderByIdAsc(course.getId());
+        for (Topic t : topics) {
+            t.setCourse(null);
+            topicRepo.save(t);
+        }
+
+        courseRepo.delete(course);
+
+
     }
 
     public List<TopicHaveCourseDto> getTopicsHaveNoCourse() {

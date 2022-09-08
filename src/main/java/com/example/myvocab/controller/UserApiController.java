@@ -1,6 +1,7 @@
 package com.example.myvocab.controller;
 
 
+import com.example.myvocab.exception.BadRequestException;
 import com.example.myvocab.model.Orders;
 import com.example.myvocab.model.Users;
 import com.example.myvocab.repo.UsersRepo;
@@ -68,6 +69,9 @@ public class UserApiController {
     public Long submitOrder(@RequestParam("id") Long idPackage) {
         Users user = usersRepo.findByEmail(SecurityContextHolder.getContext().getAuthentication().getName()).get();
         Orders order = userService.createPendingOrder(user, idPackage);
+        if (userService.isUserOrderPendingExist(user.getId())){
+            throw new BadRequestException("Đã có đơn hàng đang chờ");
+        }
         return order.getId();
     }
 

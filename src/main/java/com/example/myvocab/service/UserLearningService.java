@@ -202,6 +202,10 @@ public class UserLearningService {
         return vocabs;
     }
 
+    public boolean isUserCourseExist(Long courseId){
+        return userCourseRepo.existsByCourse_Id(courseId);
+    }
+
 
 //USER TESTING SERVICE----------------------------------------------------------------------------------------------------------------------------------
 

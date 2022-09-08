@@ -15,6 +15,10 @@ public interface UserCourseRepo extends JpaRepository<UserCourse, Long> {
 
     List<UserCourseInfo> findByUser_IdAndCourse_Category_IdOrderByStudiedAtDesc(String userId, Long categoryId);
 
+    boolean existsByCourse_Id(Long id);
+
+
+
 
 
 

@@ -24,14 +24,16 @@ function renderCourses() {
         html += `<tr class="text-center">
                   <td>${topic.id}</td>
                   <td>${topic.title}</td>
-                  <td>${topic.numberOfVocabs>0?'Từ vựng':'Mẫu câu'}</td>
-                  <td>${topic.course?topic.course.title:'Chưa gán khóa học'}</td>
+                  <td>${topic.numberOfVocabs > 0 ? 'Từ vựng' : 'Mẫu câu'}</td>
+                  <td>${topic.course ? topic.course.title : 'Chưa gán khóa học'}</td>
          
                   <td>
                     <a href="/admin/topic-detail?id=${topic.id}" type="button" class="btn btn-outline-primary">
                       Xem
-                    </a>
-                  </td>
+                    </a>` +
+            (topic.course == null ? `<div  type="button" class="btn btn-outline-danger ms-2" onclick="deleteTopic(${topic.id})">Xóa</div>` : '')
+
+            + `</td>
                 </tr>`
     });
     $container.append(html);
@@ -66,10 +68,10 @@ function searchKeyword() {
 
 }
 
-function pagination(){
-    let $container=$("#pagination");
+function pagination() {
+    let $container = $("#pagination");
     $container.pagination({
-        dataSource: function(done){
+        dataSource: function (done) {
             var result = [];
             for (var i = 1; i <= pageInfo.totalElements; i++) {
                 result.push(i);
@@ -77,7 +79,7 @@ function pagination(){
             done(result);
         },
         className: 'paginationjs-theme-blue paginationjs-big',
-        pageSize:5,
+        pageSize: 5,
         pageNumber: pageInfo.currentPage,
 
     });
@@ -85,16 +87,31 @@ function pagination(){
 
 }
 
-function renderPaginationjs(){
-    const $pages=$(".paginationjs-pages>ul>li");
-    $pages.each((index,page)=>{
-        const $link=$(page).find("a");
-        const pageNum=$(page).attr("data-num");
-        if (!$(page).hasClass("disabled")){
-            $link.on("click",function (){
-                window.location.href=`/admin/topics?pageNum=${pageNum}${keyword ? '&keyword=' + keyword : ''}`
+function renderPaginationjs() {
+    const $pages = $(".paginationjs-pages>ul>li");
+    $pages.each((index, page) => {
+        const $link = $(page).find("a");
+        const pageNum = $(page).attr("data-num");
+        if (!$(page).hasClass("disabled")) {
+            $link.on("click", function () {
+                window.location.href = `/admin/topics?pageNum=${pageNum}${keyword ? '&keyword=' + keyword : ''}`
             })
         }
 
     })
+}
+
+async function deleteTopic(topicId) {
+    try {
+        let sure = confirm("Bạn có chắc chắn muốn xóa?");
+        if (sure) {
+            let res = await axios.delete(`/admin/api/delete-topic?id=${topicId}`);
+            console.log("ok rồi");
+            window.location.href = "/admin/topics";
+        }
+
+
+    } catch (e) {
+        console.log(e);
+    }
 }

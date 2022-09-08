@@ -366,6 +366,9 @@ public class WebController {
         List<Package> packages = viewService.getAllPackages();
         model.addAttribute("packages", packages);
 
+        boolean isOrderPendingExist=userService.isUserOrderPendingExist(user.getId());
+        model.addAttribute("isOrderPendingExist", isOrderPendingExist);
+
         return "web/premium";
     }
 

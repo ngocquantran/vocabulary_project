@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public interface TopicRepo extends JpaRepository<Topic, Integer> {
+public interface TopicRepo extends JpaRepository<Topic, Long> {
 
     List<Topic> findByCourse_IdOrderByIdAsc(Long id);
 

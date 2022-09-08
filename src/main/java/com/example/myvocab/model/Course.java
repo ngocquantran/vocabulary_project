@@ -60,6 +60,13 @@ public class Course {
     )
     private List<Levels> levels=new ArrayList<>();
 
+    @PreRemove
+    private void removeLevels(){
+        for (Levels l:levels){
+            l.getCourses().remove(this);
+        }
+    }
+
 
     @Formula("(SELECT COUNT(*) FROM topic t WHERE t.id_course = id)")
     private int numberOfTopics;

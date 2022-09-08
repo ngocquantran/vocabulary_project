@@ -1,120 +1,124 @@
 <!DOCTYPE html>
-<html lang="en" th:replace="~{layout/layout-admin :: main-fragment(~{:: title}, ~{:: #css}, ~{:: .content-wrapper}, ~{:: #js})}"
+<html lang="en"
+      th:replace="~{layout/layout-admin :: main-fragment(~{:: title}, ~{:: #css}, ~{:: .content-wrapper}, ~{:: #js})}"
       xmlns:sec="http://www.thymeleaf.org/extras/spring-security" xmlns:th="https://www.thymeleaf.org">
 <head>
 
-  <title th:text="|USERS - DANH SÁCH NGƯỜI DÙNG|"> Trang chủ</title>
-  <th:block id="css">
-    <!--    <link rel="stylesheet" th:href="@{/asset/css/home.css}"/>-->
+    <title th:text="|USERS - DANH SÁCH NGƯỜI DÙNG|"> Trang chủ</title>
+    <th:block id="css">
+        <!--    <link rel="stylesheet" th:href="@{/asset/css/home.css}"/>-->
 
-  </th:block>
+    </th:block>
 
 </head>
 <body>
 
 <div class="content-wrapper">
-  <!-- Content header -->
-  <div class="content-header">
-    <div class="container-fluid">
-      <div class="row mb-2">
-        <div class="col-sm-12">
-          <ol class="breadcrumb">
-            <li class="breadcrumb-item active">Danh sách user</li>
-          </ol>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Main content -->
-  <section class="content">
-    <div class="container-fluid">
-      <div class="row py-2">
-        <div class="col-6">
-          <div class="input-group mb-3">
-            <input
-                    type="text"
-                    class="form-control search-user"
-                    placeholder="Nhập thông tin ..."
-                    aria-describedby="button-addon2"
-            />
-            <button
-                    class="btn btn-outline-secondary"
-                    type="button"
-                    id="button-search"
-            >
-              Tìm kiếm
-            </button>
-            <button
-                    class="btn btn-outline-secondary"
-                    type="button"
-                    id="button-clear"
-            >
-              Clear
-            </button>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-12">
-          <div class="card">
-            <div class="card-body">
-              <table class="table table-bordered table-hover">
-                <thead class="text-center">
-                <tr>
-                  <th class="align-top">Id</th>
-                  <th class="align-top">Email</th>
-                  <th class="align-top">Họ tên</th>
-                  <th class="align-top">Thành viên</th>
-
-                  <th class="align-top">Hành động</th>
-                </tr>
-                </thead>
-                <tbody class="table-user-content">
-
-                </tbody>
-              </table>
-
-              <div
-                      class="d-flex justify-content-center mt-3"
-                      id="pagination"
-              >
-
-              </div>
+    <!-- Content header -->
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-12">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item active">Danh sách user</li>
+                    </ol>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
     </div>
-  </section>
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row py-2">
+                <div class="col-12 col-md-6">
+                    <div class="input-group mb-3">
+                        <input
+                                aria-describedby="button-addon2"
+                                class="form-control search-user"
+                                placeholder="Nhập thông tin ..."
+                                type="text"
+                        />
+                        <button
+                                class="btn btn-outline-secondary"
+                                id="button-search"
+                                type="button"
+                        >
+                            Tìm kiếm
+                        </button>
+                        <button
+                                class="btn btn-outline-secondary"
+                                id="button-clear"
+                                type="button"
+                        >
+                            Clear
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="table-responsive">
+                                <table class="table table-bordered table-hover">
+                                    <thead class="text-center">
+                                    <tr>
+                                        <th class="align-top">Id</th>
+                                        <th class="align-top">Email</th>
+                                        <th class="align-top">Họ tên</th>
+                                        <th class="align-top">Thành viên</th>
+
+                                        <th class="align-top">Hành động</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody class="table-user-content">
+
+                                    </tbody>
+                                </table>
+                            </div>
+
+
+                            <div
+                                    class="d-flex justify-content-center mt-3"
+                                    id="pagination"
+                            >
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 </div>
 
 
 <th:block id="js">
 
-  <script th:inline="javascript">
-    let pageInfo = [[${pageInfo}]];
-    console.log(pageInfo);
+    <script th:inline="javascript">
+        let pageInfo = [[${pageInfo}]];
+        console.log(pageInfo);
 
-    let keyword = [[${keyword}]];
-    console.log(keyword);
-    $(".search-user").val(keyword);
+        let keyword = [[${keyword}]];
+        console.log(keyword);
+        $(".search-user").val(keyword);
 
 
-
-    function addActiveToNavLink(innerText){
-      const $navLinkEl=$(".nav-link");
-      $navLinkEl.each((index,el)=>{
-        const $title=$(el).find("p");
-        if ($title.text().trim().toLowerCase()===innerText.toLowerCase()){
-          $(el).addClass("active");
+        function addActiveToNavLink(innerText) {
+            const $navLinkEl = $(".nav-link");
+            $navLinkEl.each((index, el) => {
+                const $title = $(el).find("p");
+                if ($title.text().trim().toLowerCase() === innerText.toLowerCase()) {
+                    $(el).addClass("active");
+                }
+            })
         }
-      })
-    }
-    addActiveToNavLink("Quản lý user");
-    addActiveToNavLink("Danh sách user");
 
-  </script>
+        addActiveToNavLink("Quản lý user");
+        addActiveToNavLink("Danh sách user");
+
+    </script>
     <script th:src="@{/asset/js/admin-users.js}"></script>
 
 </th:block>

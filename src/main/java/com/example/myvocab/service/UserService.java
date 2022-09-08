@@ -323,5 +323,9 @@ public class UserService {
 
     }
 
+    public boolean isUserOrderPendingExist(String userId){
+        return ordersRepo.existsByUser_IdAndStatus(userId,OrderStatus.PENDING);
+    }
+
 
 }

@@ -117,6 +117,7 @@ async function postAddTopicRequest(request) {
     try {
         let res = await axios.post("/admin/api/add-topic", request);
         console.log("ok rồi");
+        window.location.href="/admin/topics";
 
     } catch (e) {
         console.log(e);

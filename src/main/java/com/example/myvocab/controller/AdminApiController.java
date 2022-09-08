@@ -56,8 +56,13 @@ public class AdminApiController {
 
     @PostMapping("add-topic")
     public ResponseEntity<?> addTopic(@RequestBody TopicAddRequest request) {
-
         adminService.handleAddTopicRequest(request);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @DeleteMapping("delete-topic")
+    public ResponseEntity<?> deleteTopic(@RequestParam(value = "id") Long topicId) {
+        adminService.deleteTopic(topicId);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
@@ -66,9 +71,14 @@ public class AdminApiController {
             MediaType.MULTIPART_FORM_DATA_VALUE})
     public ResponseEntity<?> addCourse(@RequestPart(value = "course") CourseAddRequest request,
                                        @RequestPart(value = "img") MultipartFile file) {
-        System.out.println(request);
-        System.out.println(file.getSize());
+
         adminService.handleAddCourseRequest(request, file);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @DeleteMapping("delete-course")
+    public ResponseEntity<?> deleteCourse(@RequestParam(value = "id") Long courseId) {
+        adminService.deleteCourse(courseId);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
@@ -82,7 +92,6 @@ public class AdminApiController {
     public ResponseEntity<?> activePendingOrder(@RequestParam(value = "id") Long orderId) {
         System.out.println(orderId);
         adminService.activeOrder(orderId);
-
 
         return new ResponseEntity<>(HttpStatus.OK);
     }
