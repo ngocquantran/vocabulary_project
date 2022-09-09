@@ -8,6 +8,7 @@ import org.hibernate.annotations.Formula;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Objects;
 
 @Getter
@@ -67,11 +68,11 @@ public class UserCourse {
             "WHERE ut.status ='PASS' AND uts.status =0 AND uc.id=id)")
     private Integer failedSens;
 
-    private LocalDate studiedAt;
+    private LocalDateTime studiedAt;
 
 
     @PrePersist
     public void prePersist() {
-        studiedAt = LocalDate.now();
+        studiedAt = LocalDateTime.now();
     }
 }

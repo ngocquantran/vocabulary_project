@@ -1,0 +1,11 @@
+com\example\myvocab\repoTest\CommentRepoTest.class
+com\example\myvocab\MyvocabApplicationTests.class
+com\example\myvocab\serviceTest\UserLearningServiceTest.class
+com\example\myvocab\repoTest\VocabRepoTest.class
+com\example\myvocab\repoTest\CourseRepoTest.class
+com\example\myvocab\repoTest\UserRepoTest.class
+com\example\myvocab\controller\WebControllerTest.class
+com\example\myvocab\repoTest\OrderRepoTest.class
+com\example\myvocab\repoTest\TopicRepoTest.class
+com\example\myvocab\serviceTest\CommentTest.class
+com\example\myvocab\UtilTest.class

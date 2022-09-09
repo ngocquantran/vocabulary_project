@@ -236,87 +236,7 @@ public class UserLearningService {
 
 //    Render answer list for VocabTest (Choosing 4 options)
 
-//    public VocabTestDto renderVocabAnswers(VocabTestDto vocabTest, Long courseId) {
-//        int answerIndex = vocabTest.getAnswerIndex();  //get random answer index
-//        List<String> vocabs = vocabRepo.findByTopics_Course_Id(courseId).stream().map(Vocab::getWord).collect(Collectors.toList());  //get all vocabs of course
-//
-//        //render list 4 answer which the right answer have index = answerIndex
-//        List<String> wordLists = new ArrayList<>();
-//        int index = 0;
-//        boolean isContinue = true;
-//        Random rd = new Random();
-//        while (isContinue) {
-//            if (index + 1 == answerIndex) {
-//                wordLists.add(vocabTest.getWord());
-//                index++;
-//            } else {
-//                int i = rd.nextInt(vocabs.size());
-//                if (!vocabs.get(i).equals(vocabTest.getWord()) & !wordLists.contains(vocabs.get(i))) {
-//                    wordLists.add(vocabs.get(i));
-//                    index++;
-//                }
-//            }
-//            if (index >= 4) {
-//                isContinue = false;
-//            }
-//        }
-//        vocabTest.setVocabs(wordLists);
-//        return vocabTest;
-//    }
-//
-//
-//    public VocabTestDto renderVnMeaningAnswers(VocabTestDto vocabTest, Long courseId) {
-//        int answerIndex = vocabTest.getAnswerIndex();
-//        List<String> vnMeanings = vocabRepo.findByTopics_Course_Id(courseId).stream().map(Vocab::getVnMeaning).collect(Collectors.toList());
-//        List<String> vnLists = new ArrayList<>();
-//        int index = 0;
-//        boolean isContinue = true;
-//        Random rd = new Random();
-//        while (isContinue) {
-//            if (index + 1 == answerIndex) {
-//                vnLists.add(vocabTest.getVnMeaning());
-//                index++;
-//            } else {
-//                int i = rd.nextInt(vnMeanings.size());
-//                if (!vnMeanings.get(i).equals(vocabTest.getVnMeaning()) & !vnLists.contains(vnMeanings.get(i))) {
-//                    vnLists.add(vnMeanings.get(i));
-//                    index++;
-//                }
-//            }
-//            if (index >= 4) {
-//                isContinue = false;
-//            }
-//        }
-//
-//        vocabTest.setVnMeanings(vnLists);
-//        return vocabTest;
-//    }
-//
-//    public VocabTestDto renderEnSentenceAnswers(VocabTestDto vocabTest, Long courseId) {
-//        int answerIndex = vocabTest.getAnswerIndex();
-//        List<String> enSentences = vocabRepo.findByTopics_Course_Id(courseId).stream().map(Vocab::getEnSentence).collect(Collectors.toList());
-//        List<String> enLists = new ArrayList<>();
-//        int index = 0;
-//        boolean isContinue = true;
-//        Random rd = new Random();
-//        while (isContinue) {
-//            if (index + 1 == answerIndex) {
-//                enLists.add(vocabTest.getEnSentence());
-//                index++;
-//            } else {
-//                int i = rd.nextInt(enSentences.size());
-//                if (!enSentences.get(i).equals(vocabTest.getEnSentence()) & !enLists.contains(enSentences.get(i))) {
-//                    enLists.add(enSentences.get(i));
-//                    index++;
-//                }
-//            }
-//            if (index >= 4) {
-//                isContinue = false;
-//            }
-//        }
-//        vocabTest.setEnSentences(enLists);
-//        return vocabTest;
-//    }
+
 
     public VocabTestDto renderVocabAnswers(VocabTestDto vocabTest, Long courseId) {
         int answerIndex = vocabTest.getAnswerIndex();  //get random answer index
@@ -434,7 +354,7 @@ public class UserLearningService {
 
     public void updateLatestAccessTimestampOfUserCourse(UserTopic userTopic) {
         UserCourse userCourse = userTopic.getUserCourse();
-        userCourse.setStudiedAt(LocalDate.now());
+        userCourse.setStudiedAt(LocalDateTime.now());
         userCourseRepo.save(userCourse);
     }
 
@@ -626,8 +546,7 @@ public class UserLearningService {
                     .userCourse(userCourse)
                     .status(TopicState.PENDING)
                     .build();
-            userTopicRepo.save(userTopic);
-            return userTopic;
+            return userTopicRepo.save(userTopic);
         }
         return o_userTopic.get();
     }

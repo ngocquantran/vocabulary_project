@@ -68,10 +68,10 @@ public class UserApiController {
     @PostMapping("/api/user/order")
     public Long submitOrder(@RequestParam("id") Long idPackage) {
         Users user = usersRepo.findByEmail(SecurityContextHolder.getContext().getAuthentication().getName()).get();
-        Orders order = userService.createPendingOrder(user, idPackage);
         if (userService.isUserOrderPendingExist(user.getId())){
             throw new BadRequestException("Đã có đơn hàng đang chờ");
         }
+        Orders order = userService.createPendingOrder(user, idPackage);
         return order.getId();
     }
 

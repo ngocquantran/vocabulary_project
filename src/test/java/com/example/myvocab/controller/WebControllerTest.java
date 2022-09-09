@@ -33,6 +33,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.test.context.support.WithMockUser;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
@@ -52,6 +53,7 @@ import java.nio.charset.StandardCharsets;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.*;
 
@@ -161,13 +163,14 @@ public class WebControllerTest {
 
         Mockito.when(userLearningService.generalCheckUserAccessToTopic(Mockito.anyLong(),Mockito.anyString())).thenReturn(true);
         Mockito.when(userLearningService.isTopicExist(Mockito.anyLong())).thenReturn(topic);
+        Mockito.when(usersRepo.findByEmail(Mockito.anyString())).thenReturn(Optional.of(userDetails.getUser()));
 
         String url="/api/filter?id=1";
         mockMvc.perform(
                 post(url)
                 .contentType("application/json")
                 .content(objectMapper.writeValueAsString(requests))
-                .with(user(userDetails))
+                .with(user("user"))
         ).andExpect(status().isCreated())
                 .andReturn();
 
@@ -176,7 +179,7 @@ public class WebControllerTest {
                 post(url)
                         .contentType("application/json")
                         .content(objectMapper.writeValueAsString(requests))
-                        .with(user(userDetails))
+                        .with(user("user"))
         ).andExpect(status().isForbidden())
                 .andReturn();
     }

@@ -1,0 +1,30 @@
+version: "3.8"
+services:
+  vocab-app:
+    image: vocab-app
+    build: .
+    ports:
+      - 8080:8080
+    environment:
+      MYSQL_HOST: vocab-sqldb
+      MYSQL_USER: root
+      MYSQL_PASSWORD: 123
+      MYSQL_PORT: 3306
+      MYSQL_DATABASE: vocab
+    volumes:
+    - /C/Study/IT/Others/project - local/myvocab/upload:/upload
+
+
+
+  vocab-sqldb:
+    container_name: vocab-sqldb
+    image: mysql:8
+    volumes:
+      -  /C/Study/IT/Others/project - local/db:/var/lib/mysql
+    ports:
+      - 3309:3306
+    environment:
+      MYSQL_DATABASE: vocab
+      MYSQL_ROOT_PASSWORD: 123
+
+

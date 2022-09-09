@@ -41,6 +41,8 @@ public class WebController {
     private UserLearningService userLearningService;
     @Autowired
     private UserService userService;
+    @Autowired
+    private UsersRepo usersRepo;
 
     @GetMapping("/")
     public String getHomePage(Model model,
@@ -116,15 +118,15 @@ public class WebController {
 
     @PostMapping(value = "/api/filter", consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> submitFilterVocabResult(@RequestParam(name = "id") Long topicId,
-                                                     @RequestBody List<FilterVocabRequest> requests,
-                                                     @AuthenticationPrincipal UserDetailsCustom userDetails) {
+                                                     @RequestBody List<FilterVocabRequest> requests) {
+        Users user = usersRepo.findByEmail(SecurityContextHolder.getContext().getAuthentication().getName()).get();
         //Check if user can access topic or not
-        if (!userLearningService.generalCheckUserAccessToTopic(topicId, userDetails.getUser().getId())) {
+        if (!userLearningService.generalCheckUserAccessToTopic(topicId, user.getId())) {
             return new ResponseEntity<>(HttpStatus.FORBIDDEN);
         }
 
         Topic topic = userLearningService.isTopicExist(topicId);
-        userLearningService.handleSubmittedFilterVocabResult(topic, userDetails.getUser(), requests);
+        userLearningService.handleSubmittedFilterVocabResult(topic, user, requests);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
@@ -151,6 +153,7 @@ public class WebController {
     public ResponseEntity<?> postListOfChosedWordToLearn(@RequestParam(name = "id") Long topicId,
                                                          @RequestBody List<LearnVocabRequest> requests,
                                                          @AuthenticationPrincipal UserDetailsCustom userDetails) {
+
         //Check if user can access topic or not
         if (!userLearningService.generalCheckUserAccessToTopic(topicId, userDetails.getUser().getId())) {
             return new ResponseEntity<>(HttpStatus.FORBIDDEN);
@@ -240,14 +243,14 @@ public class WebController {
 
     @PostMapping(value = "/api/sentence-test-result", consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> submitSentenceTestResult(@RequestParam(name = "id") Long topicId,
-                                                      @RequestBody List<TestSenResultRequest> requests,
-                                                      @AuthenticationPrincipal UserDetailsCustom userDetails) {
+                                                      @RequestBody List<TestSenResultRequest> requests) {
+        Users user = usersRepo.findByEmail(SecurityContextHolder.getContext().getAuthentication().getName()).get();
         //Check if user can access topic or not
-        if (!userLearningService.generalCheckUserAccessToTopic(topicId, userDetails.getUser().getId())) {
+        if (!userLearningService.generalCheckUserAccessToTopic(topicId, user.getId())) {
             return new ResponseEntity<>(HttpStatus.FORBIDDEN);
         }
 
-        userLearningService.handleSentenceTestResult(topicId, userDetails.getUser(), requests);
+        userLearningService.handleSentenceTestResult(topicId, user, requests);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 

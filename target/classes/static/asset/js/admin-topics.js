@@ -39,26 +39,6 @@ function renderCourses() {
     $container.append(html);
 }
 
-// function renderPagination() {
-//     const $container = $("ul.pagination");
-//     $container.html("");
-//     let previousPage = parseInt(pageInfo.currentPage) - 1;
-//     let html = `<li class="paginate_button page-item previous ${pageInfo.currentPage == 1 ? 'disabled' : ''}" id="example2_previous">
-//                     <a href="${pageInfo.currentPage == 1 ? '#' : '/admin/topics?pageNum=' + previousPage}${keyword ? '&keyword=' + keyword : ''}" aria-controls="example2"  class="page-link">Previous</a>
-//                   </li>`;
-//     for (let i = 1; i <= pageInfo.totalPages; i++) {
-//         html += `<li class="paginate_button page-item ${pageInfo.currentPage == i ? 'active' : ''}">
-//                     <a href="${pageInfo.currentPage == i ? '#' : '/admin/topics?pageNum=' + i}${keyword ? '&keyword=' + keyword : ''}" aria-controls="example2"  class="page-link">${i}</a>
-//                   </li>`
-//     }
-//
-//     let nextPage = parseInt(pageInfo.currentPage) + 1;
-//     html += `<li class="paginate_button page-item next ${pageInfo.currentPage == pageInfo.totalPages || pageInfo.dataList.length==0? 'disabled' : ''}" id="example2_next">
-//                     <a href="${pageInfo.currentPage == pageInfo.totalPages ? '#' : '/admin/topics?pageNum=' + nextPage}${keyword ? '&keyword=' + keyword : ''}" aria-controls="example2"  class="page-link">Next</a>
-//                   </li>`;
-//     $container.append(html);
-//
-// }
 
 function searchKeyword() {
     const $input = $(".search-topic");
@@ -108,6 +88,7 @@ async function deleteTopic(topicId) {
             let res = await axios.delete(`/admin/api/delete-topic?id=${topicId}`);
             console.log("ok rồi");
             window.location.href = "/admin/topics";
+            console.log("hihi")
         }
 
 

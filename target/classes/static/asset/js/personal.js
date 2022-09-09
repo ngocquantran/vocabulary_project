@@ -27,10 +27,12 @@ function renderUserInfo() {
     let html = "";
     $(".learn-content").html("");
     userCourses.forEach(c => {
-        let cDate = new Date(c.studiedAt)
+        let cDate = new Date(c.studiedAt);
+        console.log(cDate);
+
         html += ` <div class="learn-item ${c.course.category.id === 1 ? 'item-vocab' : 'item-sen'}">
           <a href="/course?id=${c.course.id}">
-            <div class="learn-date">${cDate.getDay()}/${cDate.getMonth()}/${cDate.getFullYear()}</div>
+            <div class="learn-date">${cDate.getDate()}/${cDate.getMonth()+1}/${cDate.getFullYear()}</div>
             <div class="learn-thumb">
               <img
                       src="${c.course.thumbnail}"
